@@ -12,7 +12,7 @@ function sendName(e) {
     if (e.keyCode == "13") {
         event.preventDefault();
         name = document.getElementById("nameinp").innerHTML;
-        if (window.confirm('Подключиться к проекту "' + name + '" ?')) {
+        if (window.confirm('Подключиться к проекту "' + name + '" ?\nЕсли открыт проект он не сохранится!')) {
             for (var i = 0; i < 69; i++) {
                 document.getElementById(i).value = i;
             } 
@@ -22,7 +22,7 @@ function sendName(e) {
     }
 }
 function sendValues() {
-    if (window.confirm('Сохранить изменения?\nИзмененные значениия будут заменены.')) {
+    if (window.confirm('Сохранить изменения?\nИзмененные значениия будут заменены!')) {
         for (var i = 0; i < 69; i++) {
             document.getElementById(i).value = i + ' (Sent!)';
         } 
