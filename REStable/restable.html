@@ -8,15 +8,26 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <script>
-function nameinp(e) {
+function sendName(e) {
     if (e.keyCode == "13") {
         event.preventDefault();
         name = document.getElementById("nameinp").innerHTML;
         if (window.confirm('Подключиться к проекту "' + name + '" ?')) {
-            // ПОДКЛЮЧЕНИЕ ЕЕЕЕЕЕЕ
+            for (var i = 0; i < 69; i++) {
+                document.getElementById(i).value = i;
+            } 
         } else {
             return false;
         }
+    }
+}
+function sendValues() {
+    if (window.confirm('Сохранить изменения?\nИзмененные значениия будут заменены.')) {
+        for (var i = 0; i < 69; i++) {
+            document.getElementById(i).value = i + ' (Sent!)';
+        } 
+    } else {
+        return false;
     }
 }
 </script>
@@ -25,9 +36,9 @@ function nameinp(e) {
         <h3></h3>
     </div>
     <div class="name">
-        <h3>Ресурсы проекта "<span class="input" role="textbox" id="nameinp" contenteditable onkeypress="nameinp(event)"></span>"</h3>
+        <h3>Ресурсы проекта "<span class="input" role="textbox" id="nameinp" contenteditable onkeypress="sendName(event)"></span>"</h3>
     </div>
-    <form action="#">
+    <form action="javascript:;" onsubmit="sendValues()">
         <table>
             <tr>
                 <th class="col_0">Вид ресурса</th>
@@ -36,219 +47,291 @@ function nameinp(e) {
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="100" name="100" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="0" name="0" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="101" name="101" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="1" name="1" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="102" name="102" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="2" name="2" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Наставничество, экспертиза и консалтинг</td>
-                <td class="col_2"><textarea id="103" name="103" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="3" name="3" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
-                <td class="col_2"><textarea id="104" name="104" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="4" name="4" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
-                <td class="col_2"><textarea id="105" name="105" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="5" name="5" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="106" name="106" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="6" name="6" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="107" name="107" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="7" name="7" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="108" name="108" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="8" name="8" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Наставничество, экспертиза и консалтинг</td>
-                <td class="col_2"><textarea id="109" name="109" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="9" name="9" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
-                <td class="col_2"><textarea id="110" name="110" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="10" name="10" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
-                <td class="col_2"><textarea id="111" name="111" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="11" name="11" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="112" name="112" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="12" name="12" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="113" name="113" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="13" name="13" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="114" name="114" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="14" name="14" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0">1. Услуги и компетенции, умения, навыки</td>
-                <td class="col_1">Наставничество, экспертиза и консалтинг</td>
-                <td class="col_2"><textarea id="115" name="115" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="15" name="15" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
-                <td class="col_2"><textarea id="116" name="116" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="16" name="16" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
-                <td class="col_2"><textarea id="117" name="117" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="17" name="17" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="118" name="118" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="18" name="18" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="119" name="119" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="19" name="19" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="120" name="120" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="20" name="20" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Наставничество, экспертиза и консалтинг</td>
-                <td class="col_2"><textarea id="121" name="121" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="21" name="21" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
-                <td class="col_2"><textarea id="122" name="122" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="22" name="22" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
-                <td class="col_2"><textarea id="123" name="123" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="23" name="23" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="124" name="124" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="24" name="24" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="125" name="125" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="25" name="25" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="126" name="126" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="26" name="26" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Наставничество, экспертиза и консалтинг</td>
-                <td class="col_2"><textarea id="127" name="127" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="27" name="27" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
-                <td class="col_2"><textarea id="128" name="128" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="28" name="28" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
-                <td class="col_2"><textarea id="129" name="129" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="29" name="29" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="130" name="130" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="30" name="30" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="131" name="131" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="31" name="31" rows="auto" cols="auto"></textarea></td>
             </tr>
         </table>
         <table>
             <tr>
                 <td class="col_0"></td>
                 <td class="col_1">Аренда (офис, склад, причал, ж/д тупик,..)</td>
-                <td class="col_2"><textarea id="201" name="201" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="32" name="32" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Сырьё, материалы, комплектующие и пр.</td>
-                <td class="col_2"><textarea id="202" name="202" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="33" name="33" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">Мебель, оборудование, техника</td>
-                <td class="col_2"><textarea id="203" name="203" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="34" name="34" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Аренда (офис, склад, причал, ж/д тупик,..)</td>
-                <td class="col_2"><textarea id="204" name="204" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="35" name="35" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="36" name="36" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0">2. Материальные</td>
-                <td class="col_1">Сырьё, материалы, комплектующие и пр.</td>
-                <td class="col_2"><textarea id="205" name="205" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="37" name="37" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Мебель, оборудование, техника</td>
-                <td class="col_2"><textarea id="206" name="206" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="38" name="38" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Аренда (офис, склад, причал, ж/д тупик,..)</td>
-                <td class="col_2"><textarea id="207" name="207" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="39" name="39" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Сырьё, материалы, комплектующие и пр.</td>
-                <td class="col_2"><textarea id="208" name="208" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="40" name="40" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Мебель, оборудование, техника</td>
-                <td class="col_2"><textarea id="209" name="209" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="41" name="41" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">Аренда (офис, склад, причал, ж/д тупик,..)</td>
-                <td class="col_2"><textarea id="210" name="210" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="42" name="42" rows="auto" cols="auto"></textarea></td>
             </tr>
         </table>
         <table>
             <tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="0" name="0" rows="auto" cols="auto">NULL</textarea></td>
-            </tr><tr>
-                <td class="col_0">Услуги и компетенции, умения, навыки</td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="1" name="1" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">Доступ к профессиональной среде и профессиональной «тусовке» (бизнес, творческая, инвестиционная, и т.д.)</td>
+                <td class="col_2"><textarea id="43" name="43" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="2" name="2" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">Значимые люди</td>
+                <td class="col_2"><textarea id="44" name="44" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">Крупные организации</td>
+                <td class="col_2"><textarea id="45" name="45" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="46" name="46" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0">3. «Связи», «шильдики»</td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="47" name="47" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="48" name="48" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="49" name="49" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="50" name="50" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="51" name="51" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="52" name="52" rows="auto" cols="auto"></textarea></td>
             </tr>
         </table>
         <table>
             <tr>
                 <td class="col_0"></td>
-                <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
-                <td class="col_2"><textarea id="0" name="0" rows="auto" cols="auto">NULL</textarea></td>
-            </tr><tr>
-                <td class="col_0">Услуги и компетенции, умения, навыки</td>
-                <td class="col_1">Маркетинг и упаковка проекта</td>
-                <td class="col_2"><textarea id="1" name="1" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">Нужны готовые проекты, чертежи, MVP,  прототипы, готовые к масштабированию бизнесы и т.д.(можно привести список)</td>
+                <td class="col_2"><textarea id="53" name="53" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
-                <td class="col_1">PR, реклама и продвижение</td>
-                <td class="col_2"><textarea id="2" name="2" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_1">Нужны идеи, гипотезы, исследования, концепты, и т.д. (можно списком)</td>
+                <td class="col_2"><textarea id="54" name="54" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">Рыночная информация</td>
+                <td class="col_2"><textarea id="55" name="55" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="56" name="56" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="57" name="57" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="58" name="58" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0">4. Информация</td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="59" name="59" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="60" name="60" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="61" name="61" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="62" name="62" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="63" name="63" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="64" name="64" rows="auto" cols="auto"></textarea></td>
+            </tr><tr>
+                <td class="col_0"></td>
+                <td class="col_1">ttttttttttteeeeeeeeeeexxxxxxxxxxtttttttttt</td>
+                <td class="col_2"><textarea id="65" name="65" rows="auto" cols="auto"></textarea></td>
             </tr>
         </table>
         <table>
             <tr>
                 <td class="col_0"></td>
                 <td class="col_1">На проверку гипотез</td>
-                <td class="col_2"><textarea id="0" name="0" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="66" name="66" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
-                <td class="col_0">Время</td>
+                <td class="col_0">5. Время</td>
                 <td class="col_1">На выполнение проекта</td>
-                <td class="col_2"><textarea id="1" name="1" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="67" name="67" rows="auto" cols="auto"></textarea></td>
             </tr><tr>
                 <td class="col_0"></td>
                 <td class="col_1">На проверку последствий и эффектов</td>
-                <td class="col_2"><textarea id="2" name="2" rows="auto" cols="auto">NULL</textarea></td>
+                <td class="col_2"><textarea id="68" name="68" rows="auto" cols="auto"></textarea></td>
             </tr>
         </table>
         <button type="submit"><h3>Сохранить</h3><svg xmlns="http://www.w3.org/2000/svg" width="48"
