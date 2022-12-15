@@ -28,6 +28,11 @@ function sendValues() {
                     document.getElementById(i).value += ' (Sent!)';
                 }
             }
+            setTimeout(() => {
+                for (i = 0; i < 69; i++) {
+                    document.getElementById(i).value = i;
+                } 
+            }, 3000);
             return true;
         } else {
             return false;
