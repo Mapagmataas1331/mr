@@ -264,7 +264,7 @@ input[type="submit"]:hover {
     opacity: 43%;
 }
 #short-video {
-    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/VideoSIZE/main/Assets/imgs/alt-J%20(∆)%20-%20Europe%2C%20we'll%20see%20you%20next%20week.gif");
+    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/WEBTEST/main/VideoSIZE/Assets/imgs/alt-J%20(∆)%20-%20Europe%2C%20we'll%20see%20you%20next%20week.gif");
     background-size: cover;
     width: calc((92vw - 232px) / 3);
     aspect-ratio: 9 / 16;
@@ -381,7 +381,7 @@ input[type="submit"]:hover {
     margin: 32px auto 32px auto;
 }
 .shorts-block {
-    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/VideoSIZE/main/Assets/imgs/alt-J%20(∆)%20-%20Europe%2C%20we'll%20see%20you%20next%20week.gif");
+    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/WEBTEST/main/VideoSIZE/Assets/imgs/alt-J%20(∆)%20-%20Europe%2C%20we'll%20see%20you%20next%20week.gif");
     background-size: cover;
     background-color: #1a1042;
     border-bottom: 5px solid #210c5c;
@@ -442,7 +442,7 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 #video {
-    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/VideoSIZE/main/Assets/imgs/alt-J%20(∆)%20-%20Fitzpleasure.jpg");
+    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/WEBTEST/main/VideoSIZE/Assets/imgs/alt-J%20(∆)%20-%20Fitzpleasure.jpg");
     background-size: cover;
     background-color: #1a1042;
     width: 100%;
@@ -502,7 +502,7 @@ input[type="submit"]:hover {
     margin: 128px auto 64px auto;
 }
 .videos div {
-    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/VideoSIZE/main/Assets/imgs/alt-J%20(∆)%20-%20Fitzpleasure.jpg");
+    background-image: url("https://raw.githubusercontent.com/Mapagmataas1331/WEBTEST/main/VideoSIZE/Assets/imgs/alt-J%20(∆)%20-%20Fitzpleasure.jpg");
     background-size: cover;
     background-color: #1a1042;
     flex: 1 0 20%;
