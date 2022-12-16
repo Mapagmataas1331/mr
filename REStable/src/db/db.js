@@ -14,11 +14,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-function writeTableName(tname) {
+function writeTable(tname, trowid, trowvalue) {
   const db = getDatabase();
-  const reference = ref(db, 'table/' + tname);
+  const reference = ref(db, 'table_name/' + tname + '/table_row_id/' + trowid);
 
   set(reference, {
-    table_name: tname
+    table_row_value: trowvalue
   });
 }
+
+writeTable(0, 0, 0);
