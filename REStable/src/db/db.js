@@ -24,5 +24,5 @@ function writeTable(tname, trowvalue) {
 }
 
 for (var i = 0; i < 69; i++) {
-  writeTable(first, 0);
+  writeTable("test", i);
 }
