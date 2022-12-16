@@ -2,11 +2,16 @@
 function sendName(e) {
     if (e.keyCode == "13") {
         event.preventDefault();
-        if (window.confirm('Подключиться к проекту "' + document.getElementById("name").innerHTML + '" ?\nЕсли открыт проект он не сохранится!')) {
-            for (i = 0; i < 69; i++) {
-                document.getElementById(i).value = i;
-            } 
+        if (document.getElementById("name").innerHTML !== '') {
+            if (window.confirm('Подключиться к проекту "' + document.getElementById("name").innerHTML + '" ?\nЕсли открыт проект он не сохранится!')) {
+                for (i = 0; i < 69; i++) {
+                    document.getElementById(i).value = i;
+                } 
+            } else {
+                return false;
+            }
         } else {
+            alert("Поле не может быть пустым!");
             return false;
         }
     }
