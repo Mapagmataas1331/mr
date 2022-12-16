@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
-const { initializeAppCheck, ReCaptchaV3Provider } = require("firebase/app-check");
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.15.0/app-check.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCE99ycZW0noggD6NnTaa-tu5FYio0OWpE",
