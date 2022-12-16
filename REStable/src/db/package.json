@@ -1,9 +1,11 @@
 {
   "name": "restable-db",
   "version": "1.0.0",
-  "description": "Resourse Table",
+  "description": "Resourse Table Database",
   "main": "db.js",
-  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "Mapagmataas",
   "license": "ISC"
