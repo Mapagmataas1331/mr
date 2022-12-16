@@ -4,7 +4,6 @@
   "description": "Resourse Table",
   "main": "db.js",
   "dependencies": {},
-  "devDependencies": {},
   "keywords": [],
   "author": "Mapagmataas",
   "license": "ISC"
