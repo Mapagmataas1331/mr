@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-function writeTable(tname, trowid, trowvalue) {
+function writeTable(tname, trowvalue) {
   const db = getDatabase();
   const reference = ref(db, 'table_name/' + tname);
 
