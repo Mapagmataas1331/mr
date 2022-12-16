@@ -23,4 +23,6 @@ function writeTable(tname, trowvalue) {
   });
 }
 
-writeTable(first, 0);
+for (var i = 0; i < 69; i++) {
+  writeTable(first, 0);
+}
