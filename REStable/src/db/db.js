@@ -16,11 +16,11 @@ const app = initializeApp(firebaseConfig);
 
 function writeTable(tname, trowid, trowvalue) {
   const db = getDatabase();
-  const reference = ref(db, 'table_name/' + tname + '/table_row_id/' + trowid);
+  const reference = ref(db, 'table_name/' + tname);
 
   set(reference, {
-    table_row_value: trowvalue
+    table_row_id: trowvalue
   });
 }
 
-writeTable(0, 0, 0);
+writeTable(first, 0);
