@@ -11,7 +11,10 @@ function sendName(e) {
                     }
                     const tableValues = await Promise.all(promises);
                     for(const [i, val] of tableValues.entries()) {
+                        if (val !== null) {
                         document.getElementById(i).value = val;
+                        document.getElementById(i).style.color = "#008000";
+                        }
                     }
                 }
                 enterValues();

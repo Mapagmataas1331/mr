@@ -27,7 +27,7 @@ function getTable(tname, trowid) {
     if (snapshot.exists()) {
       return snapshot.val();
     }
-    return "";
+    return null;
   });
 }
 window.getTable = getTable;
