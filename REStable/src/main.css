@@ -21,7 +21,7 @@ body {
 }
 .switch-box {
     display: flex;
-    position: absolute;
+    position: fixed;
     top: 34px;
     left: auto;
     right: 8px;
@@ -105,7 +105,7 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 form button {
-    position: absolute;
+    position: fixed;
     top: 4px;
     left: auto;
     right: 8px;
