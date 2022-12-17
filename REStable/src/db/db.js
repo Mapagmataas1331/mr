@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, child, get } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCE99ycZW0noggD6NnTaa-tu5FYio0OWpE",
@@ -16,13 +16,19 @@ const app = initializeApp(firebaseConfig);
 
 function writeTable(tname, trowid, trowvalue) {
   const db = getDatabase();
-  const reference = ref(db, 'table_name/' + tname + '/table_row_' + trowid);
-
-  set(reference, {
+  set(ref(db, 'table_name/' + tname + '/table_row_' + trowid), {
     table_row_value: trowvalue
   });
 }
+window.writeTable = writeTable;
 
-for (var i = 0; i < 69; i++) {
-  writeTable("test", i, "text " + i);
+function getTable(tname, trowid) {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, 'table_name/' + tname)).then((snapshot) => {
+    if (snapshot.exists()) {
+      return snapshot.val();
+    }
+    return "null";
+  });
 }
+window.getTable = getTable;

@@ -1,10 +1,11 @@
 function sendName(e) {
+    const tname = document.getElementById("name").innerHTML;
     if (e.keyCode == "13") {
         event.preventDefault();
-        if (document.getElementById("name").innerHTML !== '') {
-            if (window.confirm('Подключиться к проекту "' + document.getElementById("name").innerHTML + '" ?\nЕсли открыт проект он не сохранится!')) {
+        if (tname !== '') {
+            if (window.confirm('Подключиться к проекту "' + tname + '" ?\nЕсли открыт проект он не сохранится!')) {
                 for (i = 0; i < 69; i++) {
-                    document.getElementById(i).value = i;
+                    document.getElementById(i).value = window.getTable(tname, i);
                 } 
             } else {
                 return false;
@@ -16,10 +17,12 @@ function sendName(e) {
     }
 }
 function sendValues() {
-    if (document.getElementById("name").innerHTML !== '') {
+    const tname = document.getElementById("name").innerHTML;
+    if (tname !== '') {
         if (window.confirm('Сохранить изменения?\nИзмененные значениия будут заменены!')) {
             for (i = 0; i < 69; i++) {
                 if (document.getElementById(i).value !== '') {
+                    window.writeTable(tname, i, document.getElementById(i).value);
                     document.getElementById(i).value += ' (Sent!)';
                 }
             }
