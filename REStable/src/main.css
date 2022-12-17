@@ -9,20 +9,23 @@ body {
     background-color: #333;
     display: flex;
 }
-.rest {
+.title {
     font-family: 'Times New Roman', Times, serif;
     height: 48px;
     font-size: 32px;
-    margin: 8px 0 auto 8px;
+    margin: 10px 0 auto 10px;
     color: #f2f2f2;
     cursor: default;
     font-weight: 3;
     user-select: none;
 }
 .switch-box, form button {
+    display: flex;
+    height: 24px;
+    width: 128px;
     position: fixed;
     top: 4px;
-    right: 8px;
+    right: 10px;
     border: 0;
     border-radius: 8px;
     background-color: #d9d9d9;
@@ -32,6 +35,9 @@ body {
 .switch-box {
     top: 34px;
 }
+form button {
+    top: 4px;
+}
 .switch-box h3, form button h3{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
@@ -39,8 +45,9 @@ body {
     margin: auto;
     color: #333;
 }
-form button h3 {
-    font-size: 1.2em;
+button h3{
+    font-family: inherit;
+    font-size: inherit;
 }
 .switch {
     position: relative;
@@ -101,9 +108,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
-}
-form button {
-    top: 4px;
 }
 form button:hover, .switch-box:hover {
     opacity: 86%;
@@ -216,7 +220,7 @@ tr:focus-within {
     height: 128px;
 }
 @media screen and (min-width: 264px) {
-    .rest::after {
+    .title::after {
         content: "Рес. т.";
     }
     .col_0 {
@@ -224,7 +228,7 @@ tr:focus-within {
     }
 }
 @media screen and (min-width: 480px) {
-    .rest::after {
+    .title::after {
         content: "Ресурсная таблица";
     }
     .col_0 {
