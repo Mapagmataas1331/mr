@@ -25,8 +25,9 @@ window.writeTable = writeTable;
 function getTable(tname, trowid) {
   return get(ref(db, `table_name/${tname}/table_row_${String("0" + trowid).slice(-2)}`)).then((snapshot) => {
     if (snapshot.exists()) {
-      console.log(snapshot.val());
+      return snapshot.val();
     }
+    return "";
   });
 }
 window.getTable = getTable;

@@ -111,11 +111,10 @@ span:empty::before {
     content: "Введите название";
 }
 span:focus::before {
-    content: "";
+    content: "Вы печатаете: ";
 }
-span:focus {
-    outline: 0;
-    color: #333;
+span:focus::after {
+    content: "";
 }
 textarea {
     font-size: 16px;
@@ -129,7 +128,7 @@ table:first-child tr:not(:first-child) .col_2:hover {
 table:not(:first-child) .col_2:hover {
     outline: 2px solid #333;
 }
-textarea:focus {
+span:focus, textarea:focus {
     outline: 0;
 }
 textarea:focus {
@@ -138,12 +137,10 @@ textarea:focus {
     margin: -1px 0 -5px -1px;
     border: 3px solid #fff;
     background-color: #fff;
-    color: #000;
 }
 tr:focus-within {
     height: 128px;
 }
-
 @media screen and (min-width: 264px) {
     .head h3::after {
         content: "Рес. т.";

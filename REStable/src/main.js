@@ -4,9 +4,17 @@ function sendName(e) {
         event.preventDefault();
         if (tname !== '') {
             if (window.confirm('Подключиться к проекту "' + tname + '" ?\nЕсли открыт проект он не сохранится!')) {
-                for (i = 0; i < 69; i++) {
-                    document.getElementById(i).value = window.getTable(tname, i);
+                async function enterValues() {
+                    const promises = [];
+                    for (let i = 0; i < 69; i++) {
+                        promises.push(getTable(tname, i));
+                    }
+                    const tableValues = await Promise.all(promises);
+                    for(const [i, val] of tableValues.entries()) {
+                        document.getElementById(i).value = val;
+                    }
                 }
+                enterValues();
             } else {
                 return false;
             }
@@ -22,16 +30,10 @@ function sendValues() {
         if (window.confirm('Сохранить изменения?\nИзмененные значениия будут заменены!')) {
             for (i = 0; i < 69; i++) {
                 if (document.getElementById(i).value !== '') {
-                    window.writeTable(tname, i, document.getElementById(i).value);
-                    document.getElementById(i).value += ' (Sent!)';
+                    writeTable(tname, i, document.getElementById(i).value);
+                    document.getElementById(i).style.color = "#008000";
                 }
             }
-            setTimeout(() => {
-                // for (i = 0; i < 69; i++) {
-                //     trowvalue = window.getTable(tname, i);
-                //     document.getElementById(i).value = trowvalue;
-                // } 
-            }, 3000);
             return true;
         } else {
             return false;
