@@ -46,3 +46,21 @@ function sendValues() {
         return false;
     }
 }
+function sendValue(iid) {
+    const checked = document.getElementById("check").checked;
+    const tname = document.getElementById("name").innerHTML;
+    const ta = document.getElementById(iid);
+    if (checked == true && tname !== '' && ta !== '') {
+        writeTable(tname, iid, ta.value);
+        ta.style.color = "#008000";
+    }
+    return false;
+}
+function check() {
+    const check = document.getElementById("check");
+    if (check.checked == true) {
+        check.checked = false;
+    } else {
+        check.checked = true;
+    }
+}
