@@ -6,7 +6,7 @@ function sendName(e) {
             if (window.confirm('Подключиться к проекту "' + tname + '" ?\nЕсли открыт проект он не сохранится!')) {
                 for (i = 0; i < 69; i++) {
                     document.getElementById(i).value = window.getTable(tname, i);
-                } 
+                }
             } else {
                 return false;
             }
@@ -27,9 +27,10 @@ function sendValues() {
                 }
             }
             setTimeout(() => {
-                for (i = 0; i < 69; i++) {
-                    document.getElementById(i).value = i;
-                } 
+                // for (i = 0; i < 69; i++) {
+                //     trowvalue = window.getTable(tname, i);
+                //     document.getElementById(i).value = trowvalue;
+                // } 
             }, 3000);
             return true;
         } else {
