@@ -96,7 +96,6 @@ input:checked + .slider:before {
     -ms-transform: translateX(16px);
     transform: translateX(16px);
 }
-
 .slider.round {
     border-radius: 16px;
 }
@@ -126,6 +125,7 @@ form button:active {
 }
 form button svg {
     margin: -1px 0;
+    color: #333;
 }
 .name {
     width: 100%;
