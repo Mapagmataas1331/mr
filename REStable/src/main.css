@@ -28,6 +28,7 @@ body {
     right: 10px;
     border: 0;
     border-radius: 8px;
+    -webkit-border-radius: 8px;
     background-color: #d9d9d9;
     cursor: pointer;
     outline: 1.5px solid #333;
