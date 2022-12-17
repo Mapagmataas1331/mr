@@ -125,7 +125,7 @@ form button:active {
 }
 form button svg {
     margin: -1px 0;
-    color: #333;
+    color: #000;
 }
 .name {
     width: 100%;
@@ -240,5 +240,18 @@ tr:focus-within {
     }
     .col_0 {
         display: table-cell;
+    }
+}
+@media screen {
+    .switch-box h3{
+        font-size: 1em;
+    }
+    form button h3 {
+        font-size: 1.2em;
+    }
+}
+@media handheld {
+    .switch-box h3, form button h3 {
+        font-size: 1em;
     }
 }
