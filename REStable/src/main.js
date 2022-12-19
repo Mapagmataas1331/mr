@@ -11,14 +11,16 @@ function enterValues(tbn, tname) {
     if (tbn !== 1) {tbq = 69;}
     async function eve() {
         const promises = [];
-        for (let i = 0; i < tbq; i++) {
+        for (var i = 0; i < tbq; i++) {
             promises.push(getTable(tbn, tname, i));
         }
         const tableValues = await Promise.all(promises);
         for(const [i, val] of tableValues.entries()) {
             if (val !== null) {
-            document.getElementById(i).value = val;
-            document.getElementById(i).style.color = "#008000";
+                document.getElementById(i).value = val;
+                document.getElementById(i).style.color = "#008000";
+            } else {
+                document.getElementById(i).value = "";
             }
         }
     }
@@ -29,6 +31,10 @@ function sendName(e, tbn) {
     const tname = document.getElementById("name").innerHTML;
     if (e.keyCode == "13") {
         event.preventDefault();
+        if (checkuname() == false) {
+            alert("Вы не вошли!");
+            return false;
+        }
         if (tname !== '') {
             if (window.confirm('Подключиться к проекту "' + tname + '" ?\nЕсли открыт проект он не сохранится!')) {
                 enterValues(tbn, tname)
@@ -51,7 +57,7 @@ function sendValues(tbn) {
     if (tname !== '') {
         if (window.confirm('Сохранить изменения?\nИзмененные значениия будут заменены!')) {
             if (tbn !== 1) {tbq = 69;}
-            for (i = 0; i < tbq; i++) {
+            for (var i = 0; i < tbq; i++) {
                 if (document.getElementById(i).value !== '') {
                     writeTable(tbn, tname, i, document.getElementById(i).value);
                     document.getElementById(i).style.color = "#008000";
@@ -88,4 +94,17 @@ function check() {
     } else {
         check.checked = true;
     }
+}
+function newTbel(tbn, tname) {
+    const newTbel = document.getElementById("newTbel-" + tbn);
+    const newEl = document.createElement("button");
+    newEl.innerHTML = tname;
+    newEl.onclick = function(){openTable(tbn, tname);};
+    newTbel.firstChild.style.display = "block";
+    newTbel.appendChild(newEl);
+}
+window.newTbel = newTbel;
+function openTable(tbn, tname) {
+    enterValues(tbn, tname);
+    document.getElementById("name").innerHTML = tname;
 }

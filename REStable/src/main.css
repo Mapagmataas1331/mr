@@ -50,9 +50,22 @@ body {
 .logreg button {
     cursor: pointer;
     border: 0;
+    border-radius: 8px;
     height: 24px;
     width: 128px;
     margin-left: calc(50% - 64px);
+}
+.newTbels {
+    margin: 24px 8px 16px 8px;
+}
+.newTbels button {
+    cursor: pointer;
+    border: 0;
+    height: 24px;
+    width: 100%;
+    margin-bottom: 4px;
+    background-color: #fff;
+    color: gray;
 }
 .title {
     font-family: 'Times New Roman', Times, serif;
@@ -151,10 +164,10 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-.logreg-btn:hover, #tsub:hover, .switch-box:hover {
+.logreg-btn:hover, #tsub:hover, .switch-box:hover, .logreg button:hover, .newTbels button:hover {
     opacity: 86%;
 }
-.logreg-btn:active, #tsub:active, .switch-box:active {
+.logreg-btn:active, #tsub:active, .switch-box:active, .logreg button:active, .newTbels button:active {
     background: linear-gradient(45deg, #d9d9d9, #f2f2f2);
     opacity: 100%;
 }

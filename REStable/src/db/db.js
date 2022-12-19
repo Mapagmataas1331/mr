@@ -24,6 +24,7 @@ function logreg(login, pass) {
         nolog = true;
         uname = login;
         alert(`Вы подключены к проектам пользователя: "${uname}"\nБез права редактирования!`);
+        getTables()
         return true;
       } else {
         alert("Нет такого пользователя!");
@@ -38,6 +39,7 @@ function logreg(login, pass) {
         uname = login;
         nolog = false;
         alert(`Успешно!`);
+        getTables()
         return true;
       } else {
         alert(`Пароль не подходит!`);
@@ -57,6 +59,22 @@ function logreg(login, pass) {
 }
 window.logreg = logreg;
 
+function getTables() {
+  get(ref(db, `users/${uname}/table_1`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      snapshot.forEach(childSnapshot => {
+        newTbel(1, childSnapshot.key);
+      });
+    }
+  });
+  get(ref(db, `users/${uname}/table_2`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      snapshot.forEach(childSnapshot => {
+        newTbel(2, childSnapshot.key);
+      });
+    }
+  });
+}
 function writeTable(tbn, tname, trowid, trowvalue) {
   if (uname == "") {
     alert("Вы не вошли!");
@@ -95,3 +113,12 @@ function checklog() {
   }
 }
 window.checklog = checklog;
+
+function checkuname() {
+  if (uname != "") {
+    return true;
+  } else {
+    return false;
+  }
+}
+window.checkuname = checkuname;
