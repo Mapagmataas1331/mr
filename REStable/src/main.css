@@ -9,6 +9,51 @@ body {
     background-color: #333;
     display: flex;
 }
+.logreg-btn {
+    position: fixed;
+    top: 4px;
+    right: 144px;
+    height: 54px;
+    width: 54px;
+    border: 0;
+    border-radius: 8px;
+    background-color: rgba(217, 217, 217, 0.92);
+    cursor: pointer;
+    box-shadow: 1.5px 1.5px #333;
+}
+#logreg {
+    display: none;
+    position: fixed;
+    top: 64px;
+    right: 8px;
+    width: 30%;
+    min-width: 256px;
+    border-radius: 8px;
+    background-color: rgba(217, 217, 217, 0.92);
+    box-shadow: 1.5px 1.5px #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.86em;
+    font-weight: bold;
+    color: #333;
+}
+.logreg {
+    display: block;
+    margin: 8px;
+}
+.logreg input {
+    border: 0;
+    border-radius: 4px;
+    width: calc(100% - 8px);
+    height: 24px;
+    margin: 4px 0 12px 0;
+}
+.logreg button {
+    cursor: pointer;
+    border: 0;
+    height: 24px;
+    width: 128px;
+    margin-left: calc(50% - 64px);
+}
 .title {
     font-family: 'Times New Roman', Times, serif;
     height: 48px;
@@ -19,7 +64,7 @@ body {
     font-weight: 3;
     user-select: none;
 }
-.switch-box, form button {
+.switch-box, #tsub {
     display: flex;
     height: 24px;
     width: 128px;
@@ -28,7 +73,7 @@ body {
     right: 10px;
     border: 0;
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: rgba(217, 217, 217, 0.92);
     cursor: pointer;
     box-shadow: 1.5px 1.5px #333;
     font-family: Arial, Helvetica, sans-serif;
@@ -40,10 +85,10 @@ body {
 .switch-box {
     top: 34px;
 }
-form button {
+#tsub {
     top: 4px;
 }
-.switch-box p, form button p {
+.switch-box p, #tsub p {
     margin: auto;
 }
 .switch {
@@ -106,14 +151,14 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-form button:hover, .switch-box:hover {
+.logreg-btn:hover, #tsub:hover, .switch-box:hover {
     opacity: 86%;
 }
-form button:active {
+.logreg-btn:active, #tsub:active, .switch-box:active {
     background: linear-gradient(45deg, #d9d9d9, #f2f2f2);
     opacity: 100%;
 }
-form button svg {
+#tsub svg {
     margin: -1px 0;
     color: #000;
 }
@@ -220,6 +265,10 @@ tr:focus-within {
     .title::after {
         content: "Рес. т.";
     }
+    #logreg {
+        right: 8px;
+        width: calc(100% - 16px);
+    }
     .col_0 {
         display: none;
     }
@@ -227,6 +276,10 @@ tr:focus-within {
 @media screen and (min-width: 480px) {
     .title::after {
         content: "Ресурсная таблица";
+    }
+    #logreg {
+        right: 8px;
+        width: 30%;
     }
     .col_0 {
         display: table-cell;

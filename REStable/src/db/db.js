@@ -14,16 +14,71 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+var uname = "";
+var nolog = false;
 
-function writeTable(tname, trowid, trowvalue) {
-  update(ref(db, `table_name/${tname}`), {
-    ["table_row_" + String("0" + trowid).slice(-2)]: trowvalue
+function logreg(login, pass) {
+  if (pass == "") {
+    get(ref(db, `users/${login}/password`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        nolog = true;
+        uname = login;
+        alert(`Вы подключены к проектам пользователя: "${uname}"\nБез права редактирования!`);
+        return true;
+      } else {
+        alert("Нет такого пользователя!");
+        return false;
+      }
+    });
+    return false;
+  }
+  get(ref(db, `users/${login}/password`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      if (pass == snapshot.val()) {
+        uname = login;
+        nolog = false;
+        alert(`Успешно!`);
+        return true;
+      } else {
+        alert(`Пароль не подходит!`);
+        return false;
+      }
+    } else {
+      set(ref(db, `users/${login}`), {
+        password: pass
+      });
+      uname = login;
+      nolog = false;
+      alert(`Учетная запись создана!`);
+      return true;
+    }
   });
+  return false;
+}
+window.logreg = logreg;
+
+function writeTable(tbn, tname, trowid, trowvalue) {
+  if (uname == "") {
+    alert("Вы не вошли!");
+    return false;
+  } else if (nolog == true) {
+    alert("Вы не имеете права редактирования!");
+    return false;
+  } else {
+    update(ref(db, `users/${uname}/table_${tbn}/${tname}`), {
+      ["table_row_" + String("0" + trowid).slice(-2)]: trowvalue
+    });
+    return true;
+  }
 }
 window.writeTable = writeTable;
 
-function getTable(tname, trowid) {
-  return get(ref(db, `table_name/${tname}/table_row_${String("0" + trowid).slice(-2)}`)).then((snapshot) => {
+function getTable(tbn, tname, trowid) {
+  if (uname == "") {
+    alert("Вы не вошли!");
+    return false;
+  }
+  return get(ref(db, `users/${uname}/table_${tbn}/${tname}/table_row_${String("0" + trowid).slice(-2)}`)).then((snapshot) => {
     if (snapshot.exists()) {
       return snapshot.val();
     }
@@ -31,3 +86,12 @@ function getTable(tname, trowid) {
   });
 }
 window.getTable = getTable;
+
+function checklog() {
+  if (nolog == false) {
+    return true;
+  } else {
+    return false;
+  }
+}
+window.checklog = checklog;
