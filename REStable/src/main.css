@@ -12,7 +12,7 @@ body {
 .logreg-btn {
     position: fixed;
     top: 4px;
-    right: 144px;
+    right: 8px;
     height: 54px;
     width: 54px;
     border: 0;
@@ -55,10 +55,10 @@ body {
     width: 128px;
     margin-left: calc(50% - 64px);
 }
-.newTbels {
+.allTb {
     margin: 24px 8px 16px 8px;
 }
-.newTbels button {
+.allTb button {
     cursor: pointer;
     border: 0;
     height: 24px;
@@ -96,10 +96,12 @@ body {
     text-align: center;
 }
 .switch-box {
-    top: 34px;
+    top: 4px;
+    right: 70px;
 }
 #tsub {
-    top: 4px;
+    top: 34px;
+    right: 70px;
 }
 .switch-box p, #tsub p {
     margin: auto;
@@ -164,10 +166,10 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-.logreg-btn:hover, #tsub:hover, .switch-box:hover, .logreg button:hover, .newTbels button:hover {
+.logreg-btn:hover, #tsub:hover, .switch-box:hover, .logreg button:hover, .allTb button:hover {
     opacity: 86%;
 }
-.logreg-btn:active, #tsub:active, .switch-box:active, .logreg button:active, .newTbels button:active {
+.logreg-btn:active, #tsub:active, .switch-box:active, .logreg button:active, .allTb button:active {
     background: linear-gradient(45deg, #d9d9d9, #f2f2f2);
     opacity: 100%;
 }
@@ -180,6 +182,29 @@ input:checked + .slider:before {
     height: 32px;
     margin: -16px 0 20px 0;
     text-align: center;
+}
+#tb-choose {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+}
+#tb-choose button {
+    width: 128px;
+    height: 24px;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #7a7e85;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#tb-choose button:first-child{
+    margin-right: 24px;
+}
+#table-1, #table-2 {
+    display: none;
 }
 table {
     font-family: 'Times New Roman', Times, serif;
@@ -231,7 +256,7 @@ textarea, span.input{
     text-align: center;
     padding: 0;
     border: 0;
-    color: darkslateblue;
+    color: #002699;
     font: bold;
 }
 span.input {

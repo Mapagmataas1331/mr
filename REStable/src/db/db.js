@@ -19,7 +19,7 @@ var nolog = false;
 
 function logreg(login, pass) {
   if (pass == "") {
-    get(ref(db, `users/${login}/password`)).then((snapshot) => {
+    get(ref(db, `restable/${login}/password`)).then((snapshot) => {
       if (snapshot.exists()) {
         nolog = true;
         uname = login;
@@ -33,7 +33,7 @@ function logreg(login, pass) {
     });
     return false;
   }
-  get(ref(db, `users/${login}/password`)).then((snapshot) => {
+  get(ref(db, `restable/${login}/password`)).then((snapshot) => {
     if (snapshot.exists()) {
       if (pass == snapshot.val()) {
         uname = login;
@@ -46,7 +46,7 @@ function logreg(login, pass) {
         return false;
       }
     } else {
-      set(ref(db, `users/${login}`), {
+      set(ref(db, `restable/${login}`), {
         password: pass
       });
       uname = login;
@@ -60,14 +60,16 @@ function logreg(login, pass) {
 window.logreg = logreg;
 
 function getTables() {
-  get(ref(db, `users/${uname}/table_1`)).then((snapshot) => {
+  get(ref(db, `restable/${uname}/tb_1`)).then((snapshot) => {
     if (snapshot.exists()) {
+      window.ifFirst = true;
       snapshot.forEach(childSnapshot => {
         newTbel(1, childSnapshot.key);
+        window.ifFirst = false;
       });
     }
   });
-  get(ref(db, `users/${uname}/table_2`)).then((snapshot) => {
+  get(ref(db, `restable/${uname}/tb_2`)).then((snapshot) => {
     if (snapshot.exists()) {
       snapshot.forEach(childSnapshot => {
         newTbel(2, childSnapshot.key);
@@ -83,8 +85,8 @@ function writeTable(tbn, tname, trowid, trowvalue) {
     alert("Вы не имеете права редактирования!");
     return false;
   } else {
-    update(ref(db, `users/${uname}/table_${tbn}/${tname}`), {
-      ["table_row_" + String("0" + trowid).slice(-2)]: trowvalue
+    update(ref(db, `restable/${uname}/tb_${tbn}/${tname}`), {
+      ["row_" + String("0" + trowid).slice(-2)]: trowvalue
     });
     return true;
   }
@@ -96,7 +98,7 @@ function getTable(tbn, tname, trowid) {
     alert("Вы не вошли!");
     return false;
   }
-  return get(ref(db, `users/${uname}/table_${tbn}/${tname}/table_row_${String("0" + trowid).slice(-2)}`)).then((snapshot) => {
+  return get(ref(db, `restable/${uname}/tb_${tbn}/${tname}/row_${String("0" + trowid).slice(-2)}`)).then((snapshot) => {
     if (snapshot.exists()) {
       return snapshot.val();
     }
