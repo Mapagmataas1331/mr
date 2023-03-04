@@ -6,7 +6,10 @@ body {
 }
 #canvas {
     position: absolute;
-    background-color: red;
+    background-image: url("bg.png");
+    left: calc(50vw - var(--CANVAS_WIGHT) / 2);
+    top: calc(50vh - 24px - var(--CANVAS_HEIGHT) / 2);
+    image-rendering: pixelated;
 }
 #footer {
     position: fixed;

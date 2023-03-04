@@ -6,9 +6,9 @@ const canvas = document.getElementById("canvas");
 const CANVAS_WIGHT = 1600;
 const CANVAS_HEIGHT = 900;
 
-// const root = document.querySelector(':root');
-// root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
-// root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
+const root = document.querySelector(':root');
+root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
+root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
 
 var ctx = canvas.getContext("2d");
 ctx.canvas.width  = CANVAS_WIGHT;
