@@ -157,7 +157,8 @@ function openTable(tbn, tname) {
 
 function showSrch(id) {
     const srch = document.getElementById("srch");
-    const labl = document.getElementById("kWLabel");
+    const label = document.getElementById("kWLabel");
+    const input = document.getElementById("kWInput");
     const text = "Ключевые слова для поля ";
     var table, row;
     if (id.substring(4) <= 71) {
@@ -169,8 +170,11 @@ function showSrch(id) {
     }
     if (srch.style.display != "block") {
         srch.style.display = "block";
-    } else if (labl.innerHTML == text + table + "." + row) {
+    } else if (label.innerHTML == text + table + "." + row) {
         srch.style.display = "none";
     }
-    if (labl.innerHTML != text + table + "." + row) labl.innerHTML = text + table + "." + row;
+    if (label.innerHTML != text + table + "." + row) {
+        label.innerHTML = text + table + "." + row;
+        input.value = table + "." + row;
+    }
 }
