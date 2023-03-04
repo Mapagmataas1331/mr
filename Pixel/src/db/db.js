@@ -1,126 +1,15 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get, update } from "firebase/database";
+const { initializeApp } = require('firebase/app');
+const { getDatabase, ref, set, get, update, child } = require('firebase/database');
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCE99ycZW0noggD6NnTaa-tu5FYio0OWpE",
-  authDomain: "webtest-db.firebaseapp.com",
-  databaseURL: "https://webtest-db-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "webtest-db",
-  storageBucket: "webtest-db.appspot.com",
-  messagingSenderId: "977282304261",
-  appId: "1:977282304261:web:180f2b5ef5eaa234900f6c",
-  measurementId: "G-MM1VCV4545"
+    apiKey: "AIzaSyCrwzRK740-pz8Zfz9YjNm_o37AGOVV8HM",
+    authDomain: "novocointgbotdb.firebaseapp.com",
+    databaseURL: "https://novocointgbotdb-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "novocointgbotdb",
+    storageBucket: "novocointgbotdb.appspot.com",
+    messagingSenderId: "653792840850",
+    appId: "1:653792840850:web:4a47e06582cc4a70bcea4b"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-var uname = "";
-var nolog = false;
-
-function logreg(login, pass) {
-  if (pass == "") {
-    get(ref(db, `users/${login}/password`)).then((snapshot) => {
-      if (snapshot.exists()) {
-        nolog = true;
-        uname = login;
-        alert(`Вы подключены к проектам пользователя: "${uname}"\nБез права редактирования!`);
-        getTables()
-        return true;
-      } else {
-        alert("Нет такого пользователя!");
-        return false;
-      }
-    });
-    return false;
-  }
-  get(ref(db, `users/${login}/password`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      if (pass == snapshot.val()) {
-        uname = login;
-        nolog = false;
-        alert(`Успешно!`);
-        getTables()
-        return true;
-      } else {
-        alert(`Пароль не подходит!`);
-        return false;
-      }
-    } else {
-      set(ref(db, `users/${login}`), {
-        password: pass
-      });
-      uname = login;
-      nolog = false;
-      alert(`Учетная запись создана!`);
-      return true;
-    }
-  });
-  return false;
-}
-window.logreg = logreg;
-
-function getTables() {
-  rAllChilds("tb-1"); rAllChilds("tb-2");
-  get(ref(db, `users/${uname}/tb_1`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      snapshot.forEach(childSnapshot => {
-        newTbel(1, childSnapshot.key);
-      });
-    }
-  });
-  get(ref(db, `users/${uname}/tb_2`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      snapshot.forEach(childSnapshot => {
-        newTbel(2, childSnapshot.key);
-      });
-    }
-  });
-}
-
-function writeTable(tbn, tname, trowid, trowvalue) {
-  if (uname == "") {
-    alert("Вы не вошли!");
-    return false;
-  } else if (nolog == true) {
-    alert("Вы не имеете права редактирования!");
-    return false;
-  } else {
-    update(ref(db, `users/${uname}/tb_${tbn}/${tname}`), {
-      ["row_" + String("0" + trowid).slice(-2)]: trowvalue
-    });
-    return true;
-  }
-}
-window.writeTable = writeTable;
-
-function getTable(tbn, tname, trowid) {
-  if (uname == "") {
-    alert("Вы не вошли!");
-    return false;
-  }
-  return get(ref(db, `users/${uname}/tb_${tbn}/${tname}/row_${String("0" + trowid).slice(-2)}`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      return snapshot.val();
-    }
-    return null;
-  });
-}
-window.getTable = getTable;
-
-function checklog() {
-  if (nolog == false) {
-    return true;
-  } else {
-    return false;
-  }
-}
-window.checklog = checklog;
-
-function checkuname() {
-  if (uname != "") {
-    return true;
-  } else {
-    return false;
-  }
-}
-window.checkuname = checkuname;

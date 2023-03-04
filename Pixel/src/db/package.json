@@ -1,15 +1,14 @@
 {
-  "name": "restable-db",
+  "name": "pixel",
   "version": "1.0.0",
-  "description": "Resourse Table Database",
+  "description": "",
   "main": "db.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "Mapagmataas",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^9.15.0"
+    "firebase": "^9.17.2"
   }
 }
