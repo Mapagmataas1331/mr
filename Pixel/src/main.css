@@ -1,0 +1,343 @@
+body {
+    margin: 0px;
+    overflow-y: none;
+    overflow-x: visible;
+}
+.head {
+    width: 100%;
+    height: 64px;
+    background-color: #333;
+    display: flex;
+}
+.logreg-btn {
+    position: fixed;
+    top: 4px;
+    right: 8px;
+    height: 54px;
+    width: 54px;
+    border: 0;
+    border-radius: 8px;
+    background-color: rgba(217, 217, 217, 0.92);
+    cursor: pointer;
+    box-shadow: 1.5px 1.5px #333;
+}
+#topui {
+    position: fixed;
+    top: 64px;
+    right: 24px;
+    width: 30vw;
+    min-width: 256px;
+}
+#logreg, #srch {
+    display: none;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 8px;
+    background-color: rgb(217, 217, 217, 0.92);
+    box-shadow: 1.5px 1.5px #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.86em;
+    font-weight: bold;
+    color: #333;
+}
+#topui form input {
+    border: 0;
+    border-radius: 4px;
+    width: calc(100% - 8px);
+    height: 24px;
+    margin: 4px 0 12px 0;
+}
+#topui form button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 8px;
+    height: 24px;
+    width: 128px;
+    margin-left: calc(50% - 64px);
+}
+#tb-1 button, #tb-2 button {
+    cursor: pointer;
+    border: 0;
+    height: 24px;
+    width: 100%;
+    margin-bottom: 4px;
+    background-color: #fff;
+    color: gray;
+}
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    height: 48px;
+    font-size: 32px;
+    margin: 10px 0 auto 10px;
+    color: #f2f2f2;
+    cursor: default;
+    font-weight: 3;
+    user-select: none;
+}
+.switch-box, #tsub {
+    display: flex;
+    height: 24px;
+    width: 128px;
+    position: fixed;
+    top: 4px;
+    right: 10px;
+    border: 0;
+    border-radius: 8px;
+    background-color: rgba(217, 217, 217, 0.92);
+    cursor: pointer;
+    box-shadow: 1.5px 1.5px #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+.switch-box {
+    top: 4px;
+    right: 70px;
+}
+#tsub {
+    top: 34px;
+    right: 70px;
+}
+.switch-box p, #tsub p {
+    margin: auto;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    top: 4px;
+    left: 4px;
+    width: 32px;
+    height: 16px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    height: 16px;
+    width: 16px;
+    left: 0px;
+    bottom: 4px;
+    background-color: #f2f2f2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #008000;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #008000;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+.slider.round {
+    border-radius: 16px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+.logreg-btn:hover, #tsub:hover, .switch-box:hover, .logreg button:hover, .allTb button:hover {
+    opacity: 86%;
+}
+.logreg-btn:active, #tsub:active, .switch-box:active, .logreg button:active, .allTb button:active {
+    background: linear-gradient(45deg, #d9d9d9, #f2f2f2);
+    opacity: 100%;
+}
+#tsub svg {
+    margin: -1px 0;
+    color: #000;
+}
+.name {
+    width: 100%;
+    height: 32px;
+    margin: -16px 0 20px 0;
+    text-align: center;
+}
+#tb-choose {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+}
+#tb-choose button {
+    width: 128px;
+    height: 24px;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #7a7e85;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#tb-choose button:first-child{
+    margin-right: 24px;
+}
+#table-1, #table-2 {
+    display: none;
+}
+table {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    width: calc(100% - 16px);
+    border: 2px solid #7a7e85;
+    border-radius: 8px;
+    margin: 0 auto 16px 8px;
+    color: #252628;
+    background-color: #d9d9d9;
+    text-align: center;
+    border-spacing: 1px;
+}
+table:last-of-type {
+    margin: 0 auto 48px 8px!important;
+}
+th {
+    height: 48px;
+}
+table:first-child tr:first-child {
+    background: linear-gradient(90deg, rgba(242, 242, 242, .9), transparent, rgba(242, 242, 242, .6));
+}
+.col_0 {
+    width: calc(5% - 16px);
+}
+table:first-child tr:nth-child(2) td.col_0, tr:first-child td.col_0 {
+    background: linear-gradient(0deg, #d9d9d9, #f2f2f2);
+}
+tr:last-child td.col_0 {
+    background: linear-gradient(180deg, #d9d9d9, #bfbfbf);
+}
+table:first-child tr:nth-child(even) .col_1, table:first-child tr:nth-child(even) .col_2,
+table:not(:first-child) tr:nth-child(odd) .col_1, table:not(:first-child) tr:nth-child(odd) .col_2 {
+    background-color: #f2f2f2;
+}
+table:first-child tr:not(:first-child):nth-child(odd) .col_1, table:first-child tr:not(:first-child):nth-child(odd) .col_2, 
+table:not(:first-child) tr:nth-child(even) .col_1, table:not(:first-child) tr:nth-child(even) .col_2 {
+    background-color: #e6e6e6;
+}
+.col_1 {
+    width: 30%;
+}
+.col_2 {
+    width: 55%;
+}
+.srch-btn {
+    width: 16px;
+    margin-left: -8px;
+    margin-right: -8px;
+    aspect-ratio: 1;
+    background-color: #002699;
+    color: #f2f2f2;
+    border-radius: 8px;
+    text-align: center;
+    opacity: 0.25;
+    cursor: pointer;
+}
+.srch-btn:hover {
+    opacity: 0.75;
+}
+textarea, span.input{
+    resize: none;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    color: #002699;
+    font: bold;
+}
+span.input {
+    height: 16px;
+    font-size: 20px;
+    overflow: hidden;
+    cursor: text;
+}
+span.input:empty::before {
+    content: "Введите название";
+}
+span.input:focus::before {
+    content: "Вы печатаете: ";
+}
+span.input:focus::after {
+    content: "";
+}
+textarea {
+    font-size: 16px;
+    width: calc(100% - 3px);
+    height: auto;
+    margin: auto;
+}
+table:first-child tr:not(:first-child) .col_2:hover {
+    outline: 2px solid #333;
+}
+table:not(:first-child) .col_2:hover {
+    outline: 2px solid #333;
+}
+span.input:focus, textarea:focus {
+    outline: 0;
+}
+textarea:focus {
+    text-align: left;
+    height: 128px;
+    margin: -1px 0 -5px -1px;
+    border: 3px solid #fff;
+    background-color: #fff;
+}
+tr:focus-within {
+    height: 128px;
+}
+@media screen and (min-width: 264px) {
+    .title::after {
+        content: "Рес. т.";
+    }
+    #topui {
+        width: calc(100vw - 32px);
+    }
+    .col_0 {
+        display: none;
+    }
+    .col_2 {
+        width: 70%;
+    }
+}
+@media screen and (min-width: 480px) {
+    .title::after {
+        content: "Ресурсная таблица";
+    }
+    #topui {
+        width: 30vw;
+    }
+    .col_0 {
+        display: table-cell;
+    }
+    .col_2 {
+        width: 55%;
+    }
+}
