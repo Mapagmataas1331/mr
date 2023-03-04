@@ -21,33 +21,34 @@ body {
     cursor: pointer;
     box-shadow: 1.5px 1.5px #333;
 }
-#logreg {
-    display: none;
+#topui {
     position: fixed;
     top: 64px;
-    right: 8px;
-    width: 30%;
+    right: 24px;
+    width: 30vw;
     min-width: 256px;
+}
+#logreg, #srch {
+    display: none;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
     border-radius: 8px;
-    background-color: rgba(217, 217, 217, 0.92);
+    background-color: rgb(217, 217, 217, 0.92);
     box-shadow: 1.5px 1.5px #333;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.86em;
     font-weight: bold;
     color: #333;
 }
-.logreg {
-    display: block;
-    margin: 8px;
-}
-.logreg input {
+#topui form input {
     border: 0;
     border-radius: 4px;
     width: calc(100% - 8px);
     height: 24px;
     margin: 4px 0 12px 0;
 }
-.logreg button {
+#topui form button {
     cursor: pointer;
     border: 0;
     border-radius: 8px;
@@ -55,10 +56,7 @@ body {
     width: 128px;
     margin-left: calc(50% - 64px);
 }
-.allTb {
-    margin: 24px 8px 16px 8px;
-}
-.allTb button {
+#tb-1 button, #tb-2 button {
     cursor: pointer;
     border: 0;
     height: 24px;
@@ -216,6 +214,7 @@ table {
     color: #252628;
     background-color: #d9d9d9;
     text-align: center;
+    border-spacing: 1px;
 }
 table:last-of-type {
     margin: 0 auto 48px 8px!important;
@@ -235,7 +234,7 @@ table:first-child tr:nth-child(2) td.col_0, tr:first-child td.col_0 {
 tr:last-child td.col_0 {
     background: linear-gradient(180deg, #d9d9d9, #bfbfbf);
 }
-table:first-child tr:nth-child(even) .col_1, table:first-child tr:nth-child(even) .col_2, 
+table:first-child tr:nth-child(even) .col_1, table:first-child tr:nth-child(even) .col_2,
 table:not(:first-child) tr:nth-child(odd) .col_1, table:not(:first-child) tr:nth-child(odd) .col_2 {
     background-color: #f2f2f2;
 }
@@ -248,6 +247,21 @@ table:not(:first-child) tr:nth-child(even) .col_1, table:not(:first-child) tr:nt
 }
 .col_2 {
     width: 55%;
+}
+.srch-btn {
+    width: 16px;
+    margin-left: -8px;
+    margin-right: -8px;
+    aspect-ratio: 1;
+    background-color: #002699;
+    color: #f2f2f2;
+    border-radius: 8px;
+    text-align: center;
+    opacity: 0.25;
+    cursor: pointer;
+}
+.srch-btn:hover {
+    opacity: 0.75;
 }
 textarea, span.input{
     resize: none;
@@ -303,23 +317,27 @@ tr:focus-within {
     .title::after {
         content: "Рес. т.";
     }
-    #logreg {
-        right: 8px;
-        width: calc(100% - 16px);
+    #topui {
+        width: calc(100vw - 16px);
     }
     .col_0 {
         display: none;
+    }
+    .col_2 {
+        width: 70%;
     }
 }
 @media screen and (min-width: 480px) {
     .title::after {
         content: "Ресурсная таблица";
     }
-    #logreg {
-        right: 8px;
-        width: 30%;
+    #topui {
+        width: 30vw;
     }
     .col_0 {
         display: table-cell;
+    }
+    .col_2 {
+        width: 55%;
     }
 }

@@ -60,12 +60,11 @@ function logreg(login, pass) {
 window.logreg = logreg;
 
 function getTables() {
+  rAllChilds("tb-1"); rAllChilds("tb-2");
   get(ref(db, `restable/${uname}/tb_1`)).then((snapshot) => {
     if (snapshot.exists()) {
-      window.ifFirst = true;
       snapshot.forEach(childSnapshot => {
         newTbel(1, childSnapshot.key);
-        window.ifFirst = false;
       });
     }
   });
@@ -77,6 +76,7 @@ function getTables() {
     }
   });
 }
+
 function writeTable(tbn, tname, trowid, trowvalue) {
   if (uname == "") {
     alert("Вы не вошли!");

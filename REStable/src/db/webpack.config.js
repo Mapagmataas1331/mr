@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'eval-source-map',
     entry: './db.js',
     output: {
-        path: path.resolve(__dirname, 'webpack'),
+        path: path.resolve(__dirname, '../'),
         filename: 'bundle.js'
     }
 };

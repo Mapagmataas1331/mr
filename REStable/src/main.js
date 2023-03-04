@@ -130,21 +130,43 @@ function check() {
     }
 }
 function newTbel(tbn, tname) {
-    const newTbel = document.getElementById("tb-" + tbn);
-    if (ifFirst) {
-        while (newTbel.childElementCount > 1) {
-            newTbel.removeChild(newTbel.lastChild);
-        }
-    }
+    const newTb = document.getElementById("tb-" + tbn);
     const newEl = document.createElement("button");
     newEl.innerHTML = tname;
     newEl.onclick = function(){openTable(tbn, tname);};
-    newTbel.firstChild.style.display = "block";
-    newTbel.appendChild(newEl);
+    newEl.setAttribute('type', 'button');
+    newTb.firstChild.style.display = "block";
+    newTb.appendChild(newEl);
 }
 window.newTbel = newTbel;
+
+function rAllChilds(id) {
+    const el = document.getElementById(id);
+    while (el.childElementCount != 1) el.removeChild(el.lastChild);
+}
+window.rAllChilds = rAllChilds;
 
 function openTable(tbn, tname) {
     enterValues(tbn, tname);
     document.getElementById("name").innerHTML = tname;
+}
+
+function showSrch(id) {
+    const srch = document.getElementById("srch");
+    const labl = document.getElementById("kWLabel");
+    const text = "Ключевые слова для поля ";
+    var table, row = 0;
+    if (id.substring(4) <= 71) {
+        table = 1;
+        row = id.substring(4);
+    } else {
+        table = 2;
+        row = id.substring(4) - 72;
+    }
+    if (srch.style.display != "block") {
+        srch.style.display = "block";
+    } else if (labl.innerHTML == text + table + "." + row) {
+        srch.style.display = "none";
+    }
+    if (labl.innerHTML != text + table + "." + row) labl.innerHTML = text + table + "." + row;
 }
