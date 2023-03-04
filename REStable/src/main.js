@@ -155,12 +155,12 @@ function openTable(tbn, tname) {
     document.getElementById("name").innerHTML = tname;
 }
 
+var row, table = 0;
 function showSrch(id) {
     const srch = document.getElementById("srch");
     const label = document.getElementById("kWLabel");
     const input = document.getElementById("kWInput");
     const text = "Ключевые слова для поля ";
-    var table, row;
     if (id.substring(4) <= 71) {
         table = 1;
         row = id.substring(4);
@@ -177,4 +177,8 @@ function showSrch(id) {
         label.innerHTML = text + row;
         input.value = table + "." + row;
     }
+}
+function srchMenu(keys) {
+    if (table == 0) return false;
+    alert(`${keys}\n${table}\n${row}`);
 }
