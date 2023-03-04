@@ -15,12 +15,6 @@ root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
 var ctx = canvas.getContext("2d");
 ctx.canvas.width  = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
-// const img = new Image();
-// img.src = "src/img.jpg";
-
-// img.addEventListener("load", () => {
-//     ctx.drawImage(img, 0, 0);
-// }, false );
 
 canvas.addEventListener('mousedown', function(e) {
     isDown = true;
