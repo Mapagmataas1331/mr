@@ -170,11 +170,11 @@ function showSrch(id) {
     }
     if (srch.style.display != "block") {
         srch.style.display = "block";
-    } else if (label.innerHTML == text + table + "." + row) {
+    } else if (label.innerHTML == text + row) {
         srch.style.display = "none";
     }
-    if (label.innerHTML != text + table + "." + row) {
-        label.innerHTML = text + table + "." + row;
+    if (label.innerHTML != text + row) {
+        label.innerHTML = text + row;
         input.value = table + "." + row;
     }
 }
