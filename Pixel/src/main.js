@@ -1,6 +1,8 @@
 var mousePosition;
 var offset = [0,0];
+var cc = {x: 0, y: 0};
 var isDown = false;
+var zoom = 1;
 
 const canvas = document.getElementById("canvas");
 const CANVAS_WIGHT = 1600;
@@ -13,12 +15,12 @@ root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
 var ctx = canvas.getContext("2d");
 ctx.canvas.width  = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
-const img = new Image();
-img.src = "src/img.jpg";
+// const img = new Image();
+// img.src = "src/img.jpg";
 
-img.addEventListener("load", () => {
-    ctx.drawImage(img, 0, 0);
-}, false );
+// img.addEventListener("load", () => {
+//     ctx.drawImage(img, 0, 0);
+// }, false );
 
 canvas.addEventListener('mousedown', function(e) {
     isDown = true;
@@ -26,8 +28,13 @@ canvas.addEventListener('mousedown', function(e) {
         canvas.offsetLeft - e.clientX,
         canvas.offsetTop - e.clientY
     ];
+    cc = {
+        x: Math.round(e.layerX / zoom),
+        y: Math.round(e.layerY / zoom)
+    }
     document.getElementById("coords").innerHTML =
-    `canvas: ${e.layerX} ${e.layerX}; client: ${e.clientX} ${e.clientY}`;
+    `selected item: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)}; 
+    canvas: ${cc.x} ${cc.y}; client: ${e.clientX} ${e.clientY}`;
 }, true);
 
 document.addEventListener('mouseup', function() {
@@ -46,14 +53,13 @@ document.addEventListener('mousemove', function(e) {
     }
 }, true);
 
-var zoom = 100;
 canvas.onwheel = function(e) {
     e.preventDefault();
     if (e.deltaY < 0) {
-        zoom += 10;
-        canvas.style.zoom = zoom + "%";
+        zoom += 0.1;
+        canvas.style.zoom = zoom;
     } else {
-        zoom -= 10;
-        canvas.style.zoom = zoom + "%";
+        zoom -= 0.1;
+        canvas.style.zoom = zoom;
     };
 };
