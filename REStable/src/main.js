@@ -110,11 +110,15 @@ function sendValue(tbn, iid) {
         return false;
     }
     var j = iid;
-    if (tbn > 1) {j -= 72;}
+    if (tbn > 1) j -= 72;
     const checked = document.getElementById("check").checked;
     const tname = document.getElementById("name").innerHTML;
     const ta = document.getElementById(iid);
-    if (checked == true && tname !== '' && ta.value !== '') {
+    if (checked == true && ta.value !== '') {
+        if (tname == '') {
+            alert("Вы не ввели имя проекта!");
+            return false;
+        }
         writeTable(tbn, tname, j, ta.value);
         ta.style.color = "#008000";
         return true;
@@ -155,7 +159,7 @@ function showSrch(id) {
     const srch = document.getElementById("srch");
     const labl = document.getElementById("kWLabel");
     const text = "Ключевые слова для поля ";
-    var table, row = 0;
+    var table, row;
     if (id.substring(4) <= 71) {
         table = 1;
         row = id.substring(4);

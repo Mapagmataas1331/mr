@@ -318,7 +318,7 @@ tr:focus-within {
         content: "Рес. т.";
     }
     #topui {
-        width: calc(100vw - 16px);
+        width: calc(100vw - 32px);
     }
     .col_0 {
         display: none;
