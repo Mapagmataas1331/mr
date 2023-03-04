@@ -5,8 +5,6 @@ body {
 #canvas {
     position: absolute;
     background-color: red;
-    width: var(--CANVAS_WIGHT);
-    height: var(--CANVAS_HEIGHT);
 }
 #footer {
     position: fixed;
