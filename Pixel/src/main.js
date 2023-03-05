@@ -26,9 +26,8 @@ canvas.addEventListener('mousedown', function(e) {
         x: Math.round(e.layerX / zoom),
         y: Math.round(e.layerY / zoom)
     }
-    document.getElementById("coords").innerHTML =
-    `selected item: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)}; 
-    canvas: ${cc.x} ${cc.y}; client: ${e.clientX} ${e.clientY}`;
+    console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
+    document.getElementById("coords").innerHTML = "Pixel: " + Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
 }, true);
 
 document.addEventListener('mouseup', function() {
