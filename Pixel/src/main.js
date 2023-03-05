@@ -20,7 +20,8 @@ const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords")
 
 // Запись текущего положения мыши на Canvas'е и Экране,
-// Подсчет отступов учитывая zoom и положение мыши.
+// Подсчет отступов учитывая zoom и положение мыши,
+// И одномоментное перемещение Select'а.
 canvas.addEventListener('mousedown', (e) => {
     isDown = true;
     offset = [
@@ -33,6 +34,7 @@ canvas.addEventListener('mousedown', (e) => {
     };
     console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
     pCoords.innerHTML = "Pixel: " + Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
+    sItem.style.display = "block";
     sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
     sItem.style.top  = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
 }, true);
@@ -41,7 +43,7 @@ document.addEventListener('mouseup', () => {
     isDown = false;
 }, true);
 
-// Запись перемещения мыши и перемещение Canvas'а и Select'а.
+// Запись перемещения мыши, перемещение Canvas'а и Select'а.
 document.addEventListener('mousemove', (e) => {
     e.preventDefault();
     mousePosition = {
@@ -69,6 +71,13 @@ canvas.onwheel = (e) => {
         sItem.style.zoom = zoom;
     };
 };
+
+// Скрытие Select'а по клику вне canvas'а.
+// document.body.addEventListener('click', (e) => {   
+//     if (!canvas.contains(e.target)){
+//         sItem.style.display = "none";
+//     }
+// });
 
 // Сохранение Canvas'а.
 pCoords.onclick = () => {

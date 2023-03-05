@@ -13,7 +13,7 @@ body {
 }
 #selected_item {
     position: absolute;
-    display: block;
+    display: none;
     width: 10px;
     aspect-ratio: 1;
     border: 2px solid black;
