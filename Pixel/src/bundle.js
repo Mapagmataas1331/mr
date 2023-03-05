@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./db.js":
-/*!***************!*\
-  !*** ./db.js ***!
-  \***************/
+/***/ "./main.js":
+/*!*****************!*\
+  !*** ./main.js ***!
+  \*****************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const { initializeApp } = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/index.cjs.js\");\r\nconst { getDatabase, ref, set, get, update, child } = __webpack_require__(/*! firebase/database */ \"./node_modules/firebase/database/dist/index.cjs.js\");\r\n\r\nconst firebaseConfig = {\r\n    apiKey: \"AIzaSyCrwzRK740-pz8Zfz9YjNm_o37AGOVV8HM\",\r\n    authDomain: \"novocointgbotdb.firebaseapp.com\",\r\n    databaseURL: \"https://novocointgbotdb-default-rtdb.europe-west1.firebasedatabase.app\",\r\n    projectId: \"novocointgbotdb\",\r\n    storageBucket: \"novocointgbotdb.appspot.com\",\r\n    messagingSenderId: \"653792840850\",\r\n    appId: \"1:653792840850:web:4a47e06582cc4a70bcea4b\"\r\n};\r\n\r\nconst app = initializeApp(firebaseConfig);\r\nconst db = getDatabase(app);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9kYi5qcy5qcyIsIm1hcHBpbmdzIjoiQUFBQSxRQUFRLGdCQUFnQixFQUFFLG1CQUFPLENBQUMsbUVBQWM7QUFDaEQsUUFBUSw0Q0FBNEMsRUFBRSxtQkFBTyxDQUFDLDZFQUFtQjtBQUNqRjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL3BpeGVsLy4vZGIuanM/MjZmNSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCB7IGluaXRpYWxpemVBcHAgfSA9IHJlcXVpcmUoJ2ZpcmViYXNlL2FwcCcpO1xyXG5jb25zdCB7IGdldERhdGFiYXNlLCByZWYsIHNldCwgZ2V0LCB1cGRhdGUsIGNoaWxkIH0gPSByZXF1aXJlKCdmaXJlYmFzZS9kYXRhYmFzZScpO1xyXG5cclxuY29uc3QgZmlyZWJhc2VDb25maWcgPSB7XHJcbiAgICBhcGlLZXk6IFwiQUl6YVN5Q3J3elJLNzQwLXB6OFpmejlZak5tX28zN0FHT1ZWOEhNXCIsXHJcbiAgICBhdXRoRG9tYWluOiBcIm5vdm9jb2ludGdib3RkYi5maXJlYmFzZWFwcC5jb21cIixcclxuICAgIGRhdGFiYXNlVVJMOiBcImh0dHBzOi8vbm92b2NvaW50Z2JvdGRiLWRlZmF1bHQtcnRkYi5ldXJvcGUtd2VzdDEuZmlyZWJhc2VkYXRhYmFzZS5hcHBcIixcclxuICAgIHByb2plY3RJZDogXCJub3ZvY29pbnRnYm90ZGJcIixcclxuICAgIHN0b3JhZ2VCdWNrZXQ6IFwibm92b2NvaW50Z2JvdGRiLmFwcHNwb3QuY29tXCIsXHJcbiAgICBtZXNzYWdpbmdTZW5kZXJJZDogXCI2NTM3OTI4NDA4NTBcIixcclxuICAgIGFwcElkOiBcIjE6NjUzNzkyODQwODUwOndlYjo0YTQ3ZTA2NTgyY2M0YTcwYmNlYTRiXCJcclxufTtcclxuXHJcbmNvbnN0IGFwcCA9IGluaXRpYWxpemVBcHAoZmlyZWJhc2VDb25maWcpO1xyXG5jb25zdCBkYiA9IGdldERhdGFiYXNlKGFwcCk7Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./db.js\n");
+eval("const { initializeApp } = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/index.cjs.js\");\r\nconst { getDatabase, ref, set, get, update, child } = __webpack_require__(/*! firebase/database */ \"./node_modules/firebase/database/dist/index.cjs.js\");\r\n\r\nconst firebaseConfig = {\r\n    apiKey: \"AIzaSyCrwzRK740-pz8Zfz9YjNm_o37AGOVV8HM\",\r\n    authDomain: \"novocointgbotdb.firebaseapp.com\",\r\n    databaseURL: \"https://novocointgbotdb-default-rtdb.europe-west1.firebasedatabase.app\",\r\n    projectId: \"novocointgbotdb\",\r\n    storageBucket: \"novocointgbotdb.appspot.com\",\r\n    messagingSenderId: \"653792840850\",\r\n    appId: \"1:653792840850:web:4a47e06582cc4a70bcea4b\"\r\n};\r\n\r\nconst app = initializeApp(firebaseConfig);\r\nconst db = getDatabase(app);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9tYWluLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBLFFBQVEsZ0JBQWdCLEVBQUUsbUJBQU8sQ0FBQyxtRUFBYztBQUNoRCxRQUFRLDRDQUE0QyxFQUFFLG1CQUFPLENBQUMsNkVBQW1CO0FBQ2pGO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vcGl4ZWwvLi9tYWluLmpzPzFkNTAiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgeyBpbml0aWFsaXplQXBwIH0gPSByZXF1aXJlKCdmaXJlYmFzZS9hcHAnKTtcclxuY29uc3QgeyBnZXREYXRhYmFzZSwgcmVmLCBzZXQsIGdldCwgdXBkYXRlLCBjaGlsZCB9ID0gcmVxdWlyZSgnZmlyZWJhc2UvZGF0YWJhc2UnKTtcclxuXHJcbmNvbnN0IGZpcmViYXNlQ29uZmlnID0ge1xyXG4gICAgYXBpS2V5OiBcIkFJemFTeUNyd3pSSzc0MC1wejhaZno5WWpObV9vMzdBR09WVjhITVwiLFxyXG4gICAgYXV0aERvbWFpbjogXCJub3ZvY29pbnRnYm90ZGIuZmlyZWJhc2VhcHAuY29tXCIsXHJcbiAgICBkYXRhYmFzZVVSTDogXCJodHRwczovL25vdm9jb2ludGdib3RkYi1kZWZhdWx0LXJ0ZGIuZXVyb3BlLXdlc3QxLmZpcmViYXNlZGF0YWJhc2UuYXBwXCIsXHJcbiAgICBwcm9qZWN0SWQ6IFwibm92b2NvaW50Z2JvdGRiXCIsXHJcbiAgICBzdG9yYWdlQnVja2V0OiBcIm5vdm9jb2ludGdib3RkYi5hcHBzcG90LmNvbVwiLFxyXG4gICAgbWVzc2FnaW5nU2VuZGVySWQ6IFwiNjUzNzkyODQwODUwXCIsXHJcbiAgICBhcHBJZDogXCIxOjY1Mzc5Mjg0MDg1MDp3ZWI6NGE0N2UwNjU4MmNjNGE3MGJjZWE0YlwiXHJcbn07XHJcblxyXG5jb25zdCBhcHAgPSBpbml0aWFsaXplQXBwKGZpcmViYXNlQ29uZmlnKTtcclxuY29uc3QgZGIgPSBnZXREYXRhYmFzZShhcHApOyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./main.js\n");
 
 /***/ }),
 
@@ -201,7 +201,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./db.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./main.js");
 /******/ 	
 /******/ })()
 ;
