@@ -16,6 +16,8 @@ var ctx = canvas.getContext("2d");
 ctx.canvas.width  = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
 
+const sItem = document.getElementById("selected_item");
+
 canvas.addEventListener('mousedown', function(e) {
     isDown = true;
     offset = [
@@ -25,9 +27,11 @@ canvas.addEventListener('mousedown', function(e) {
     cc = {
         x: Math.round(e.layerX / zoom),
         y: Math.round(e.layerY / zoom)
-    }
+    };
     console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
     document.getElementById("coords").innerHTML = "Pixel: " + Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
+    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
+    sItem.style.top  = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
 }, true);
 
 document.addEventListener('mouseup', function() {
@@ -36,13 +40,15 @@ document.addEventListener('mouseup', function() {
 
 document.addEventListener('mousemove', function(e) {
     e.preventDefault();
+    mousePosition = {
+        x: e.clientX,
+        y: e.clientY
+    };
     if (isDown) {
-        mousePosition = {
-            x: e.clientX,
-            y: e.clientY
-        };
         canvas.style.left = (mousePosition.x + offset[0]) + 'px';
         canvas.style.top  = (mousePosition.y + offset[1]) + 'px';
+        sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
+        sItem.style.top  = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
     }
 }, true);
 
@@ -51,8 +57,10 @@ canvas.onwheel = function(e) {
     if (e.deltaY < 0) {
         zoom += 0.1;
         canvas.style.zoom = zoom;
+        sItem.style.zoom = zoom;
     } else {
         zoom -= 0.1;
         canvas.style.zoom = zoom;
+        sItem.style.zoom = zoom;
     };
 };

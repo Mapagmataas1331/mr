@@ -11,6 +11,14 @@ body {
     top: calc(50vh - 24px - var(--CANVAS_HEIGHT) / 2);
     image-rendering: pixelated;
 }
+#selected_item {
+    position: absolute;
+    display: block;
+    width: 10px;
+    aspect-ratio: 1;
+    border: 2px solid black;
+    z-index: 1;
+}
 #footer {
     position: fixed;
     left: 0;
