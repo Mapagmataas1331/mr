@@ -45,11 +45,11 @@ a {
 }
 #nav p {
     color: var(--primary-text-color);
-    font-family: "Comic Sans MS", "Comic Sans";
+    font-family: Constantia, "Palatino Linotype", Palatino, Georgia, serif;
     text-shadow: -3px 2px 4px var(--third-color);
     font-weight: 300;
     height: 64px;
-    font-size: 32px;
+    font-size: 38px;
     margin: 8px 8px auto 4px;
     cursor: pointer;
 }
