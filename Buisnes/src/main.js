@@ -24,7 +24,7 @@ langBtn.addEventListener("click", () => {
 });
 
 const trans_arr = [
-    "RTB Buisnes", "ОНН Бизнес",
+    "Buisnes", "Бизнес",
     "Item 1", "Предмет 1",
     "Item 2", "Предмет 2",
     "Item 3", "Предмет 3",

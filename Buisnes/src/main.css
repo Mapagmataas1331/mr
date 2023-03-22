@@ -46,10 +46,11 @@ a {
 #nav p {
     color: var(--primary-text-color);
     font-family: "Comic Sans MS", "Comic Sans";
+    text-shadow: -3px 2px 4px var(--third-color);
     font-weight: 300;
     height: 64px;
     font-size: 32px;
-    margin: 8px 8px auto 0;
+    margin: 8px 8px auto 4px;
     cursor: pointer;
 }
 #nav a:hover p, #nav p:hover, i:hover{
@@ -60,8 +61,6 @@ a {
     margin: 7px 4px auto 8px;
     height: 48px;
     aspect-ratio: 1 / 1;
-    border-radius: 64px;
-    box-shadow: -3px 2px 4px var(--third-color);
 }
 #nav div {
     display: flex;
