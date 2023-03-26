@@ -183,13 +183,13 @@ p.spinner {
     font-size: 16px;
 }
 .container-wrapper:nth-of-type(3) .container:nth-child(1) {
-    background-color: #ffd700;
+    background-color: goldenrod;
 }
 .container-wrapper:nth-of-type(3) .container:nth-child(2) {
-    background-color: #046307;
+    background-color: darkgreen;
 }
 .container-wrapper:nth-of-type(3) .container:nth-child(3) {
-    background-color: black;
+    background-color: gray;
     background-image: url(./img/wood.png);
 }
 .container-wrapper:nth-of-type(4) .container:nth-child(1) {
