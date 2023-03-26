@@ -12,31 +12,46 @@ function RChange(el, after) {
     }, 250);
 };
 
+var tTimeOut = false;
 langBtn.addEventListener("click", () => {
-    if (langBtn.innerHTML == "Ru") {
-        RChange(langBtn, "En");
-    } else {
-        RChange(langBtn, "Ru");
-    }
-    langEls.forEach((e) => {
-        e.innerHTML = translate(langBtn.innerHTML, e.innerHTML);
-    });
+    if (!tTimeOut) {
+        tTimeOut = true;
+        if (langBtn.innerHTML == "Ru") {
+            RChange(langBtn, "En");
+        } else {
+            RChange(langBtn, "Ru");
+        }
+        langEls.forEach((e) => {
+            e.innerHTML = translate(langBtn.innerHTML, e.innerHTML);
+        });
+        setTimeout(() => {
+            tTimeOut = false;
+        }, 1000);
+    } else console.log("Timeout")
 });
 
 const trans_arr = [
-    "Novo-Buisnes", "Ново-Бизнес",
+    "Novo-Business", "Ново-Бизнес",
     "Item 1", "Предмет 1",
     "Item 2", "Предмет 2",
     "Item 3", "Предмет 3",
     "Item 4", "Предмет 4",
     "Item 5", "Предмет 5",
     "Item 6", "Предмет 6",
+    "Project", "Проект",
+    "Many many many many many many many many many many info about project.", "Много много много много много много много много много много инфы о проекте.",
     "Container 1", "Контейнер 1",
+    "Many many many many many many many many many many info about Container 1.", "Много много много много много много много много много много инфы о контейнере 1.",
     "Container 2", "Контейнер 2",
+    "Many many many many many many many many many many info about Container 2.", "Много много много много много много много много много много инфы о контейнере 2.",
     "Container 3", "Контейнер 3",
+    "Many many many many many many many many many many info about Container 3.", "Много много много много много много много много много много инфы о контейнере 3.",
     "Container 4", "Контейнер 4",
+    "Many many many many many many many many many many info about Container 4.", "Много много много много много много много много много много инфы о контейнере 4.",
     "Container 5", "Контейнер 5",
+    "Many many many many many many many many many many info about Container 5.", "Много много много много много много много много много много инфы о контейнере 5.",
     "Container 6", "Контейнер 6",
+    "Many many many many many many many many many many info about Container 6.", "Много много много много много много много много много много инфы о контейнере 6.",
 ];
 function translate(Lang, text) {
     if (Lang != "En") {
