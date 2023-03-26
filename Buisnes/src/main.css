@@ -168,7 +168,8 @@ p.spinner {
     transition: 500ms;
 }
 .container:hover {
-    box-shadow: 0px 8px 16px var(--third-color)
+    box-shadow: 0px 8px 16px var(--third-color);
+    margin-top: 3vw;
 }
 .container img {
     max-width: 100%;
@@ -180,6 +181,25 @@ p.spinner {
 }
 .container p {
     font-size: 16px;
+}
+.container-wrapper:nth-of-type(3) .container:nth-child(1) {
+    background-color: #ffd700;
+}
+.container-wrapper:nth-of-type(3) .container:nth-child(2) {
+    background-color: #046307;
+}
+.container-wrapper:nth-of-type(3) .container:nth-child(3) {
+    background-color: black;
+    background-image: url(./img/wood.png);
+}
+.container-wrapper:nth-of-type(4) .container:nth-child(1) {
+    background-color: midnightblue;
+}
+.container-wrapper:nth-of-type(4) .container:nth-child(2) {
+    background-color: purple;
+}
+.container-wrapper:nth-of-type(4) .container:nth-child(3) {
+    background-color: lightskyblue;
 }
 @media (max-width: 900px) {
     .container-wrapper {

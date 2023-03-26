@@ -55,15 +55,19 @@ const trans_arr = [
     "Many many many many many many many many many many info about Container 6.", "Много много много много много много много много много много инфы о контейнере 6.",
 ];
 function translate(Lang, text) {
+    var result;
     if (Lang != "En") {
         for (let i = 0; i < trans_arr.length - 1; i+=2) {
-            if (trans_arr[i] == text) return trans_arr[i+1];
+            if (trans_arr[i] == text) result = trans_arr[i+1];
         }
     } else {
         for (let i = 1; i < trans_arr.length; i+=2) {
-            if (trans_arr[i] == text) return trans_arr[i-1];
+            if (trans_arr[i] == text) result = trans_arr[i-1];
         }
     }
+    if (typeof result != 'undefined') {
+        return result;
+    } else return text;
 }
 
 const modeBtn = document.getElementById("mode-btn");
