@@ -31,6 +31,7 @@ langBtn.addEventListener("click", () => {
 });
 
 const trans_arr = [
+    "NB", "НБ",
     "Novo-Business", "Ново-Бизнес",
     "Item 1", "Предмет 1",
     "Item 2", "Предмет 2",
