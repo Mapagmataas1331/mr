@@ -12,7 +12,7 @@ body.light{
     --second-text-color: #404040;
     --third-color: #8c8c8c;
 }
-.noselect {
+.noselect, img {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
