@@ -26,6 +26,15 @@ const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 
+body.onload = function(){
+  canvas.style.zoom = 0.1;
+  sItem.style.zoom = 0.1;
+  setTimeout(() => {
+    canvas.style.zoom = zoom;
+    sItem.style.zoom = zoom;
+  }, 100);
+};
+
 // Запись текущего положения мыши на Canvas'е и Экране,
 // Подсчет отступов учитывая zoom и положение мыши,
 // И одномоментное перемещение Select'а.
