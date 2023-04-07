@@ -41,7 +41,7 @@ langBtn.addEventListener("click", () => {
 });
 
 const trans_arr = [
-  "Author", "Автор",
+  "Pixel", "Пиксель",
   "Item 2", "Предмет 2",
   "Item 3", "Предмет 3",
   "Item 4", "Предмет 4",
