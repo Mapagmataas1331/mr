@@ -4,11 +4,11 @@ var cc = {x: 0, y: 0};
 var isDown = false;
 var zoom = 1;
 
-trans_arr += [
+trans_arr.push(
   "Pixel:", "Пиксель:",
   "Owner:", "Владелец:",
   "Menu", "Меню",
-];
+);
 
 const canvas = document.getElementById("canvas");
 const CANVAS_WIGHT = 1600;
