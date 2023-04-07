@@ -25,6 +25,7 @@ body {
     height: 64px;
     background-color: var(--second-color);
     color: var(--primary-text-color);
+    box-shadow: 0 0 4px var(--third-color);
     font-size: 36px;
     z-index: 100;
 }
