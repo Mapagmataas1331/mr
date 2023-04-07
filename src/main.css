@@ -103,7 +103,7 @@ p.spinner {
 }
 #dropdown-menu {
   z-index: 100;
-  position: absolute;
+  position: fixed;
   top: 64px;
   right: 0;
   min-width: 160px;
@@ -169,6 +169,19 @@ p.spinner {
   color: var(--second-text-color);
 }
 @media screen and (min-width: 0px) {
+  #nav {
+    height: 40px;
+  }
+  #nav p, #nav label, #nav select {
+    font-size: 22.5px;
+  }
+  #nav i {
+    font-size: 25px;
+    height: 25px;
+  }
+  #dropdown-menu {
+    top: 40px;
+  }
   #content {
     display: block;
   }
@@ -188,16 +201,6 @@ p.spinner {
   #content a:hover {
     font-size: 1.8em;
   }
-  #nav {
-    height: 40px;
-  }
-  #nav p, #nav label, #nav select {
-    font-size: 22.5px;
-  }
-  #nav i {
-    font-size: 25px;
-    height: 25px;
-  }
 }
 @media screen and (min-width: 480px) {
   #nav {
@@ -209,6 +212,9 @@ p.spinner {
   #nav i {
     font-size: 40px;
     height: 40px;
+  }
+  #dropdown-menu {
+    top: 64px;
   }
 }
 @media screen and (min-width: 750px) {
