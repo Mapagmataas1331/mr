@@ -19,7 +19,7 @@ body {
   position: absolute;
   display: none;
   width: 10px;
-  aspect-ratio: 1;
+  height: 10px;
   border: 2px solid black;
   z-index: 50;
 }
