@@ -37,3 +37,15 @@ body {
     margin-left: 8px;
     font-family: initial;
 }
+@media screen and (min-width: 0px) {
+  #footer {
+    height: 32px;
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 800px) {
+  #footer {
+    height: 64px;
+    font-size: 36px;
+  }
+}
