@@ -17,6 +17,7 @@ body {
     z-index: 50;
 }
 #footer {
+    display: flex;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -27,7 +28,11 @@ body {
     font-size: 36px;
     z-index: 100;
 }
-#footer p {
+#footer div {
+    display: flex;
+    margin: auto;
+}
+#footer div p:not(:first-child) {
+    margin-left: 8px;
     font-family: initial;
-    margin: 10px 0 auto 10px;
 }

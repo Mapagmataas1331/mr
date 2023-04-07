@@ -33,7 +33,7 @@ canvas.addEventListener('mousedown', (e) => {
         y: Math.round(e.layerY / zoom)
     };
     console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
-    pCoords.innerHTML = "Pixel: " + Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
+    pCoords.innerHTML = Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
     sItem.style.display = "block";
     sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
     sItem.style.top  = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
