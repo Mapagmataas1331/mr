@@ -36,11 +36,11 @@ body.onload = function(){
 };
 
 // Перевод touch эвента в mouse
-function touchHandler(event) {
-  var touches = event.changedTouches,
+function touchHandler(e) {
+  var touches = e.changedTouches,
     first = touches[0],
     type = "";
-  switch(event.type) {
+  switch(e.type) {
     case "touchstart": type = "mousedown"; break;
     case "touchmove":  type = "mousemove"; break;        
     case "touchend":   type = "mouseup";   break;
@@ -55,11 +55,11 @@ function touchHandler(event) {
                                 first.clientX, first.clientY, false, 
                                 false, false, false, 0/*left*/, null);
   first.target.dispatchEvent(simulatedEvent);
-  event.preventDefault();
+  e.preventDefault();
 }
 
 canvas.addEventListener("touchstart", touchHandler, true);
-document.addEventListener("touchmove", touchHandler, true);
+canvas.addEventListener("touchmove", touchHandler, true);
 canvas.addEventListener("touchend", touchHandler, true);
 canvas.addEventListener("touchcancel", touchHandler, true);
 
@@ -68,6 +68,10 @@ canvas.addEventListener("touchcancel", touchHandler, true);
 // И одномоментное перемещение Select'а.
 canvas.addEventListener('mousedown', (e) => {
   isDown = true;
+  mousePosition = {
+    x: e.clientX,
+    y: e.clientY
+  };
   offset = [
     canvas.offsetLeft - e.clientX,
     canvas.offsetTop - e.clientY
@@ -87,7 +91,6 @@ document.addEventListener('mouseup', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
 canvas.addEventListener('mousemove', (e) => {
-  e.preventDefault();
   mousePosition = {
     x: e.clientX,
     y: e.clientY
@@ -98,10 +101,11 @@ canvas.addEventListener('mousemove', (e) => {
     sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
     sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
   }
+  e.preventDefault();
 }, true);
 
 // Zoom Canvas'а и Select'а.
-canvas.onwheel = (e) => {
+canvas.onwheel = sItem.onwheel = (e) => {
   e.preventDefault();
   if (e.deltaY < 0) {
     zoom += 0.1;
