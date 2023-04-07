@@ -3,9 +3,9 @@ const path = require('path');
 module.exports = {
     mode: 'production',
     devtool: 'eval-source-map',
-    entry: './main.js',
+    entry: './REStamle_main.js',
     output: {
-        path: path.resolve(__dirname, '../'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, './'),
+        filename: 'REStamle_bundle.js'
     }
 };
