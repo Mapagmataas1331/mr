@@ -20,8 +20,8 @@ body {
   display: flex;
   position: fixed;
   left: 0;
-  bottom: 0;
-  width: 100%;
+  top: calc(100vh - 64px);
+  width: 100vw;
   height: 64px;
   background-color: var(--second-color);
   color: var(--primary-text-color);
@@ -43,12 +43,14 @@ body {
 @media screen and (min-width: 0px) {
   #footer {
     height: 40px;
+    top: calc(100vh - 40px);
     font-size: 16px;
   }
 }
 @media screen and (min-width: 800px) {
   #footer {
     height: 64px;
+    top: calc(100vh - 64px);
     font-size: 36px;
   }
 }
