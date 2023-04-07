@@ -27,7 +27,7 @@ body {
   display: flex;
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: calc(100vh - 128px);
   width: 100vw;
   height: 64px;
   background-color: var(--second-color);
@@ -50,14 +50,14 @@ body {
 @media screen and (min-width: 0px) {
   #footer {
     height: 40px;
-    top: calc(100vh - 40px);
+    top: calc(100vh - 80px);
     font-size: 16px;
   }
 }
 @media screen and (min-width: 800px) {
   #footer {
     height: 64px;
-    top: calc(100vh - 64px);
+    top: calc(100vh - 128px);
     font-size: 36px;
   }
 }
