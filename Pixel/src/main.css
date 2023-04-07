@@ -1,41 +1,44 @@
 body {
-    overflow-y: hidden;
+  overflow-y: hidden;
 }
 #canvas {
-    position: absolute;
-    background-image: url("bg.png");
-    left: calc(50vw - var(--CANVAS_WIGHT) / 2);
-    top: calc(50vh - 24px - var(--CANVAS_HEIGHT) / 2);
-    image-rendering: pixelated;
+  position: absolute;
+  background-image: url("bg.png");
+  left: calc(50vw - var(--CANVAS_WIGHT) / 2);
+  top: calc(50vh - 24px - var(--CANVAS_HEIGHT) / 2);
+  image-rendering: pixelated;
 }
 #selected_item {
-    position: absolute;
-    display: none;
-    width: 10px;
-    aspect-ratio: 1;
-    border: 2px solid black;
-    z-index: 50;
+  position: absolute;
+  display: none;
+  width: 10px;
+  aspect-ratio: 1;
+  border: 2px solid black;
+  z-index: 50;
 }
 #footer {
-    display: flex;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 64px;
-    background-color: var(--second-color);
-    color: var(--primary-text-color);
-    box-shadow: 0 0 4px var(--third-color);
-    font-size: 36px;
-    z-index: 100;
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 64px;
+  background-color: var(--second-color);
+  color: var(--primary-text-color);
+  box-shadow: 0 0 4px var(--third-color);
+  font-size: 36px;
+  z-index: 100;
 }
 #footer div {
-    display: flex;
-    margin: auto;
+  display: flex;
+  margin: auto;
+}
+#footer p {
+  cursor: default;
 }
 #footer div p:not(:first-child) {
-    margin-left: 8px;
-    font-family: initial;
+  margin-left: 8px;
+  font-family: initial;
 }
 @media screen and (min-width: 0px) {
   #footer {

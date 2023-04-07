@@ -40,7 +40,7 @@ langBtn.addEventListener("click", () => {
   } else console.log("Timeout")
 });
 
-const trans_arr = [
+var trans_arr = [
   "Pixel", "Пиксель",
   "Item 2", "Предмет 2",
   "Item 3", "Предмет 3",
