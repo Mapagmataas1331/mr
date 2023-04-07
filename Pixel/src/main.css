@@ -1,8 +1,5 @@
 body {
-    padding: 0;
-    margin: 0;
     overflow-y: hidden;
-    overflow-x: hidden;
 }
 #canvas {
     position: absolute;
@@ -17,19 +14,20 @@ body {
     width: 10px;
     aspect-ratio: 1;
     border: 2px solid black;
-    z-index: 1;
+    z-index: 50;
 }
 #footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100vw;
-    height: 48px;
-
-    background-color: #808080;
-    color: #f2f2f2;
-    font-size: 24px;
+    height: 64px;
+    background-color: var(--second-color);
+    color: var(--primary-text-color);
+    font-size: 36px;
+    z-index: 100;
 }
 #footer p {
-    margin: 12px 0 0 8px;
+    font-family: initial;
+    margin: 10px 0 auto 10px;
 }
