@@ -35,6 +35,34 @@ body.onload = function(){
   }, 100);
 };
 
+// Перевод touch эвента в mouse
+function touchHandler(event) {
+  var touches = event.changedTouches,
+    first = touches[0],
+    type = "";
+  switch(event.type) {
+    case "touchstart": type = "mousedown"; break;
+    case "touchmove":  type = "mousemove"; break;        
+    case "touchend":   type = "mouseup";   break;
+    default:           return;
+  }
+// initMouseEvent(type, canBubble, cancelable, view, clickCount, 
+//                screenX, screenY, clientX, clientY, ctrlKey, 
+//                altKey, shiftKey, metaKey, button, relatedTarget);
+  var simulatedEvent = document.createEvent("MouseEvent");
+  simulatedEvent.initMouseEvent(type, true, true, window, 1, 
+                                first.screenX, first.screenY, 
+                                first.clientX, first.clientY, false, 
+                                false, false, false, 0/*left*/, null);
+  first.target.dispatchEvent(simulatedEvent);
+  event.preventDefault();
+}
+
+canvas.addEventListener("touchstart", touchHandler, true);
+document.addEventListener("touchmove", touchHandler, true);
+canvas.addEventListener("touchend", touchHandler, true);
+canvas.addEventListener("touchcancel", touchHandler, true);
+
 // Запись текущего положения мыши на Canvas'е и Экране,
 // Подсчет отступов учитывая zoom и положение мыши,
 // И одномоментное перемещение Select'а.
@@ -54,13 +82,8 @@ canvas.addEventListener('mousedown', (e) => {
   sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
   sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
 }, true);
-document.addEventListener('ontouchstart',  (e) => {
-  alert("touch")
-  pOwner.innerHTML = e.clientX + " : " + e.clientY;
-}, true);
 
 document.addEventListener('mouseup', () => { isDown = false; }, true);
-document.addEventListener('ontouchend', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
 canvas.addEventListener('mousemove', (e) => {
@@ -75,9 +98,6 @@ canvas.addEventListener('mousemove', (e) => {
     sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
     sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
   }
-}, true);
-document.addEventListener('ontouchmove', (e) => {
-  pOwner.innerHTML = e.clientX + " : " + e.clientY;
 }, true);
 
 // Zoom Canvas'а и Select'а.
