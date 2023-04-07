@@ -42,6 +42,19 @@
   </ul>
   <title>mr.Pixel</title>
 
+  <div id="dev-pan">
+    <div>
+      <p>fix footer offset</p>
+      <p>(24 - default for small screen)</p>
+      <div>
+        <p onclick="fixFooterOffset(0)" style="color: greenyellow;">/\</p>
+        <p onclick="fixFooterOffset(1)" style="color: greenyellow;">\/</p>
+        <p id="footer-offset-info">now: 0</p>
+      </div>
+    </div>
+    <p onclick="fixCanvas()" style="color: greenyellow;">fix canvas/ui</p>
+  </div>
+
   <canvas id="canvas"></canvas>
   <div id="selected_item"></div>
   <div id="footer">

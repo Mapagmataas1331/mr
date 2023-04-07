@@ -50,14 +50,29 @@ body {
 @media screen and (min-width: 0px) {
   #footer {
     height: 40px;
-    top: calc(100vh - 80px);
+    top: calc(100vh - 40px);
     font-size: 16px;
   }
 }
 @media screen and (min-width: 800px) {
   #footer {
     height: 64px;
-    top: calc(100vh - 128px);
+    top: calc(100vh - 64px);
     font-size: 36px;
   }
+}
+
+#dev-pan {
+  position: fixed;
+  top: 72px;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 300;
+  text-align: center;
+}
+#dev-pan div div {
+  display: flex;
+}
+#dev-pan div div p{
+  margin: 8px auto 16px auto;
 }

@@ -26,14 +26,25 @@ const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 
-body.onload = function(){
+// window.addEventListener("load", fixCanvas, false);
+
+function fixCanvas() {
   canvas.style.zoom = 0.1;
   sItem.style.zoom = 0.1;
   setTimeout(() => {
     canvas.style.zoom = zoom;
     sItem.style.zoom = zoom;
   }, 100);
-};
+}
+
+var footerOffset = 64;
+function fixFooterOffset(bool) {
+  if (bool == 0) {
+    footerOffset += 4
+  } else footerOffset -= 4
+  document.getElementById("footer").style.top = "calc(100vh - " + footerOffset + "px)";
+  document.getElementById("footer-offset-info").innerHTML = "now: " + (64 - footerOffset);
+}
 
 // Перевод touch эвента в mouse
 function touchHandler(e) {
