@@ -21,7 +21,7 @@ body {
   display: flex;
   position: fixed;
   left: 0;
-  top: calc(100vh - 64px);
+  bottom: 0;
   width: 100vw;
   height: 64px;
   background-color: var(--second-color);
