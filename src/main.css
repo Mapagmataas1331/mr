@@ -188,6 +188,28 @@ p.spinner {
   #content a:hover {
     font-size: 1.8em;
   }
+  #nav {
+    height: 40px;
+  }
+  #nav p, #nav label, #nav select {
+    font-size: 22.5px;
+  }
+  #nav i {
+    font-size: 25px;
+    height: 25px;
+  }
+}
+@media screen and (min-width: 480px) {
+  #nav {
+    height: 64px;
+  }
+  #nav p, #nav label, #nav select {
+    font-size: 36px;
+  }
+  #nav i {
+    font-size: 40px;
+    height: 40px;
+  }
 }
 @media screen and (min-width: 750px) {
   #content {

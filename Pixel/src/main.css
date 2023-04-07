@@ -39,8 +39,8 @@ body {
 }
 @media screen and (min-width: 0px) {
   #footer {
-    height: 32px;
-    font-size: 18px;
+    height: 40px;
+    font-size: 20px;
   }
 }
 @media screen and (min-width: 800px) {
