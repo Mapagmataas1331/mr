@@ -23,14 +23,13 @@ ctx.canvas.width = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
 
 const sItem = document.getElementById("selected_item");
-const pCoords = document.getElementById("coords")
+const pCoords = document.getElementById("coords");
+const pOwner = document.getElementById("owner");
 
 // Запись текущего положения мыши на Canvas'е и Экране,
 // Подсчет отступов учитывая zoom и положение мыши,
 // И одномоментное перемещение Select'а.
-canvas.addEventListener('mousedown', cDown, true);
-canvas.addEventListener('ontouchstart', cDown, true);
-function cDown(e) {
+canvas.addEventListener('mousedown', (e) => {
   isDown = true;
   offset = [
     canvas.offsetLeft - e.clientX,
@@ -45,15 +44,17 @@ function cDown(e) {
   sItem.style.display = "block";
   sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
   sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
-}
+}, true);
+document.addEventListener('ontouchstart',  (e) => {
+  alert("touch")
+  pOwner.innerHTML = e.clientX + " : " + e.clientY;
+}, true);
 
 document.addEventListener('mouseup', () => { isDown = false; }, true);
 document.addEventListener('ontouchend', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
-document.addEventListener('mousemove', cMove, true);
-document.addEventListener('ontouchmove', cMove, true);
-function cMove(e) {
+canvas.addEventListener('mousemove', (e) => {
   e.preventDefault();
   mousePosition = {
     x: e.clientX,
@@ -65,7 +66,10 @@ function cMove(e) {
     sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
     sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
   }
-}
+}, true);
+document.addEventListener('ontouchmove', (e) => {
+  pOwner.innerHTML = e.clientX + " : " + e.clientY;
+}, true);
 
 // Zoom Canvas'а и Select'а.
 canvas.onwheel = (e) => {
