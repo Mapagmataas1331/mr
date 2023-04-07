@@ -1,96 +1,56 @@
-<!doctype html>
-<html lang="ru-ru">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>WEBTEST</title>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="mrkaksi, Mapagmataas">
-    <meta name="description" content="Mapagmataas' projects">
-    <meta name="author" content="Mapagmataas">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Mapagmataas1331/website/main/src/img/icon/512.png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="Mapagmataas">
+  <meta name="description" content="ma_dot">
+  <meta name="keywords" content="m, ma, ma., ma_dot, madot, mapagmataas, makak, makaksi, mr, mrkaksi">
+
+  <link rel="icon" type="image/png" href="src/img/icon.png">
+  <link rel="stylesheet" href="src/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-<style>
-    body {
-        margin: 0;
-        background-color: #1c1c1c;
-    }
-    div {
-        display: flex;
-        width: calc(100% - 6vw - 6px);
-        height: calc(100vh - 6vw - 6px);
-        margin: 3vw;
-        border: 3px solid #000;
-        background-color: #f2f2f2;
-    }
-    ul {
-        margin: auto 0 auto 0;
-        padding: 0;
-        display: block;
-        width: 50%;
-        user-select: none;
-        text-align: center;
-        list-style-type: none;
-        line-height: calc((100vh - 6vw - 3px) / 6);
-    }
-    a {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 2em;
-        text-decoration: none;
-        color: #1c1c1c;
-        white-space: nowrap;
-    }
-    a:hover {
-        font-size: 2.5em;
-        color: #000;
-    }
-@media screen and (min-width: 0px) {
-    div {
-        display: block;
-        width: calc(100% - 6vw - 3px);
-        height: calc(100vh - 6vw - 3px);
-        border: 1.5px solid #000;
-    }
-    ul {
-        width: 100%;
-        height: 50%;
-    }
-    a {
-        font-size: 1.5em;
-    }
-    a:hover {
-        font-size: 1.8em;
-    }
-}
-@media screen and (min-width: 750px) {
-    div {
-        display: flex;
-        width: calc(100% - 6vw - 6px);
-        height: calc(100vh - 6vw - 6px);
-        border: 3px solid #000;
-    }
-    ul {
-        width: 50%;
-        height: initial;
-    }
-    a {
-        font-size: 2em;
-    }
-    a:hover {
-        font-size: 2.5em;
-    }
-}
-</style>
 <body>
+  <div id="nav" class="noselect">
+    <form id="exp">
+      <label for="exp">mr.</label>
+      <select id="exp-sel" name="exp">
+        <option value="index">in</option>
+        <option value="Pixel">pixel</option>
+        <option value="index">in</option>
+        <option value="index">in</option>
+      </select>
+     </form>
     <div>
-        <ul>
-            <li><a href="https://ma.kak.si">Author's website</a></li>
-            <li><a href="Pixel/index.html">Pixel-batia</a></li>
-            <li><a href="REStable/index.html">Resourse Table</a></li>
-        </ul><ul>
-            <li><a href="Game/index.html">Game</a></li>
-            <li><a href="VideoSIZE/index.html">VideoSIZE</a></li>
-            <li><a href="Buisnes/index.html">Buisnes</a></li>
-        </ul>
+      <p id="lang-btn" class="spinner">Ru</p>
+      <i id="mode-btn" class="material-icons spinner">light_mode</i>
+      <i id="menu-btn" class="material-icons spinner">menu</i>
     </div>
+  </div>
+  <ul id="dropdown-menu" style="display: none;" class="noselect">
+    <li class="dropdown-item" onclick="hrefTo('Pixel')" data-translate>pixel</li>
+    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 2</li>
+    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 3</li>
+    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 4</li>
+    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 5</li>
+    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 6</li>
+  </ul>
+  <title>mr.in</title>
+  <div id="content">
+    <ul>
+        <li><a href="https://ma.kak.si">Author's website</a></li>
+        <li><a href="Pixel">Pixel-batia</a></li>
+        <li><a href="REStable">Resourse Table</a></li>
+    </ul><ul>
+        <li><a href="Game">Game</a></li>
+        <li><a href="VideoSIZE">VideoSIZE</a></li>
+        <li><a href="Buisnes">Buisnes</a></li>
+    </ul>
+  </div>
+  <script src="src/bundle.js"></script>
+  <script src="src/main.js"></script>
 </body>
 </html>
