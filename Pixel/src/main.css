@@ -14,6 +14,7 @@ body {
   left: calc(50vw - var(--CANVAS_WIGHT) / 2);
   top: calc(50vh - 24px - var(--CANVAS_HEIGHT) / 2);
   image-rendering: pixelated;
+  transition: none;
 }
 #selected_item {
   position: absolute;
@@ -22,6 +23,7 @@ body {
   height: 10px;
   border: 2px solid var(--third-color);
   z-index: 50;
+  transition: none;
 }
 #footer {
   display: flex;
@@ -35,6 +37,7 @@ body {
   box-shadow: -3px 2px 4px var(--third-color);
   font-size: 36px;
   z-index: 100;
+  transition: none;
 }
 #footer div {
   display: flex;
