@@ -81,7 +81,7 @@ canvas.addEventListener("touchcancel", touchHandler, true);
 // Запись текущего положения мыши на Canvas'е и Экране,
 // Подсчет отступов учитывая zoom и положение мыши,
 // И одномоментное перемещение Select'а.
-canvas.addEventListener('mousedown', (e) => {
+document.addEventListener('mousedown', (e) => {
   isDown = true;
   mousePosition = {
     x: e.clientX,
@@ -95,17 +95,22 @@ canvas.addEventListener('mousedown', (e) => {
     x: Math.round(e.layerX / zoom),
     y: Math.round(e.layerY / zoom)
   };
-  console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
-  pCoords.innerHTML = Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
-  sItem.style.display = "block";
-  sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
-  sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
+  if (canvas.contains(e.target)) {
+    console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
+    pCoords.innerHTML = Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
+    sItem.style.display = "block";
+    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
+    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
+  } else {
+    pCoords.innerHTML = "0 0";
+    sItem.style.display = "none";
+  }
 }, true);
 
 document.addEventListener('mouseup', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
-canvas.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', (e) => {
   mousePosition = {
     x: e.clientX,
     y: e.clientY
@@ -113,8 +118,10 @@ canvas.addEventListener('mousemove', (e) => {
   if (isDown) {
     canvas.style.left = (mousePosition.x + offset[0]) + 'px';
     canvas.style.top = (mousePosition.y + offset[1]) + 'px';
-    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
-    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
+    // if (canvas.contains(e.target)) {
+      sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
+      sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
+    // } else sItem.style.display = "none";
   }
   e.preventDefault();
 }, true);
@@ -133,15 +140,8 @@ canvas.onwheel = sItem.onwheel = (e) => {
   };
 };
 
-// Скрытие Select'а по клику вне canvas'а.
-// document.body.addEventListener('click', (e) => {  
-//   if (!canvas.contains(e.target)){
-//     sItem.style.display = "none";
-//   }
-// });
-
 // Сохранение Canvas'а.
-pCoords.onclick = () => {
+pOwner.onclick = () => {
   const link = document.createElement('a');
   link.download = 'canvas.png';
   link.href = canvas.toDataURL();
