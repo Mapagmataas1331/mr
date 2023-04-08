@@ -102,7 +102,7 @@ document.addEventListener('mousedown', (e) => {
     sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
     sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
   } else {
-    pCoords.innerHTML = "0 0";
+    pCoords.innerHTML = "_ _";
     sItem.style.display = "none";
   }
 }, true);
@@ -118,10 +118,8 @@ document.addEventListener('mousemove', (e) => {
   if (isDown) {
     canvas.style.left = (mousePosition.x + offset[0]) + 'px';
     canvas.style.top = (mousePosition.y + offset[1]) + 'px';
-    // if (canvas.contains(e.target)) {
-      sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
-      sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
-    // } else sItem.style.display = "none";
+    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
+    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
   }
   e.preventDefault();
 }, true);

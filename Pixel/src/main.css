@@ -20,7 +20,7 @@ body {
   display: none;
   width: 10px;
   height: 10px;
-  border: 2px solid black;
+  border: 2px solid var(--third-color);
   z-index: 50;
 }
 #footer {
@@ -47,11 +47,34 @@ body {
   margin-left: 8px;
   font-family: initial;
 }
+
+#dev-pan {
+  position: fixed;
+  top: 63px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  z-index: 300;
+  text-align: center;
+}
+#dev-pan div div {
+  display: flex;
+}
+#dev-pan p {
+  padding: 4px;
+}
+#dev-pan div div p{
+  margin: 4px auto 8px auto;
+}
+
 @media screen and (min-width: 0px) {
   #footer {
     height: 40px;
     top: calc(100vh - 40px);
     font-size: 16px;
+  }
+  #dev-pan {
+    top: 39px;
   }
 }
 @media screen and (min-width: 800px) {
@@ -61,19 +84,8 @@ body {
     font-size: 36px;
   }
 }
-
-#dev-pan {
-  position: fixed;
-  top: 72px;
-  padding: 8px;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 24px;
-  z-index: 300;
-  text-align: center;
-}
-#dev-pan div div {
-  display: flex;
-}
-#dev-pan div div p{
-  margin: 8px auto 16px auto;
+@media screen and (min-width: 480px) {
+  #dev-pan {
+    top: 63px;
+  }
 }
