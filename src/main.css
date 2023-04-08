@@ -143,29 +143,36 @@ p.spinner {
 }
 
 #content {
+  text-align: center;
   position: absolute;
   top: 64px;
-  display: flex;
   width: calc(100% - 6vw);
   height: calc(100vh - 6vw - 64px);
   margin: 3vw;
   background-color: var(--second-color);
+  font-size: 32px;
+}
+#content div:not(:first-child) {
+  display: flex;
+}
+#content img {
+  height: 256px;
+  padding: 32px;
 }
 #content ul {
   margin: auto 0 auto 0;
   display: block;
   width: 50%;
-  text-align: center;
   list-style-type: none;
   line-height: calc((100vh - 6vw - 3px) / 16);
 }
 #content a {
-  font-size: 2em;
   color: var(--primary-text-color);
   white-space: nowrap;
+  font-size: 24px;
 }
 #content a:hover {
-  font-size: 2.5em;
+  font-size: 32px;
   color: var(--second-text-color);
 }
 @media screen and (min-width: 0px) {
@@ -182,7 +189,7 @@ p.spinner {
   #dropdown-menu {
     top: 40px;
   }
-  #content {
+  #content div:not(:first-child) {
     display: block;
   }
   #content ul {
@@ -196,10 +203,10 @@ p.spinner {
     margin: 0;
   }
   #content a {
-    font-size: 1.5em;
+    font-size: 18px;
   }
   #content a:hover {
-    font-size: 1.8em;
+    font-size: 24px;
   }
 }
 @media screen and (min-width: 480px) {
@@ -218,7 +225,7 @@ p.spinner {
   }
 }
 @media screen and (min-width: 750px) {
-  #content {
+  #content div:not(:first-child) {
     display: flex;
   }
   #content ul {
@@ -232,9 +239,9 @@ p.spinner {
     margin: 10% 0 auto 0;
   }
   #content a {
-    font-size: 2em;
+    font-size: 24px;
   }
   #content a:hover {
-    font-size: 2.5em;
+    font-size: 32px;
   }
 }
