@@ -26,7 +26,7 @@ const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 
-// window.addEventListener("load", fixCanvas, false);
+window.addEventListener("load", fixCanvas, false);
 
 function fixCanvas() {
   canvas.style.zoom = 0.1;
