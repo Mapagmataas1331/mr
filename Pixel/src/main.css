@@ -67,6 +67,7 @@ body {
   top: 72px;
   padding: 8px;
   background-color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
   z-index: 300;
   text-align: center;
 }
