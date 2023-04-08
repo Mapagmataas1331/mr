@@ -42,9 +42,9 @@
   </ul>
   <title>mr.Pixel</title>
 
-  <div id="dev-pan">
+  <div id="dev-pan" class="noselect">
     <div>
-      <p>fix footer offset</p>
+      <p style="color: #ffd9b3;">fix footer offset</p>
       <p onclick="fixFooterOffset(-24)" style="color: #ffb366;">-24 (small screen default)</p>
       <p onclick="fixFooterOffset(0)" style="color: #ffa64d;">0 (desktop default)</p>
       <p onclick="fixFooterOffset(32)" style="color: #ff9933;">32 (android phone)</p>
@@ -53,7 +53,7 @@
       <div>
         <p onclick="fixFooterOffset('up')" style="color: greenyellow;">/\</p>
         <p onclick="fixFooterOffset('dw')" style="color: orangered;">\/</p>
-        <p id="footer-offset-info">now: 0</p>
+        <p id="footer-offset-info" style="color: #ffd9b3;">now: 0</p>
       </div>
     </div>
     <p onclick="fixCanvas()" style="color: skyblue;">fix canvas/ui</p>
