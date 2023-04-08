@@ -95,7 +95,7 @@ document.addEventListener('mousedown', (e) => {
     x: Math.round(e.layerX / zoom),
     y: Math.round(e.layerY / zoom)
   };
-  if (canvas.contains(e.target)) {
+  if (canvas.contains(e.target) && cc.x > 0 && cc.x <= CANVAS_WIGHT && cc.y > 0 && cc.y <= CANVAS_HEIGHT) {
     console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
     pCoords.innerHTML = Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
     sItem.style.display = "block";
@@ -111,6 +111,7 @@ document.addEventListener('mouseup', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
 document.addEventListener('mousemove', (e) => {
+  if (document.getElementById("nav").contains(e.target) || document.getElementById("footer").contains(e.target)) return;
   mousePosition = {
     x: e.clientX,
     y: e.clientY
