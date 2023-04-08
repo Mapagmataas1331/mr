@@ -45,14 +45,18 @@
   <div id="dev-pan">
     <div>
       <p>fix footer offset</p>
-      <p>(24 - default for small screen)</p>
+      <p onclick="fixFooterOffset(-24)" style="color: orange;">-24 (default for small screen)</p>
+      <p onclick="fixFooterOffset(0)" style="color: orange;">0 (desktop default)</p>
+      <p onclick="fixFooterOffset(32)" style="color: orange;">32 (default for small screen)</p>
+      <p onclick="fixFooterOffset(64)" style="color: orange;">64 (default for small screen)</p>
+      <p onclick="fixFooterOffset(86)" style="color: orange;">86 (default for small screen)</p>
       <div>
-        <p onclick="fixFooterOffset(0)" style="color: greenyellow;">/\</p>
-        <p onclick="fixFooterOffset(1)" style="color: greenyellow;">\/</p>
+        <p onclick="fixFooterOffset('up')" style="color: greenyellow;">/\</p>
+        <p onclick="fixFooterOffset('dw')" style="color: orangered;">\/</p>
         <p id="footer-offset-info">now: 0</p>
       </div>
     </div>
-    <p onclick="fixCanvas()" style="color: greenyellow;">fix canvas/ui</p>
+    <p onclick="fixCanvas()" style="color: skyblue;">fix canvas/ui</p>
   </div>
 
   <canvas id="canvas"></canvas>

@@ -38,12 +38,16 @@ function fixCanvas() {
 }
 
 var footerOffset = 64;
-function fixFooterOffset(bool) {
-  if (bool == 0) {
-    footerOffset += 4
-  } else footerOffset -= 4
+function fixFooterOffset(v) {
+  if (v == "up") {
+    footerOffset += 4;
+  } else if (v == "dw") {
+    footerOffset -= 4;
+  } else {
+    footerOffset = 64 + v;
+  }
   document.getElementById("footer").style.top = "calc(100vh - " + footerOffset + "px)";
-  document.getElementById("footer-offset-info").innerHTML = "now: " + (64 - footerOffset);
+  document.getElementById("footer-offset-info").innerHTML = "now: " + -(64 - footerOffset);
 }
 
 // Перевод touch эвента в mouse
