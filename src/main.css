@@ -149,22 +149,32 @@ p.spinner {
   position: absolute;
   top: 64px;
   width: calc(100% - 6vw);
-  height: calc(100vh - 6vw - 64px);
   margin: 3vw;
   background-color: var(--second-color);
   font-size: 32px;
 }
-#content div:not(:first-child) {
+#content div {
   display: flex;
+}
+#content div div {
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+#content div div p {
+  color: var(--second-text-color);
+}
+#content div div:hover p {
+  color: var(--primary-text-color);
+  text-shadow: -6px 4px 8px var(--third-color);
 }
 #content img {
   height: 256px;
   padding: 32px;
 }
 #content ul {
-  margin: auto 0 auto 0;
+  margin: 64px 0 32px 0;
   display: block;
-  width: 50%;
   list-style-type: none;
   line-height: calc((100vh - 6vw - 3px) / 16);
 }
@@ -191,18 +201,11 @@ p.spinner {
   #dropdown-menu {
     top: 40px;
   }
-  #content div:not(:first-child) {
+  #content div {
     display: block;
   }
   #content ul {
     width: 100%;
-    height: 25%;
-  }
-  #content ul:first-child {
-    margin: 10% 0 0 0;
-  }
-  #content ul:not(:first-child) {
-    margin: 0;
   }
   #content a {
     font-size: 18px;
@@ -227,18 +230,11 @@ p.spinner {
   }
 }
 @media screen and (min-width: 750px) {
-  #content div:not(:first-child) {
+  #content div {
     display: flex;
   }
   #content ul {
     width: 50%;
-    height: initial;
-  }
-  #content ul:first-child {
-    margin: 10% 0 auto 0;
-  }
-  #content ul:not(:first-child) {
-    margin: 10% 0 auto 0;
   }
   #content a {
     font-size: 24px;
