@@ -6,62 +6,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="author" content="Mapagmataas">
-  <meta name="description" content="mr_dot">
-  <meta name="keywords" content="m, ma, ma., ma_dot, madot, mr, mr., mr_dot, mrdot, mapagmataas, makak, makaksi, mrkaksi">
+  <meta name="description" content="ma_dot">
+  <meta name="keywords" content="m, map, mapag, mapagmat, mapagmatas, mapagmataas, 1331, kak, si, kaksi, kak si, dot, 
+ma, ma., madot, ma dot, ma_dot, makak, ma kak, makaksi, ma kak si, ma.kak.si, 
+mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
 
-  <link rel="icon" type="image/png" href="src/img/mr-icon.png">
-  <link rel="stylesheet" href="src/main.css">
+  <link rel="icon" type="image/png" href="src/imgs/ma-icon.png">
+  <link rel="stylesheet" href="src/css/main.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+<title id="title">ma.</title>
 <body>
-  <div id="nav" class="noselect">
-    <form id="exp">
-      <label for="exp">mr.</label>
-      <select id="exp-sel" name="exp">
-        <option value="index">in</option>
-        <option value="Pixel">Pixel</option>
-        <option value="index">in</option>
-        <option value="index">in</option>
-      </select>
-     </form>
+  <div id="notification-zone"></div>
+  <div id="header" class="noselect">
     <div>
-      <p id="lang-btn" class="spinner">Ru</p>
-      <i id="mode-btn" class="material-icons spinner">light_mode</i>
-      <i id="menu-btn" class="material-icons spinner">menu</i>
+      <p>ma.</p>
+      <p id="current-page" class="link"></p>
+    </div>
+    <div>
+      <i class="material-icons spinner link">settings</i>
+    <!-- expand_circle_down -->
     </div>
   </div>
-  <ul id="dropdown-menu" style="display: none;" class="noselect">
-    <li class="dropdown-item" onclick="hrefTo('Pixel')" data-translate>Pixel</li>
-    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 2</li>
-    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 3</li>
-    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 4</li>
-    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 5</li>
-    <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 6</li>
-  </ul>
-  <title>mr.in</title>
-  <div id="content" class="noselect">
-    <div>
-      <div onclick="location.href = 'https://mr.kak.si'">
-        <img src="src/img/mr-icon.png" alt="mr-icon">
-        <p>mr.kak.si</p>
-      </div><div onclick="location.href = 'https://ma.kak.si'">
-        <img src="src/img/ma-icon.png" alt="ma-icon">
-        <p>ma.kak.si</p>
+  <div id="navigation" style="display: none;">
+    <div class="nav-item" id="in">
+      <p class="nav-item-title">index</p>
+      <p class="nav-item-description" data-translate>main page</p>
+    </div>
+    <div class="nav-item" id="author">
+      <p class="nav-item-title">author</p>
+      <p class="nav-item-description" data-translate>about author</p>
+    </div>
+    <div class="nav-item" id="acc">
+      <p class="nav-item-title">account</p>
+      <p class="nav-item-description" data-translate>your account</p>
+    </div>
+  </div>
+  <div id="settings-menu" class="noselect" style="display: none;">
+    <div class="settings-section">
+      <p class="settings-section-name" data-translate>General Settings</p>
+      <div class="setting">
+        <p id="theme" class="setting-name" data-translate>Theme:</p>
+        <p id="dark" class="setting-param current" data-translate>Dark</p>
+        <p id="light" class="setting-param" data-translate>Light</p>
+        <p id="purple" class="setting-param" data-translate>Purple</p>
+        <p id="ocean" class="setting-param" data-translate>Ocean</p>
+      </div>
+      <div class="setting">
+        <p id="lang" class="setting-name" data-translate>Language:</p>
+        <p id="en" class="setting-param current" data-translate>English</p>
+        <p id="ru" class="setting-param" data-translate>Russian</p>
       </div>
     </div>
-    <div>
-      <ul>
-          <li><a href="Novocoin">Novocoin</a></li>
-          <li><a href="Pixel">Pixel-batia</a></li>
-          <li><a href="REStable">Resourse Table</a></li>
-      </ul><ul>
-          <li><a href="Game">Game</a></li>
-          <li><a href="VideoSIZE">VideoSIZE</a></li>
-          <li><a href="Buisnes">Buisnes</a></li>
-      </ul>
+    <div class="settings-section">
+      <p class="settings-section-name" data-translate>Report a problem:</p>
+      <div class="setting">
+        <form action="javascript:;" onsubmit="sendReport(msg.value);">
+          <i class="material-icons spinner">report</i>
+          <input type="text" name="msg" id="msg" placeholder="Your message" maxlength="100" required>
+        </form>
+      </div>
     </div>
   </div>
-  <script src="src/main.js"></script>
-  <script src="src/bundle.js"></script>
+
+  <div id="content">
+    <p style="font-size: 50vw; text-align: center;">ind</p>
+  </div>
+
+  <link rel="stylesheet" href="src/css/index.css">
+  <script src="src/js/main.js"></script>
 </body>
 </html>
