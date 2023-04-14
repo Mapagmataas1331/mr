@@ -19,7 +19,9 @@ var page = getPage();
 const langEls = document.querySelectorAll('[data-translate]');
 window.trans_arr = [
   "main page", "главная страница",
-  "about author", "об авторе",
+  "novocoin", "новокоин",
+  "pixel", "пиксель",
+  "resourse table", "ресурсная таблица",
   "your account", "ваш аккаунт",
   "General Settings", "Основные Настройки",
   "Theme:", "Тема:",
@@ -172,10 +174,12 @@ function getPage() {
   var page = String(document.location.pathname.split("/").slice(-1));
   if (page == "" || page.slice(0, 3) == "ind") {
     page = "in";
-  } else if (page.slice(0, 3) == "acc") {
-    page = "acc";
-  } else if (page.slice(0, 3) == "aut") {
-    page = "author";
+  } else if (page.slice(0, 3) == "nov") {
+    page = "coin";
+  } else if (page.slice(0, 3) == "pix") {
+    page = "pixel";
+  } else if (page.slice(0, 3) == "res") {
+    page = "rest";
   } else {
     hrefTo("/");
     return;
@@ -213,7 +217,9 @@ document.getElementById("navigation").addEventListener("mouseleave", () => {
   document.getElementById(page).style.backgroundColor = "var(--third-color)";
 }, false);
 addEventListenerList(document.querySelectorAll(".nav-item"), "click", (e) => {
-  hrefTo("/" + e.target.parentElement.firstElementChild.innerHTML);
+  if (e.target.parentElement.firstElementChild.innerHTML == "account") {
+    hrefTo("https://ma.kak.si/account");
+  } else hrefTo("/" + e.target.parentElement.firstElementChild.innerHTML);
 });
 
 addEventListenerList(document.querySelectorAll(".setting-param"), "click", (e) => {
