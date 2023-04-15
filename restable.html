@@ -78,7 +78,826 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
   </div>
 
   <div id="content">
-    <p style="font-size: 50vw; text-align: center;">ind</p>
+    
+    <div class="head">
+      <h3 class="title"></h3>
+      <div class="switch-box" onclick="check()"><label class="switch">
+          <input id="check" type="checkbox" checked>
+          <span class="slider round"></span>
+      </label><p>Авто-сохр</p></div>
+      <button class="logreg-btn" onclick="logregmenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6
+              4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+          </svg>
+      </button>
+  </div>
+  <div id="topui">
+      <form action="javascript:;" onsubmit="logreg(this.uname.value, this.upass.value)">
+          <div id="logreg">
+              <label for="uname"><b>Имя пользователя:</b></label>
+              <input type="text" placeholder="Введите имя" name="uname" id="uname" required>
+              <label for="upass"><b>Пароль: (Для просмотра не нужен)</b></label>
+              <input type="password" placeholder="Введите пароль" name="upass" id="upass">
+              <button>Войти</button>
+              <div id="tb-1"><p style="display: none;">Таблица Хочу:</p></div>
+              <div id="tb-2"><p style="display: none;">Таблица Могу:</p></div>
+          </div>
+      </form>
+      <form action="javascript:;" onsubmit="srchMenu(this.keys.value)">
+          <div id="srch">
+              <label for="keys"><b id="kWLabel">Ключевые слова для поля ___:</b></label>
+              <input type="text" id="kWInput" placeholder="Введите ключевые слова через запятую" name="keys" id="keys" required>
+              <button>Отправить</button>
+          </div>
+      </form>
+  </div>
+  <div class="name">
+      <h3>Ресурсы проекта "<span class="input" role="textbox" id="name" contenteditable onkeypress="sendName(event)"></span>"</h3>
+  </div>
+  <div id="tb-choose">
+      <button onclick="showTable(1)">Хочу</button>
+      <button onclick="showTable(2)">Могу</button>
+  </div>
+  <form id="table-1" action="javascript:;" onsubmit="sendValues(1)">
+      <table>
+          <tr>
+              <th class="col_0">Вид ресурса</th>
+              <th class="col_1">Подвид ресурса</th>
+              <th class="col_2">Запрашиваемые ресурсы (подробно и конкретно)</th>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
+              <td class="col_2"><textarea id="0" name="0" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch0" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Маркетинг и упаковка проекта</td>
+              <td class="col_2"><textarea id="1" name="1" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch1" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">PR, реклама и продвижение</td>
+              <td class="col_2"><textarea id="2" name="2" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch2" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Наставничество, экспертиза и консалтинг</td>
+              <td class="col_2"><textarea id="3" name="3" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch3" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
+              <td class="col_2"><textarea id="4" name="4" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch4" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
+              <td class="col_2"><textarea id="5" name="5" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch5" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Усиление идеи/проекта (как с меньшими ресурсами сделать более глобальный проект)</td>
+              <td class="col_2"><textarea id="6" name="6" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch6" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Масштабирование бизнеса (франшиза и пр.)</td>
+              <td class="col_2"><textarea id="7" name="7" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch7" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Творческие услуги (написать песню, картину, книгу, сделать шоу, памятник и т.д.)</td>
+              <td class="col_2"><textarea id="8" name="8" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch8" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Производство видеороликов</td>
+              <td class="col_2"><textarea id="9" name="9" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch9" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">IT-услуги</td>
+              <td class="col_2"><textarea id="10" name="10" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch10" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Научно-исследовательские услуги</td>
+              <td class="col_2"><textarea id="11" name="11" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch11" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Инженерно-конструкторские услуги</td>
+              <td class="col_2"><textarea id="12" name="12" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch12" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Транспортные услуги</td>
+              <td class="col_2"><textarea id="13" name="13" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch13" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Кадровые услуги</td>
+              <td class="col_2"><textarea id="14" name="14" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch14" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Бухгалтерские и финансовые услуги</td>
+              <td class="col_2"><textarea id="15" name="15" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch15" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Юридические услуги</td>
+              <td class="col_2"><textarea id="16" name="16" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch16" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">1. Услуги, компетенции, умения и навыки</td>
+              <td class="col_1">Заполнение заявок на гранты и выигрыш грантов </td>
+              <td class="col_2"><textarea id="17" name="17" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch17" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Специалист по тендерам</td>
+              <td class="col_2"><textarea id="18" name="18" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch18" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Сертификация</td>
+              <td class="col_2"><textarea id="19" name="19" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch19" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Патентование</td>
+              <td class="col_2"><textarea id="20" name="20" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch20" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Услуги перевода</td>
+              <td class="col_2"><textarea id="21" name="21" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch21" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Ассистент-секретарь (текучка, заполнение документов, отчётов и т.д.)</td>
+              <td class="col_2"><textarea id="22" name="22" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch22" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Организация мероприятий</td>
+              <td class="col_2"><textarea id="23" name="23" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch23" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Оптимизация и увеличение эффективности</td>
+              <td class="col_2"><textarea id="24" name="24" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch24" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Дизайнерские услуги</td>
+              <td class="col_2"><textarea id="25" name="25" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch25" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Типографские услуги</td>
+              <td class="col_2"><textarea id="26" name="26" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch26" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Охранные услуги по обеспечению безопасности</td>
+              <td class="col_2"><textarea id="27" name="27" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch27" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Методологически-образовательные услуги (разработка рабочих программ, методичек, проведение тренингов и пр.)</td>
+              <td class="col_2"><textarea id="28" name="28" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch28" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Гениальность (выход за пределы ограничений)</td>
+              <td class="col_2"><textarea id="29" name="29" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch29" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Работа с информацией (сбор, анализ, систематизация, предоставление в удобной форме и др.)</td>
+              <td class="col_2"><textarea id="30" name="30" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch30" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Услуги рабочих специальностей (слесарь, каменщик, сварщик, водитель и т.д)</td>
+              <td class="col_2"><textarea id="31" name="31" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch31" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Необычные услуги: привлечение удачи, везение, «энергетика», волшебство и чудеса</td>
+              <td class="col_2"><textarea id="32" name="32" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch32" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Моя уникальность и субъектность. Мои увлечения и хобби. Всё, чем интересуюсь и чем горжусь</td>
+              <td class="col_2"><textarea id="33" name="33" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch33" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Другое. Что-то типа: «А вот ещё я хочу!»</td>
+              <td class="col_2"><textarea id="34" name="34" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch34" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">Аренда (офис, склад, причал, ж/д тупик,..)</td>
+              <td class="col_2"><textarea id="35" name="35" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch35" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Сырьё, материалы, комплектующие и пр.</td>
+              <td class="col_2"><textarea id="36" name="36" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch36" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Мебель, оборудование, техника</td>
+              <td class="col_2"><textarea id="37" name="37" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch37" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Топливо и энергия</td>
+              <td class="col_2"><textarea id="38" name="38" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch38" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Тара и упаковка</td>
+              <td class="col_2"><textarea id="39" name="39" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch39" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">2. Материальные</td>
+              <td class="col_1">Хозяйственные принадлежности и расходные материалы</td>
+              <td class="col_2"><textarea id="40" name="40" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch40" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Одежда. оснастка, инвентарь</td>
+              <td class="col_2"><textarea id="41" name="41" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch41" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Канцелярские товары</td>
+              <td class="col_2"><textarea id="42" name="42" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch42" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Связь и интернет</td>
+              <td class="col_2"><textarea id="43" name="43" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch43" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Жизнь членов команды (еда, жильё, одежда, бытовая химия, и пр.)</td>
+              <td class="col_2"><textarea id="44" name="44" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch44" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Финансы (на что?)</td>
+              <td class="col_2"><textarea id="45" name="45" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch45" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">Доступ к профессиональной среде и профессиональной «тусовке» (бизнес, творческая, инвестиционная, и т.д.)</td>
+              <td class="col_2"><textarea id="46" name="46" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch46" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Значимые люди</td>
+              <td class="col_2"><textarea id="47" name="47" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch47" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Крупные организации</td>
+              <td class="col_2"><textarea id="48" name="48" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch48" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">ФОИВ</td>
+              <td class="col_2"><textarea id="49" name="49" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch49" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">3. Люди, Личности, </td>
+              <td class="col_1">РОИВ</td>
+              <td class="col_2"><textarea id="50" name="50" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch50" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">Сообщества, «Связи»,  «шильдики»</td>
+              <td class="col_1">Депутаты</td>
+              <td class="col_2"><textarea id="51" name="51" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch51" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Институты развития</td>
+              <td class="col_2"><textarea id="52" name="52" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch52" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Общественные организации</td>
+              <td class="col_2"><textarea id="53" name="53" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch53" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Объединения</td>
+              <td class="col_2"><textarea id="54" name="54" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch54" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Другие стейкхолдеры</td>
+              <td class="col_2"><textarea id="55" name="55" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch55" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">Нужны готовые проекты, чертежи, MVP,  прототипы, готовые к масштабированию бизнесы и т.д.(можно привести список)</td>
+              <td class="col_2"><textarea id="56" name="56" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch56" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Нужны идеи, гипотезы, исследования, концепты, и т.д. (можно списком)</td>
+              <td class="col_2"><textarea id="57" name="57" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch57" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Рыночная информация</td>
+              <td class="col_2"><textarea id="58" name="58" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch58" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Знания, книги, статьи, видео</td>
+              <td class="col_2"><textarea id="59" name="59" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch59" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Инновации</td>
+              <td class="col_2"><textarea id="60" name="60" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch60" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Изобретения</td>
+              <td class="col_2"><textarea id="61" name="61" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch61" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">4. Информация</td>
+              <td class="col_1">Технологии</td>
+              <td class="col_2"><textarea id="62" name="62" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch62" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Базы данных (клиентов, инвесторов и пр.)</td>
+              <td class="col_2"><textarea id="63" name="63" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch63" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Стратегия и планы по развитию бизнеса</td>
+              <td class="col_2"><textarea id="64" name="64" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch64" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Информация о мерах поддержки</td>
+              <td class="col_2"><textarea id="65" name="65" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch65" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Обучение</td>
+              <td class="col_2"><textarea id="66" name="66" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch66" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Развивающие мероприятия</td>
+              <td class="col_2"><textarea id="67" name="67" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch67" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Прочая нужная информация</td>
+              <td class="col_2"><textarea id="68" name="68" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch68" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">На проверку гипотез</td>
+              <td class="col_2"><textarea id="69" name="69" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch69" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">5. Время</td>
+              <td class="col_1">На выполнение проекта</td>
+              <td class="col_2"><textarea id="70" name="70" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch70" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">На проверку последствий и эффектов</td>
+              <td class="col_2"><textarea id="71" name="71" rows="auto" cols="auto" onfocusout="sendValue(1, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch71" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <button id="tsub"><p>Сохранить</p><svg xmlns="http://www.w3.org/2000/svg" width="32"
+          height="24" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0
+          1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0
+          0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1
+          0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg></button>
+  </form>
+  <form id="table-2" action="javascript:;" onsubmit="sendValues(2)">
+      <table>
+          <tr>
+              <th class="col_0">Вид ресурса</th>
+              <th class="col_1">Подвид ресурса</th>
+              <th class="col_2">Имеющиеся ресурсы (подробно и конкретно)</th>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Коммуникации (продажи, переговоры, публичные выступления и т.д.)</td>
+              <td class="col_2"><textarea id="72" name="72" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch72" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Маркетинг и упаковка проекта</td>
+              <td class="col_2"><textarea id="73" name="73" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch73" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">PR, реклама и продвижение</td>
+              <td class="col_2"><textarea id="74" name="74" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch74" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Наставничество, экспертиза и консалтинг</td>
+              <td class="col_2"><textarea id="75" name="75" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch75" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Управление (проектами, людьми, брендами бизнес-процессами, изменениями и т.д.)</td>
+              <td class="col_2"><textarea id="76" name="76" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch76" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Креативные услуги (инновации, поиск новых идей, нетривиальных решений и пр.)</td>
+              <td class="col_2"><textarea id="77" name="77" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch77" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Усиление идеи/проекта (как с меньшими ресурсами сделать более глобальный проект)</td>
+              <td class="col_2"><textarea id="78" name="78" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch78" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Масштабирование бизнеса (франшиза и пр.)</td>
+              <td class="col_2"><textarea id="79" name="79" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch79" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Творческие услуги (написать песню, картину, книгу, сделать шоу, памятник и т.д.)</td>
+              <td class="col_2"><textarea id="80" name="80" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch80" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Производство видеороликов</td>
+              <td class="col_2"><textarea id="81" name="81" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch81" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">IT-услуги</td>
+              <td class="col_2"><textarea id="82" name="82" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch82" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Научно-исследовательские услуги</td>
+              <td class="col_2"><textarea id="83" name="83" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch83" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Инженерно-конструкторские услуги</td>
+              <td class="col_2"><textarea id="84" name="84" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch84" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Транспортные услуги</td>
+              <td class="col_2"><textarea id="85" name="85" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch85" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Кадровые услуги</td>
+              <td class="col_2"><textarea id="86" name="86" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch86" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Бухгалтерские и финансовые услуги</td>
+              <td class="col_2"><textarea id="87" name="87" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch87" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Юридические услуги</td>
+              <td class="col_2"><textarea id="88" name="88" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch88" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">1. Услуги, компетенции, умения и навыки</td>
+              <td class="col_1">Заполнение заявок на гранты и выигрыш грантов </td>
+              <td class="col_2"><textarea id="89" name="89" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch89" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Специалист по тендерам</td>
+              <td class="col_2"><textarea id="90" name="90" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch90" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Сертификация</td>
+              <td class="col_2"><textarea id="91" name="91" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch91" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Патентование</td>
+              <td class="col_2"><textarea id="92" name="92" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch92" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Услуги перевода</td>
+              <td class="col_2"><textarea id="93" name="93" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch93" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Ассистент-секретарь (текучка, заполнение документов, отчётов и т.д.)</td>
+              <td class="col_2"><textarea id="94" name="94" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch94" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Организация мероприятий</td>
+              <td class="col_2"><textarea id="95" name="95" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch95" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Оптимизация и увеличение эффективности</td>
+              <td class="col_2"><textarea id="96" name="96" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch96" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Дизайнерские услуги</td>
+              <td class="col_2"><textarea id="97" name="97" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch97" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Типографские услуги</td>
+              <td class="col_2"><textarea id="98" name="98" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch98" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Охранные услуги по обеспечению безопасности</td>
+              <td class="col_2"><textarea id="99" name="99" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch99" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Методологически-образовательные услуги (разработка рабочих программ, методичек, проведение тренингов и пр.)</td>
+              <td class="col_2"><textarea id="100" name="100" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch100" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Гениальность (выход за пределы ограничений)</td>
+              <td class="col_2"><textarea id="101" name="101" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch101" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Работа с информацией (сбор, анализ, систематизация, предоставление в удобной форме и др.)</td>
+              <td class="col_2"><textarea id="102" name="102" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch102" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Услуги рабочих специальностей (слесарь, каменщик, сварщик, водитель и т.д)</td>
+              <td class="col_2"><textarea id="103" name="103" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch103" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Необычные услуги: привлечение удачи, везение, «энергетика», волшебство и чудеса</td>
+              <td class="col_2"><textarea id="104" name="104" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch104" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Моя уникальность и субъектность. Мои увлечения и хобби. Всё, чем интересуюсь и чем горжусь</td>
+              <td class="col_2"><textarea id="105" name="105" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch105" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Другое. Что-то типа: «А вот ещё я могу!»</td>
+              <td class="col_2"><textarea id="106" name="106" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch106" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">Аренда (офис, склад, причал, ж/д тупик,..)</td>
+              <td class="col_2"><textarea id="107" name="107" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch107" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Сырьё, материалы, комплектующие и пр.</td>
+              <td class="col_2"><textarea id="108" name="108" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch108" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Мебель, оборудование, техника</td>
+              <td class="col_2"><textarea id="109" name="109" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch109" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Топливо и энергия</td>
+              <td class="col_2"><textarea id="110" name="110" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch110" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Тара и упаковка</td>
+              <td class="col_2"><textarea id="111" name="111" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch111" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">2. Материальные</td>
+              <td class="col_1">Хозяйственные принадлежности и расходные материалы</td>
+              <td class="col_2"><textarea id="112" name="112" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch112" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Одежда. оснастка, инвентарь</td>
+              <td class="col_2"><textarea id="113" name="113" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch113" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Канцелярские товары</td>
+              <td class="col_2"><textarea id="114" name="114" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch114" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Связь и интернет</td>
+              <td class="col_2"><textarea id="115" name="115" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch115" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Жизнь членов команды (еда, жильё, одежда, бытовая химия, и пр.)</td>
+              <td class="col_2"><textarea id="116" name="116" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch116" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Финансы (на что?)</td>
+              <td class="col_2"><textarea id="117" name="117" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch117" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">Доступ к профессиональной среде и профессиональной «тусовке» (бизнес, творческая, инвестиционная, и т.д.)</td>
+              <td class="col_2"><textarea id="118" name="118" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch118" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Значимые люди</td>
+              <td class="col_2"><textarea id="119" name="119" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch119" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Крупные организации</td>
+              <td class="col_2"><textarea id="120" name="120" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch120" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">ФОИВ</td>
+              <td class="col_2"><textarea id="121" name="121" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch121" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">3. Люди, Личности, </td>
+              <td class="col_1">РОИВ</td>
+              <td class="col_2"><textarea id="122" name="122" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch122" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">Сообщества, «Связи»,  «шильдики»</td>
+              <td class="col_1">Депутаты</td>
+              <td class="col_2"><textarea id="123" name="123" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch123" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Институты развития</td>
+              <td class="col_2"><textarea id="124" name="124" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch124" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Общественные организации</td>
+              <td class="col_2"><textarea id="125" name="125" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch125" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Объединения</td>
+              <td class="col_2"><textarea id="126" name="126" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch126" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Другие стейкхолдеры</td>
+              <td class="col_2"><textarea id="127" name="127" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch127" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">У меня есть готовые проекты, чертежи, MVP,  прототипы, готовые к масштабированию бизнесы и т.д.(можно привести список)</td>
+              <td class="col_2"><textarea id="128" name="128" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch128" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">У меня есть идеи, гипотезы, исследования, концепты, и т.д. (можно списком)</td>
+              <td class="col_2"><textarea id="129" name="129" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch129" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Рыночная информация</td>
+              <td class="col_2"><textarea id="130" name="130" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch130" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Знания, книги, статьи, видео</td>
+              <td class="col_2"><textarea id="131" name="131" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch131" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Инновации</td>
+              <td class="col_2"><textarea id="132" name="132" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch132" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Изобретения</td>
+              <td class="col_2"><textarea id="133" name="133" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch133" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">4. Информация</td>
+              <td class="col_1">Технологии</td>
+              <td class="col_2"><textarea id="134" name="134" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch134" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Базы данных (клиентов, инвесторов и пр.)</td>
+              <td class="col_2"><textarea id="135" name="135" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch135" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Стратегия и планы по развитию бизнеса</td>
+              <td class="col_2"><textarea id="136" name="136" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch136" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Информация о мерах поддержки</td>
+              <td class="col_2"><textarea id="137" name="137" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch137" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Обучение</td>
+              <td class="col_2"><textarea id="138" name="138" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch138" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Развивающие мероприятия</td>
+              <td class="col_2"><textarea id="139" name="139" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch139" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Прочая нужная информация</td>
+              <td class="col_2"><textarea id="140" name="140" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch140" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <td class="col_0"></td>
+              <td class="col_1">Свободное время на нетворкинг, тусовки и мероприятия для заведения полезных знакомств и новых друзей</td>
+              <td class="col_2"><textarea id="141" name="141" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch141" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0">5. Время</td>
+              <td class="col_1">Свободное время на получение нужных знаний, умений, навыков и компетенций</td>
+              <td class="col_2"><textarea id="142" name="142" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch142" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr><tr>
+              <td class="col_0"></td>
+              <td class="col_1">Свободное время на интересный проект</td>
+              <td class="col_2"><textarea id="143" name="143" rows="auto" cols="auto" onfocusout="sendValue(2, this.id)" onkeypress="this.style.color='#002699'"></textarea></td>
+              <td class="col_3"><div id="srch143" class="srch-btn" onclick="showSrch(this.id)">0</div></td>
+          </tr>
+      </table>
+      <button id="tsub"><p>Сохранить</p><svg xmlns="http://www.w3.org/2000/svg" width="32"
+          height="24" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0
+          1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0
+          0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1
+          0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg></button>
+  </form>
+
   </div>
 
   <link rel="stylesheet" href="src/css/restable.css">

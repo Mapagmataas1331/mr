@@ -78,7 +78,66 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
   </div>
 
   <div id="content">
-    <p style="font-size: 50vw; text-align: center;">ind</p>
+
+    <div id="nav" class="noselect">
+      <form id="exp">
+        <label for="exp">mr.</label>
+        <select id="exp-sel" name="exp">
+          <option value="Pixel">Pixel</option>
+          <option value="index">in</option>
+          <option value="index">in</option>
+          <option value="index">in</option>
+        </select>
+       </form>
+      <div>
+        <p id="lang-btn" class="spinner">Ru</p>
+        <i id="mode-btn" class="material-icons spinner">light_mode</i>
+        <i id="menu-btn" class="material-icons spinner">menu</i>
+      </div>
+    </div>
+    <ul id="dropdown-menu" style="display: none;" class="noselect">
+      <li class="dropdown-item" onclick="hrefTo('Pixel')" data-translate>Pixel</li>
+      <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 2</li>
+      <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 3</li>
+      <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 4</li>
+      <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 5</li>
+      <li class="dropdown-item" onclick="hrefTo()" data-translate>Item 6</li>
+    </ul>
+    <title>mr.Pixel</title>
+  
+    <div id="dev-pan" class="noselect">
+      <div>
+        <p style="color: #ffd9b3;">fix footer offset</p>
+        <p onclick="fixFooterOffset(-24)" style="color: #ffb366;">-24 (small screen default)</p>
+        <p onclick="fixFooterOffset(0)" style="color: #ffa64d;">0 (desktop default)</p>
+        <p onclick="fixFooterOffset(32)" style="color: #ff9933;">32 (android phone)</p>
+        <p onclick="fixFooterOffset(56)" style="color: #ff8c1a;">56 (ios safari)</p>
+        <p onclick="fixFooterOffset(96)" style="color: #ff8000;">96 (android tablet)</p>
+        <div>
+          <p onclick="fixFooterOffset('up')" style="color: greenyellow;">/\</p>
+          <p onclick="fixFooterOffset('dw')" style="color: orangered;">\/</p>
+          <p id="footer-offset-info" style="color: #ffd9b3;">now: 0</p>
+        </div>
+      </div>
+      <p onclick="fixCanvas()" style="color: skyblue;">fix canvas/ui</p>
+    </div>
+  
+    <canvas id="canvas"></canvas>
+    <div id="selected_item"></div>
+    <div id="footer">
+      <div>
+        <p data-translate>Pixel:</p>
+        <p id="coords">_ _</p>
+      </div>
+      <div>
+        <p data-translate>Owner:</p>
+        <p id="owner">___</p>
+      </div>
+      <div>
+        <p id="menu" class="noselect" data-translate>Menu</p>
+      </div>
+    </div>
+
   </div>
 
   <link rel="stylesheet" href="src/css/pixel.css">
