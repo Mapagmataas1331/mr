@@ -26,6 +26,7 @@ ctx.canvas.height = CANVAS_HEIGHT;
 const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
+const cont = document.getElementById("content");
 
 window.changefooteroffset = changefooteroffset;
 function changefooteroffset(footerOffset) {
@@ -55,15 +56,15 @@ function touchHandler(e) {
   e.preventDefault();
 }
 
-canvas.addEventListener("touchstart", touchHandler, true);
-canvas.addEventListener("touchmove", touchHandler, true);
-canvas.addEventListener("touchend", touchHandler, true);
-canvas.addEventListener("touchcancel", touchHandler, true);
+cont.addEventListener("touchstart", touchHandler, true);
+cont.addEventListener("touchmove", touchHandler, true);
+cont.addEventListener("touchend", touchHandler, true);
+cont.addEventListener("touchcancel", touchHandler, true);
 
 // Запись текущего положения мыши на Canvas'е и Экране,
 // Подсчет отступов учитывая zoom и положение мыши,
 // И одномоментное перемещение Select'а.
-document.addEventListener('mousedown', (e) => {
+cont.addEventListener('mousedown', (e) => {
   isDown = true;
   mousePosition = {
     x: e.clientX,
@@ -92,8 +93,7 @@ document.addEventListener('mousedown', (e) => {
 document.addEventListener('mouseup', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
-document.addEventListener('mousemove', (e) => {
-  if (document.getElementById("header").contains(e.target) || document.getElementById("footer").contains(e.target)) return;
+cont.addEventListener('mousemove', (e) => {
   mousePosition = {
     x: e.clientX,
     y: e.clientY
@@ -108,7 +108,7 @@ document.addEventListener('mousemove', (e) => {
 }, true);
 
 // Zoom Canvas'а и Select'а.
-canvas.onwheel = sItem.onwheel = (e) => {
+cont.onwheel = sItem.onwheel = (e) => {
   e.preventDefault();
   if (e.deltaY < 0) {
     zoom += 0.1;
