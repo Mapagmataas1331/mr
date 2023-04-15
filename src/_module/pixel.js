@@ -5,6 +5,7 @@ var isDown = false;
 var zoom = 1;
 
 trans_arr.push(
+  "Footer offset:", "Смещение нижнего колонтитула:",
   "Pixel:", "Пиксель:",
   "Owner:", "Владелец:",
   "Menu", "Меню",
@@ -26,28 +27,9 @@ const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 
-window.addEventListener("load", fixCanvas, false);
-
-function fixCanvas() {
-  canvas.style.zoom = 0.1;
-  sItem.style.zoom = 0.1;
-  setTimeout(() => {
-    canvas.style.zoom = zoom;
-    sItem.style.zoom = zoom;
-  }, 100);
-}
-
-var footerOffset = 64;
-function fixFooterOffset(v) {
-  if (v == "up") {
-    footerOffset += 4;
-  } else if (v == "dw") {
-    footerOffset -= 4;
-  } else {
-    footerOffset = 64 + v;
-  }
-  document.getElementById("footer").style.top = "calc(100vh - " + footerOffset + "px)";
-  document.getElementById("footer-offset-info").innerHTML = "now: " + -(64 - footerOffset);
+window.changefooteroffset = changefooteroffset;
+function changefooteroffset(footerOffset) {
+  document.getElementById("footer").style.bottom = footerOffset + "px";
 }
 
 // Перевод touch эвента в mouse
@@ -111,7 +93,7 @@ document.addEventListener('mouseup', () => { isDown = false; }, true);
 
 // Запись перемещения мыши, перемещение Canvas'а и Select'а.
 document.addEventListener('mousemove', (e) => {
-  if (document.getElementById("nav").contains(e.target) || document.getElementById("footer").contains(e.target)) return;
+  if (document.getElementById("header").contains(e.target) || document.getElementById("footer").contains(e.target)) return;
   mousePosition = {
     x: e.clientX,
     y: e.clientY
