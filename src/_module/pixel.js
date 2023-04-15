@@ -27,6 +27,13 @@ const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 const cont = document.getElementById("content");
 
+document.getElementById("menu-btn").addEventListener("click", () => {
+  const menu = document.getElementById("pixel-menu");
+  if (menu.style.display == "none") {
+    menu.style.display = "block";
+  } else menu.style.display = "none";
+}, false);
+
 // Перевод touch эвента в mouse
 function touchHandler(e) {
   var touches = e.changedTouches,

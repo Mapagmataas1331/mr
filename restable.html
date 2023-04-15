@@ -87,7 +87,7 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
 
   <div id="content">
     
-    <div class="head">
+    <!-- <div class="head">
       <h3 class="title"></h3>
       <div class="switch-box" onclick="check()"><label class="switch">
         <input id="check" type="checkbox" checked>
@@ -904,25 +904,32 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
           <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1
           0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
           </svg></button>
-  </form>
+  </form> -->
 
   </div>
 
-  <div id="table-menu">
-    dddd
+  <div id="table-menu" style="display: none;">
+    <div>
+      <p data-translate>Table:</p>
+      <span id="table-type" contenteditable></span><br>
+    </div>
+    <div>
+      <p data-translate>Name:</p>
+      <span id="table-name" contenteditable></span>
+    </div>
   </div>
 
   <div id="footer">
     <div>
       <p data-translate>Table:</p>
-      <p id="table-type">___</p>
+      <p id="footer-table-type">___</p>
     </div>
     <div>
       <p data-translate>Name:</p>
-      <p id="table-name">___</p>
+      <p id="footer-table-name">___</p>
     </div>
     <div>
-      <p id="menu" class="noselect" data-translate>Menu</p>
+      <p id="footer-menu" class="noselect link" data-translate>Menu</p>
     </div>
   </div>
 

@@ -19,6 +19,16 @@
   z-index: 50;
   transition: none;
 }
+#pixel-menu {
+  position: fixed;
+  width: 480px;
+  right: 0;
+  bottom: 57px;
+  padding: 4px 0 8px;
+  border-radius: 8px 0 0 0;
+  background-color: var(--second-color);
+  box-shadow: -2px -2px 4px var(--second-color);
+}
 #footer {
   display: flex;
   position: fixed;
@@ -35,7 +45,6 @@
   margin: auto;
 }
 #footer p {
-  cursor: default;
   font-size: 24px;
 }
 #footer div p:not(:first-child) {
@@ -45,6 +54,11 @@
 @media screen and (min-width: 0px) {
   #content {
     height: calc(100vh - 86px);
+  }
+  #pixel-menu {
+    width: 100%;
+    bottom: 43px;
+    border-radius: 0;
   }
   #footer p {
     font-size: 18px;
@@ -56,6 +70,11 @@
 @media screen and (min-width: 480px) {
   #content {
     height: calc(100vh - 114px);
+  }
+  #pixel-menu {
+    width: 480px;
+    bottom: 57px;
+    border-radius: 8px 0 0 0;
   }
   #footer p {
     font-size: 32px;

@@ -1,9 +1,39 @@
+span {
+  outline: 0;
+  border-radius: 4px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
 #table-menu {
   position: fixed;
   width: 480px;
   right: 0;
-  bottom: 56px;
+  bottom: 57px;
+  padding: 4px 0 8px;
+  border-radius: 8px 0 0 0;
   background-color: var(--second-color);
+  box-shadow: -2px -2px 4px var(--second-color);
+}
+#table-menu div {
+  display: flex;
+  width: calc(100% - 8px);
+  margin: 8px 4px;
+}
+#table-menu div p{
+  min-width: 20%;
+  margin: auto 4px auto auto;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: right;
+}
+#table-menu div span{
+  min-width: 20%;
+  margin: auto auto auto 4px;
+  padding: 0 4px;
+  background-color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
 }
 #footer {
   display: flex;
@@ -20,7 +50,6 @@
   margin: auto;
 }
   #footer p {
-  cursor: default;
   font-size: 24px;
 }
 #footer div p:not(:first-child) {
@@ -31,7 +60,12 @@
 @media screen and (min-width: 0px) {
   #table-menu {
     width: 100%;
-    bottom: 42px;
+    bottom: 43px;
+    border-radius: 0;
+  }
+  #table-menu div p{
+    min-width: 0;
+    margin: auto 4px;
   }
   #footer p {
     font-size: 20px;
@@ -43,7 +77,12 @@
 @media screen and (min-width: 480px) {
   #table-menu {
     width: 480px;
-    bottom: 56px;
+    bottom: 57px;
+    border-radius: 8px 0 0 0;
+  }
+  #table-menu div p{
+    min-width: 20%;
+    margin: auto 4px auto auto;
   }
   #footer p {
     font-size: 32px;
@@ -55,7 +94,7 @@
   }
 }
 
-
+/* 
 #topui {
     position: fixed;
     top: 64px;
@@ -375,4 +414,4 @@ tr:focus-within {
     .col_2 {
         width: 55%;
     }
-}
+} */
