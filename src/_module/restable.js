@@ -1,11 +1,22 @@
-function logregmenu() {
-    const logregmenu = document.getElementById("logreg");
-    if (logregmenu.style.display != "block") {
-        logregmenu.style.display = "block";
-    } else {
-        logregmenu.style.display = "none";
-    }
+var autoSave = true;
+
+trans_arr.push(
+  "Auto-save:", "Авто-сохранение:",
+  "Yes", "Да",
+  "No", "Нет",
+  "Table:", "Таблица:",
+  "Name:", "Название:",
+  "Menu", "Меню",
+);
+
+window.changeautosave = (bool) => {
+  if (bool == "true") {
+    autoSave = true;
+  } else if (bool == "false") {
+    autoSave = false;
+  }
 }
+
 function showTable(tbshow) {
     const cont = document.getElementById("tb-choose");
     var tbhide;

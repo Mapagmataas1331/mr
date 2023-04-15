@@ -66,6 +66,14 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
         <p id="ru" class="setting-param" data-translate>Russian</p>
       </div>
     </div>
+      <div class="settings-section">
+        <p class="settings-section-name" data-translate>Page Settings</p>
+        <div class="setting">
+          <p id="autosave" class="setting-name" data-translate>Auto-save:</p>
+          <p id="true" class="setting-param current" data-translate>Yes</p>
+          <p id="false" class="setting-param" data-translate>No</p>
+        </div>
+      </div>
     <div class="settings-section">
       <p class="settings-section-name" data-translate>Report a problem:</p>
       <div class="setting">
@@ -82,8 +90,8 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
     <div class="head">
       <h3 class="title"></h3>
       <div class="switch-box" onclick="check()"><label class="switch">
-          <input id="check" type="checkbox" checked>
-          <span class="slider round"></span>
+        <input id="check" type="checkbox" checked>
+        <span class="slider round"></span>
       </label><p>Авто-сохр</p></div>
       <button class="logreg-btn" onclick="logregmenu()">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -900,8 +908,26 @@ mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
 
   </div>
 
+  <div id="table-menu">
+    dddd
+  </div>
+
+  <div id="footer">
+    <div>
+      <p data-translate>Table:</p>
+      <p id="table-type">___</p>
+    </div>
+    <div>
+      <p data-translate>Name:</p>
+      <p id="table-name">___</p>
+    </div>
+    <div>
+      <p id="menu" class="noselect" data-translate>Menu</p>
+    </div>
+  </div>
+
   <link rel="stylesheet" href="src/css/restable.css">
-  <script src="src/js/restable.js"></script>
   <script src="src/js/main.js"></script>
+  <script src="src/js/restable.js"></script>
 </body>
 </html>

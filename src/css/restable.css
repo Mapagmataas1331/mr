@@ -1,21 +1,61 @@
-.head {
+#table-menu {
+  position: fixed;
+  width: 480px;
+  right: 0;
+  bottom: 56px;
+  background-color: var(--second-color);
+}
+#footer {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--second-color);
+  z-index: 100;
+  transition: none;
+}
+  #footer div {
+  display: flex;
+  margin: auto;
+}
+  #footer p {
+  cursor: default;
+  font-size: 24px;
+}
+#footer div p:not(:first-child) {
+  margin-left: 8px;
+  font-family: initial;
+}
+
+@media screen and (min-width: 0px) {
+  #table-menu {
     width: 100%;
-    height: 64px;
-    background-color: #333;
+    bottom: 42px;
+  }
+  #footer p {
+    font-size: 20px;
+  }
+  #footer div:not(:nth-child(3)) {
+    display: none;
+  }
+}
+@media screen and (min-width: 480px) {
+  #table-menu {
+    width: 480px;
+    bottom: 56px;
+  }
+  #footer p {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 960px) {
+  #footer div:not(:nth-child(3)) {
     display: flex;
+  }
 }
-.logreg-btn {
-    position: fixed;
-    top: 4px;
-    right: 8px;
-    height: 54px;
-    width: 54px;
-    border: 0;
-    border-radius: 8px;
-    background-color: rgba(217, 217, 217, 0.92);
-    cursor: pointer;
-    box-shadow: 1.5px 1.5px #333;
-}
+
+
 #topui {
     position: fixed;
     top: 64px;

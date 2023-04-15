@@ -5,7 +5,6 @@ var isDown = false;
 var zoom = 1;
 
 trans_arr.push(
-  "Footer offset:", "Смещение нижнего колонтитула:",
   "Pixel:", "Пиксель:",
   "Owner:", "Владелец:",
   "Menu", "Меню",
@@ -27,11 +26,6 @@ const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 const cont = document.getElementById("content");
-
-window.changefooteroffset = changefooteroffset;
-function changefooteroffset(footerOffset) {
-  document.getElementById("footer").style.bottom = footerOffset + "px";
-}
 
 // Перевод touch эвента в mouse
 function touchHandler(e) {

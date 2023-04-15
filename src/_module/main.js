@@ -185,7 +185,7 @@ function getPage() {
     hrefTo("/");
     return;
   }
-  document.getElementById("title").innerHTML = "ma." + page;
+  document.getElementById("title").innerHTML = "mr." + page;
   document.getElementById("current-page").innerHTML = page;
   document.getElementById(page).style.backgroundColor = "var(--third-color)";
   return page;
