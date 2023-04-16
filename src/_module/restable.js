@@ -101,13 +101,12 @@ function setSearch(owner, type, name) {
   location.search = "owner=" + owner + "&type=" + type  + "&name=" + name;
 }
 
+window.onLogin = () => {
+  document.getElementById("user-input").innerHTML = user.id;
+}
+
 window.addEventListener("load", async () => {
-  if (location.search == "") {
-    if (user.id != null) {
-      document.getElementById("user-input").innerHTML = user.id;
-    }
-    return;
-  }
+  if (location.search == "") return;
   const urlParams = new URLSearchParams(location.search);
   if (urlParams.get("owner") != null && urlParams.get("type") != null && urlParams.get("name") != null) {
     table.owner = urlParams.get("owner");
