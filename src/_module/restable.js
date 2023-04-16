@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, get, update } from 'firebase/database';
+import { getDatabase, ref, set, get, update, child } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCE99ycZW0noggD6NnTaa-tu5FYio0OWpE",
@@ -17,6 +17,7 @@ const db = getDatabase(app);
 
 var autoSave = true;
 var table = {owner: null, type: null, name: null}
+const tableZone = document.getElementById("table-zone");
 
 trans_arr.push(
   "Auto-save:", "Авто-сохранение:",
@@ -108,6 +109,9 @@ function setSearch(owner, type, name) {
 
 window.onLogin = () => {
   document.getElementById("user-input").innerHTML = user.id;
+  if (user.id == table.owner != null) {
+    document.getElementById("save-btn").style.display = "block";
+  }
 }
 
 window.addEventListener("load", async () => {
@@ -118,17 +122,42 @@ window.addEventListener("load", async () => {
     table.type = urlParams.get("type");
     table.name = urlParams.get("name");
     document.getElementById("table-menu").style.display = "none";
-    const tableZone = document.getElementById("table-zone");
     tableZone.style.display = "block";
-    if (user.id == table.owner) {
-      document.getElementById("save-btn").style.display = "block";
-    }
+    loadtable();
   } else cusAlert("alert", "Missing parameter(s),", "in url must be 3 parameters (owner, type and name).");
 }, false)
 
 document.getElementById("back-btn").addEventListener("click", () => {
   location.search = '';
 }, false);
+
+function loadtable() {
+  get(ref(db, "tables/" + table.type)).then(snapshot => {
+    const tb = document.createElement("table");
+    tableZone.appendChild(tb);
+    snapshot.forEach(childSnapshot => {
+      if (childSnapshot.key != "ENname" && childSnapshot.key != "RUname") {
+        var tr = document.createElement("tr");
+        tb.appendChild(tr);
+        if (childSnapshot.key == 0) {
+          var th1 = document.createElement("th");
+          th1.innerHTML = childSnapshot.val().split(" / ")[0];
+          tr.appendChild(th1);
+          var th2 = document.createElement("th");
+          th2.innerHTML = childSnapshot.val().split(" / ")[1];
+          tr.appendChild(th2);
+        } else {
+          var th1 = document.createElement("th");
+          th1.innerHTML = childSnapshot.val();
+          tr.appendChild(th1);
+          var th2 = document.createElement("th");
+          th2.innerHTML = `<span id="${childSnapshot.key}" class="centered" contenteditable></span>`;
+          tr.appendChild(th2);
+        }
+      }
+    });
+  });
+}
 
 
 // function showTable(tbshow) {
