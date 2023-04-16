@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-window.db = getDatabase(app);
+const db = getDatabase(app);
 
 var page = getPage();
 const langEls = document.querySelectorAll('[data-translate]');

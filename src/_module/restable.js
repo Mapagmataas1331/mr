@@ -1,3 +1,20 @@
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set, get, update } from 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCE99ycZW0noggD6NnTaa-tu5FYio0OWpE",
+  authDomain: "webtest-db.firebaseapp.com",
+  databaseURL: "https://webtest-db-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "webtest-db",
+  storageBucket: "webtest-db.appspot.com",
+  messagingSenderId: "977282304261",
+  appId: "1:977282304261:web:180f2b5ef5eaa234900f6c",
+  measurementId: "G-MM1VCV4545"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
 var autoSave = true;
 var table = {owner: null, type: null, name: null}
 
@@ -5,9 +22,13 @@ trans_arr.push(
   "Auto-save:", "Авто-сохранение:",
   "Yes", "Да",
   "No", "Нет",
-  "Table:", "Таблица:",
-  "Name:", "Название:",
-  "Menu", "Меню",
+  "Find Table", "Найти Таблицу",
+  "User:", "Пользователь:",
+  "Select table:", "Выберете таблицу:",
+  "Create Table", "Создать Таблицу",
+  "Table name:", "Имя таблицы:",
+  "Select type:", "Выберете тип:",
+  "Save", "Сохранить",
 );
 
 window.changeautosave = (bool) => {
@@ -18,40 +39,58 @@ window.changeautosave = (bool) => {
   }
 }
 
-document.getElementById("footer-menu").addEventListener("click", () => {
-  const menu = document.getElementById("table-menu");
-  if (menu.style.display == "none") {
-    menu.style.display = "block";
-  } else menu.style.display = "none";
-}, false);
-
-document.getElementById("table-type").addEventListener("keypress", (e) => {
+document.getElementById("user-input").addEventListener("keypress", (e) => {
   var value = checkEnter(e);
   if (!value) return;
-  document.getElementById("footer-table-type").innerHTML = value;
-  tryhash(0, value);
+  alert(value);
 }, false);
-document.getElementById("table-name").addEventListener("keypress", (e) => {
+document.getElementById("table-input").addEventListener("keypress", (e) => {
   var value = checkEnter(e);
   if (!value) return;
-  document.getElementById("footer-table-name").innerHTML = value;
-  tryhash(1, value);
-}, false);
-
-function tryhash(nbt, value) {
-  if (nbt == 0) table.type = value;
-  if (nbt == 1) table.name = value;
-  if (table.type != null && table.name != null) {
-    location.hash = "user" + "/" + table.type + "/" + table.name;
-    checkhash();
+  if (user.name == null) {
+    cusAlert("alert", "First you need to log in,", "click me to go to login page.", "https://ma.kak.si/account");
+    return;
   }
-}
-
+  table.owner = user.id
+  table.name = value.toLowerCase();
+  get(ref(db, "tables")).then(snapshot => {
+    snapshot.forEach(childSnapshot => {
+      var newEl = document.createElement("p");
+      newEl.id = childSnapshot.key;
+      newEl.innerHTML = childSnapshot.child("ENname").val() + "/" + childSnapshot.child("RUname").val();
+      document.getElementById("tables-types-zone").appendChild(newEl);
+      newEl.addEventListener("click", () => {
+        table.type = newEl.id;
+        newEl.style.color = "var(--second-text-color)";
+        console.log(table);
+      }, false);
+    });
+  });
+}, false);
 function checkEnter(e) {
   if (e.keyCode == "13") {
     e.preventDefault();
     return e.target.innerHTML;
   } else return false;
+}
+
+
+
+function trySearch(nbt, value) {
+  if (nbt == 0) table.type = value;
+  if (nbt == 1) table.name = value;
+  if (table.type != null && table.name != null) {
+    location.search = "user=" + "user" + "&type=" + table.type  + "&name=" + table.name;
+    checkSearch();
+  }
+}
+
+function checkSearch() {
+  const urlParams = new URLSearchParams(location.search);
+  console.log("user");
+  console.log("user: " + urlParams.get("user"));
+  console.log("user: " + urlParams.get("type"));
+  console.log("user: " + urlParams.get("name"));
 }
 
 
