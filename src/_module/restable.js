@@ -71,7 +71,7 @@ document.getElementById("user-input").addEventListener("keypress", (e) => {
 document.getElementById("table-input").addEventListener("keypress", (e) => {
   var value = checkEnter(e);
   if (!value) return;
-  if (user.name == null) {
+  if (user.id == null) {
     cusAlert("alert", "First you need to log in,", "click me to go to login page.", "https://ma.kak.si/account");
     return;
   }
