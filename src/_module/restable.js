@@ -91,7 +91,11 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
       zone.appendChild(newEl);
       newEl.addEventListener("click", () => {
         newEl.style.color = "var(--primary-text-color)";
-        setSearch(user.id, newEl.id, value.toLowerCase());
+        set(ref(db, "users/" + user.id + "/tables/" + newEl.id + "/" + value.toLowerCase()), {
+          0: ""
+        }).then(() => {
+          setSearch(user.id, newEl.id, value.toLowerCase());
+        });
       }, false);
     });
   });
