@@ -18,6 +18,9 @@
 }
 #user-tables-zone, #tables-types-zone {
   display: block!important;
+  padding: 8px 4px;
+  border-top: 2px solid var(--second-color);
+  border-bottom: 2px solid var(--second-color);
   text-align: center;
 }
 #save-btn {
