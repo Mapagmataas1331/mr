@@ -56,7 +56,7 @@ document.getElementById("user-input").addEventListener("keypress", (e) => {
       childSnapshot.forEach(cChildSnapshot => {
         var newEl = document.createElement("p");
         newEl.id = childSnapshot.key;
-        newEl.className = "link"
+        newEl.className = "link";
         newEl.style.color = "var(--second-text-color)";
         newEl.innerHTML = cChildSnapshot.key;
         document.getElementById("user-tables-zone").appendChild(newEl);
@@ -79,7 +79,7 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
     snapshot.forEach(childSnapshot => {
       var newEl = document.createElement("p");
       newEl.id = childSnapshot.key;
-      newEl.className = "link"
+      newEl.className = "link";
       newEl.style.color = "var(--second-text-color)";
       newEl.innerHTML = childSnapshot.child("ENname").val() + "/" + childSnapshot.child("RUname").val();
       document.getElementById("tables-types-zone").appendChild(newEl);
