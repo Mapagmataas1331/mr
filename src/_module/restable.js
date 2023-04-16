@@ -92,7 +92,7 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
       newEl.addEventListener("click", () => {
         newEl.style.color = "var(--primary-text-color)";
         set(ref(db, "users/" + user.id + "/tables/" + newEl.id + "/" + value.toLowerCase()), {
-          0: ""
+         1: ""
         }).then(() => {
           setSearch(user.id, newEl.id, value.toLowerCase());
         });
