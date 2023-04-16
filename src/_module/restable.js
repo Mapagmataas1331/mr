@@ -162,12 +162,18 @@ function loadtable() {
       snapshot.forEach(childSnapshot => {
         document.getElementById(childSnapshot.key).innerHTML = childSnapshot.val();
       });
+    }).then(() => {
+      checkOwner()
     });
   });
 }
 
 window.onLogin = () => {
   document.getElementById("user-input").innerHTML = user.id;
+  checkOwner()
+}
+
+function checkOwner() {
   if (user.id == table.owner != null) {
     document.getElementById("save-btn").style.display = "block";
     tableZone.querySelectorAll("span").forEach(snapshot => {
