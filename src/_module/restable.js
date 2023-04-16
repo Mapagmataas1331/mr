@@ -179,7 +179,7 @@ window.onLogin = () => {
 }
 
 function checkOwner() {
-  if (user.id == table.owner != null) {
+  if (user.id != null && user.id == table.owner) {
     document.getElementById("save-btn").style.display = "block";
     tableZone.querySelectorAll("span").forEach(snapshot => {
       snapshot.contentEditable = "true";
