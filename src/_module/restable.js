@@ -160,7 +160,7 @@ function loadtable() {
   }).then(() => {
     get(ref(db, "users/" + table.owner + "/tables/" + table.type + "/" + table.name)).then(snapshot => {
       if (!snapshot.exists()) {
-        cusAlert("alert", "No such user,", "or he hasn't " + table.type + " table.");
+        cusAlert("alert", "No such user,", "or he hasn't \"" + table.name + "\" table.");
         tableZone.removeChild(tableZone.querySelector("table"));
         return;
       }
