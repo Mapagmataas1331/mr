@@ -101,24 +101,21 @@ function setSearch(owner, type, name) {
   location.search = "owner=" + owner + "&type=" + type  + "&name=" + name;
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   if (location.search == "") {
     if (user.id != null) {
       document.getElementById("user-input").innerHTML = user.id;
     }
     return;
   }
-  readSearch().then(() => {
-
-  });
-}, false)
-
-function readSearch() {
   const urlParams = new URLSearchParams(location.search);
-  console.log("owner: " + urlParams.get("owner"));
-  console.log("type: " + urlParams.get("type"));
-  console.log("name: " + urlParams.get("name"));
-}
+  if (urlParams.get("owner") != null && urlParams.get("type") != null && urlParams.get("name") != null) {
+    table.owner = urlParams.get("owner");
+    table.type = urlParams.get("type");
+    table.name = urlParams.get("name");
+    console.log(table);
+  } else cusAlert("alert", "Missing parameter(s),", "in url must be 3 parameters (owner, type and name).");
+}, false)
 
 
 // function showTable(tbshow) {
