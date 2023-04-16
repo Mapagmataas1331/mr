@@ -23,7 +23,7 @@ trans_arr.push(
   "Yes", "Да",
   "No", "Нет",
   "Find Table", "Найти Таблицу",
-  "User:", "Пользователь:",
+  "User name:", "Пользователь:",
   "Select table:", "Выберете таблицу:",
   "Create Table", "Создать Таблицу",
   "Table name:", "Имя таблицы:",
