@@ -28,6 +28,7 @@ trans_arr.push(
   "Create Table", "Создать Таблицу",
   "Table name:", "Имя таблицы:",
   "Select type:", "Выберете тип:",
+  "Back", "Назад",
   "Save", "Сохранить",
 );
 
@@ -116,9 +117,18 @@ window.addEventListener("load", async () => {
     table.owner = urlParams.get("owner");
     table.type = urlParams.get("type");
     table.name = urlParams.get("name");
-    console.log(table);
+    document.getElementById("table-menu").style.display = "none";
+    const tableZone = document.getElementById("table-zone");
+    tableZone.style.display = "block";
+    if (user.id == table.owner) {
+      document.getElementById("save-btn").style.display = "block";
+    }
   } else cusAlert("alert", "Missing parameter(s),", "in url must be 3 parameters (owner, type and name).");
 }, false)
+
+document.getElementById("back-btn").addEventListener("click", () => {
+  location.search = '';
+}, false);
 
 
 // function showTable(tbshow) {

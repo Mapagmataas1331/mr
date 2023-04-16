@@ -23,16 +23,21 @@
   border-bottom: 2px solid var(--second-color);
   text-align: center;
 }
-#save-btn {
+#save-btn, #back-btn {
   position: fixed;
   bottom: 16px;
-  right: 12px;
   min-width: 128px;
   padding: 4px 8px;
   border-radius: 8px;
   background-color: var(--second-color);
   box-shadow: -2.25px 1.5px 3px var(--third-color);
   text-align: center;
+}
+#save-btn {
+  right: 12px;
+}
+#back-btn {
+  left: 12px;
 }
 
 @media screen and (min-width: 0px) {
