@@ -47,7 +47,6 @@ document.getElementById("user-input").addEventListener("keypress", (e) => {
       cusAlert("alert", "No such user,", "or he has no tables.");
       return;
     }
-    table.owner = value.toLowerCase();
     snapshot.forEach(childSnapshot => {
       var newMEl = document.createElement("p");
       get(ref(db, "tables/" + childSnapshot.key)).then(snap => {
@@ -62,10 +61,8 @@ document.getElementById("user-input").addEventListener("keypress", (e) => {
         newEl.innerHTML = cChildSnapshot.key;
         document.getElementById("user-tables-zone").appendChild(newEl);
         newEl.addEventListener("click", () => {
-          table.type = newEl.id;
-          table.name = newEl.innerHTML;
           newEl.style.color = "var(--primary-text-color)";
-          console.log(table);
+          setSearch(value.toLowerCase(), newEl.id, newEl.innerHTML);
         }, false);
       });
     });
@@ -78,8 +75,6 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
     cusAlert("alert", "First you need to log in,", "click me to go to login page.", "https://ma.kak.si/account");
     return;
   }
-  table.owner = user.id;
-  table.name = value.toLowerCase();
   get(ref(db, "tables")).then(snapshot => {
     snapshot.forEach(childSnapshot => {
       var newEl = document.createElement("p");
@@ -89,9 +84,8 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
       newEl.innerHTML = childSnapshot.child("ENname").val() + "/" + childSnapshot.child("RUname").val();
       document.getElementById("tables-types-zone").appendChild(newEl);
       newEl.addEventListener("click", () => {
-        table.type = newEl.id;
         newEl.style.color = "var(--primary-text-color)";
-        console.log(table);
+        setSearch(user.id, newEl.id, value.toLowerCase());
       }, false);
     });
   });
@@ -103,23 +97,25 @@ function checkEnter(e) {
   } else return false;
 }
 
-
-
-function trySearch(nbt, value) {
-  if (nbt == 0) table.type = value;
-  if (nbt == 1) table.name = value;
-  if (table.type != null && table.name != null) {
-    location.search = "user=" + "user" + "&type=" + table.type  + "&name=" + table.name;
-    checkSearch();
-  }
+function setSearch(owner, type, name) {
+  location.search = "owner=" + owner + "&type=" + type  + "&name=" + name;
 }
 
-function checkSearch() {
+window.addEventListener("load", () => {
+  if (location.search == "") {
+    if (user.id != null) {
+      document.getElementById("user-input").innerHTML = user.id;
+    }
+    return;
+  }
+  readSearch();
+}, false)
+
+function readSearch() {
   const urlParams = new URLSearchParams(location.search);
-  console.log("user");
-  console.log("user: " + urlParams.get("user"));
-  console.log("user: " + urlParams.get("type"));
-  console.log("user: " + urlParams.get("name"));
+  console.log("owner: " + urlParams.get("owner"));
+  console.log("type: " + urlParams.get("type"));
+  console.log("name: " + urlParams.get("name"));
 }
 
 
