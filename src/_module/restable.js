@@ -103,6 +103,7 @@ function setSearch(owner, type, name) {
 
 window.onLogin = () => {
   document.getElementById("user-input").innerHTML = user.id;
+  document.getElementById("user-input").dispatchEvent(new CustomEvent("keypress", {keyCode: "13"}));
 }
 
 window.addEventListener("load", async () => {
