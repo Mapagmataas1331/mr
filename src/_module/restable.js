@@ -187,6 +187,12 @@ function checkOwner() {
   }
 }
 
+document.getElementById("save-btn").addEventListener("click", () => {
+  tableZone.querySelectorAll("span").forEach(snapshot => {
+    console.log(snapshot.id + ": " + snapshot.innerHTML);
+  });
+}, false);
+
 // function showTable(tbshow) {
 //     const cont = document.getElementById("tb-choose");
 //     var tbhide;
