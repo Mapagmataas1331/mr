@@ -108,7 +108,9 @@ window.addEventListener("load", () => {
     }
     return;
   }
-  readSearch();
+  readSearch().then(() => {
+
+  });
 }, false)
 
 function readSearch() {
