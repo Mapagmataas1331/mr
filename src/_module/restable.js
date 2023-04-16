@@ -42,7 +42,34 @@ window.changeautosave = (bool) => {
 document.getElementById("user-input").addEventListener("keypress", (e) => {
   var value = checkEnter(e);
   if (!value) return;
-  alert(value);
+  get(ref(db, "users/" + value.toLowerCase() + "/tables")).then(snapshot => {
+    if (!snapshot.exists()) {
+      cusAlert("alert", "No such user,", "or he has no tables.");
+      return;
+    }
+    table.owner = value.toLowerCase();
+    snapshot.forEach(childSnapshot => {
+      var newMEl = document.createElement("p");
+      get(ref(db, "tables/" + childSnapshot.key)).then(snap => {
+        newMEl.innerHTML = snap.child("ENname").val() + "/" + snap.child("RUname").val();
+      });
+      document.getElementById("user-tables-zone").appendChild(newMEl);
+      childSnapshot.forEach(cChildSnapshot => {
+        var newEl = document.createElement("p");
+        newEl.id = childSnapshot.key;
+        newEl.className = "link"
+        newEl.style.color = "var(--second-text-color)";
+        newEl.innerHTML = cChildSnapshot.key;
+        document.getElementById("user-tables-zone").appendChild(newEl);
+        newEl.addEventListener("click", () => {
+          table.type = newEl.id;
+          table.name = newEl.innerHTML;
+          newEl.style.color = "var(--primary-text-color)";
+          console.log(table);
+        }, false);
+      });
+    });
+  });
 }, false);
 document.getElementById("table-input").addEventListener("keypress", (e) => {
   var value = checkEnter(e);
@@ -51,17 +78,19 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
     cusAlert("alert", "First you need to log in,", "click me to go to login page.", "https://ma.kak.si/account");
     return;
   }
-  table.owner = user.id
+  table.owner = user.id;
   table.name = value.toLowerCase();
   get(ref(db, "tables")).then(snapshot => {
     snapshot.forEach(childSnapshot => {
       var newEl = document.createElement("p");
       newEl.id = childSnapshot.key;
+      newEl.className = "link"
+      newEl.style.color = "var(--second-text-color)";
       newEl.innerHTML = childSnapshot.child("ENname").val() + "/" + childSnapshot.child("RUname").val();
       document.getElementById("tables-types-zone").appendChild(newEl);
       newEl.addEventListener("click", () => {
         table.type = newEl.id;
-        newEl.style.color = "var(--second-text-color)";
+        newEl.style.color = "var(--primary-text-color)";
         console.log(table);
       }, false);
     });
