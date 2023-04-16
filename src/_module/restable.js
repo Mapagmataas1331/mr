@@ -42,6 +42,8 @@ window.changeautosave = (bool) => {
 document.getElementById("user-input").addEventListener("keypress", (e) => {
   var value = checkEnter(e);
   if (!value) return;
+  const zone = document.getElementById("user-tables-zone");
+  while (zone.childElementCount != 0) zone.removeChild(zone.lastChild);
   get(ref(db, "users/" + value.toLowerCase() + "/tables")).then(snapshot => {
     if (!snapshot.exists()) {
       cusAlert("alert", "No such user,", "or he has no tables.");
@@ -52,14 +54,14 @@ document.getElementById("user-input").addEventListener("keypress", (e) => {
       get(ref(db, "tables/" + childSnapshot.key)).then(snap => {
         newMEl.innerHTML = snap.child("ENname").val() + "/" + snap.child("RUname").val();
       });
-      document.getElementById("user-tables-zone").appendChild(newMEl);
+      zone.appendChild(newMEl);
       childSnapshot.forEach(cChildSnapshot => {
         var newEl = document.createElement("p");
         newEl.id = childSnapshot.key;
         newEl.className = "link";
         newEl.style.color = "var(--second-text-color)";
         newEl.innerHTML = cChildSnapshot.key;
-        document.getElementById("user-tables-zone").appendChild(newEl);
+        zone.appendChild(newEl);
         newEl.addEventListener("click", () => {
           newEl.style.color = "var(--primary-text-color)";
           setSearch(value.toLowerCase(), newEl.id, newEl.innerHTML);
@@ -75,6 +77,8 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
     cusAlert("alert", "First you need to log in,", "click me to go to login page.", "https://ma.kak.si/account");
     return;
   }
+  const zone = document.getElementById("tables-types-zone");
+  while (zone.childElementCount != 0) zone.removeChild(zone.lastChild);
   get(ref(db, "tables")).then(snapshot => {
     snapshot.forEach(childSnapshot => {
       var newEl = document.createElement("p");
@@ -82,7 +86,7 @@ document.getElementById("table-input").addEventListener("keypress", (e) => {
       newEl.className = "link";
       newEl.style.color = "var(--second-text-color)";
       newEl.innerHTML = childSnapshot.child("ENname").val() + "/" + childSnapshot.child("RUname").val();
-      document.getElementById("tables-types-zone").appendChild(newEl);
+      zone.appendChild(newEl);
       newEl.addEventListener("click", () => {
         newEl.style.color = "var(--primary-text-color)";
         setSearch(user.id, newEl.id, value.toLowerCase());
@@ -103,7 +107,7 @@ function setSearch(owner, type, name) {
 
 window.onLogin = () => {
   document.getElementById("user-input").innerHTML = user.id;
-  document.getElementById("user-input").dispatchEvent(new CustomEvent("keypress", {keyCode: "13"}));
+  document.getElementById("user-input").dispatchEvent(new Event("keypress", {keyCode: "13"}));
 }
 
 window.addEventListener("load", async () => {
