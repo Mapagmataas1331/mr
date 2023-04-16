@@ -177,7 +177,7 @@ function checkOwner() {
   if (user.id == table.owner != null) {
     document.getElementById("save-btn").style.display = "block";
     tableZone.querySelectorAll("span").forEach(snapshot => {
-      snapshot.contentEditable;
+      snapshot.contentEditable = "true";
     });
   }
 }
