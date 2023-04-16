@@ -107,13 +107,6 @@ function setSearch(owner, type, name) {
   location.search = "owner=" + owner + "&type=" + type  + "&name=" + name;
 }
 
-window.onLogin = () => {
-  document.getElementById("user-input").innerHTML = user.id;
-  if (user.id == table.owner != null) {
-    document.getElementById("save-btn").style.display = "block";
-  }
-}
-
 window.addEventListener("load", async () => {
   if (location.search == "") return;
   const urlParams = new URLSearchParams(location.search);
@@ -133,6 +126,10 @@ document.getElementById("back-btn").addEventListener("click", () => {
 
 function loadtable() {
   get(ref(db, "tables/" + table.type)).then(snapshot => {
+    if (!snapshot.exists()) {
+      cusAlert("alert", "No such table type:", table.type);
+      return;
+    }
     const tb = document.createElement("table");
     tableZone.appendChild(tb);
     snapshot.forEach(childSnapshot => {
@@ -151,14 +148,32 @@ function loadtable() {
           th1.innerHTML = childSnapshot.val();
           tr.appendChild(th1);
           var th2 = document.createElement("th");
-          th2.innerHTML = `<span id="${childSnapshot.key}" class="centered" contenteditable></span>`;
+          th2.innerHTML = `<span id="${childSnapshot.key}" class="centered"></span>`;
           tr.appendChild(th2);
         }
       }
     });
   });
+  get(ref(db, "users/" + table.owner + "/tables/" + table.type + "/" + table.name)).then(snapshot => {
+    if (!snapshot.exists()) {
+      cusAlert("alert", "No such user,", "or he hasn't " + table.type + " table.");
+      return;
+    }
+    snapshot.forEach(childSnapshot => {
+      document.getElementById(childSnapshot.key).innerHTML = childSnapshot.val();
+    });
+  });
 }
 
+window.onLogin = () => {
+  document.getElementById("user-input").innerHTML = user.id;
+  if (user.id == table.owner != null) {
+    document.getElementById("save-btn").style.display = "block";
+    tableZone.querySelectorAll("span").forEach(snapshot => {
+      snapshot.contentEditable;
+    });
+  }
+}
 
 // function showTable(tbshow) {
 //     const cont = document.getElementById("tb-choose");
