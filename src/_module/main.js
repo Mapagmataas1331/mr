@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 var page = getPage();
-window.langEls = document.querySelectorAll('[data-translate]');
+const langEls = document.querySelectorAll('[data-translate]');
 window.trans_arr = [
   "main page", "главная страница",
   "novocoin", "новокоин",
