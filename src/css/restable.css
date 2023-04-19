@@ -37,22 +37,29 @@ table {
   width: 96vw;
   margin: 2vw;
 }
+tr {
+  display: flex;
+  width: 100%;
+  min-height: 64px;
+  margin: 4px 0;
+}
 tr * {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
-  width: calc(100% - 4px);
-  margin: 2px;
+  min-height: 20px;
+  margin: auto 0;
 }
 tr th:first-child {
-  width: 30%;
+  width: calc(30% - 8px);
+  margin: 0 4px;
 }
 tr th:last-child {
-  width: 70%;
+  width: calc(70% - 8px);
+  margin: 0 4px;
 }
 table span {
   display: block;
   width: calc(100% - 20px);
-  min-height: 20px;
   text-align: left;
 }
 #save-btn {

@@ -140,16 +140,16 @@ function loadtable() {
       if (childSnapshot.key != "ENname" && childSnapshot.key != "RUname") {
         var tr = document.createElement("tr");
         tb.appendChild(tr);
-        if (childSnapshot.key == 0) {
+        if (childSnapshot.val().split(" / ").length == 2) {
           var th1 = document.createElement("th");
-          th1.innerHTML = childSnapshot.val().split(" / ")[0];
+          th1.innerHTML = "<div>" + childSnapshot.val().split(" / ")[0] + "</div>";
           tr.appendChild(th1);
           var th2 = document.createElement("th");
-          th2.innerHTML = childSnapshot.val().split(" / ")[1];
+          th2.innerHTML = "<div>" + childSnapshot.val().split(" / ")[1] + "</div>";
           tr.appendChild(th2);
         } else {
           var th1 = document.createElement("th");
-          th1.innerHTML = childSnapshot.val();
+          th1.innerHTML = "<div>" + childSnapshot.val() + "</div>";
           tr.appendChild(th1);
           var th2 = document.createElement("th");
           th2.innerHTML = `<span id="${childSnapshot.key}"></span>`;
