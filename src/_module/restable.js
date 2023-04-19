@@ -152,7 +152,7 @@ function loadtable() {
           th1.innerHTML = childSnapshot.val();
           tr.appendChild(th1);
           var th2 = document.createElement("th");
-          th2.innerHTML = `<span id="${childSnapshot.key}" class="centered"></span>`;
+          th2.innerHTML = `<span id="${childSnapshot.key}"></span>`;
           tr.appendChild(th2);
         }
       }

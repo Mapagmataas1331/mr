@@ -53,6 +53,7 @@ table span {
   display: block;
   width: calc(100% - 20px);
   min-height: 20px;
+  text-align: left;
 }
 #save-btn {
   right: 12px;
