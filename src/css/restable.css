@@ -33,6 +33,27 @@
   box-shadow: -2.25px 1.5px 3px var(--third-color);
   text-align: center;
 }
+table {
+  width: 96vw;
+  margin: 2vw;
+}
+tr * {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  width: calc(100% - 4px);
+  margin: 2px;
+}
+tr th:first-child {
+  width: 30%;
+}
+tr th:last-child {
+  width: 70%;
+}
+table span {
+  display: block;
+  width: calc(100% - 20px);
+  min-height: 20px;
+}
 #save-btn {
   right: 12px;
 }
@@ -44,9 +65,21 @@
   #table-menu {
     display: block;
   }
+  tr * {
+    font-size: 14px;
+  }
+  table span {
+    min-height: 16px;
+  }
 }
 @media screen and (min-width: 480px) {
   #table-menu {
     display: flex;
+  }
+  tr * {
+    font-size: 18px;
+  }
+  table span {
+    min-height: 20px;
   }
 }
