@@ -192,12 +192,13 @@ document.getElementById("save-btn").addEventListener("click", () => {
     if (snapshot.innerHTML != null && snapshot.innerHTML != "") {
       if (user.id != null && user.id == table.owner) {
         console.log("saved " + snapshot.id + ": " + snapshot.innerHTML);
-      } else cusAlert("alert", "You are not an owner!", "or you aren't login.")
+      } else cusAlert("alert", "You are not an owner!", "or you aren't login.");
     }
   });
 }, false);
 
 addEventListenerList(tableZone.querySelectorAll("span"), "focusout", (e) => {
+  alert("ddd");
   if (e.target.innerHTML != null && e.target.innerHTML != "") {
     if (user.id != null && user.id == table.owner) {
       console.log("saved " + e.target.id + ": " + e.target.innerHTML);
