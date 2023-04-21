@@ -148,10 +148,10 @@ function loadtable() {
           th2.innerHTML = "<div>" + childSnapshot.val().split(" / ")[1] + "</div>";
           tr.appendChild(th2);
         } else {
-          var th1 = document.createElement("th");
+          var th1 = document.createElement("td");
           th1.innerHTML = "<div>" + childSnapshot.val() + "</div>";
           tr.appendChild(th1);
-          var th2 = document.createElement("th");
+          var th2 = document.createElement("td");
           th2.innerHTML = `<span id="${childSnapshot.key}"></span>`;
           tr.appendChild(th2);
         }
