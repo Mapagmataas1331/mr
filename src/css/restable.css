@@ -35,7 +35,7 @@
 }
 table {
   width: calc(96% - 2px);
-  margin: 2%;
+  margin: 2% 2% 56px 2%;
   border-collapse: collapse;
 }
 tr {
