@@ -34,8 +34,9 @@
   text-align: center;
 }
 table {
-  width: calc(96vw - 2px);
-  margin: 2vw;
+  width: calc(96% - 2px);
+  margin: 2%;
+  border-collapse: collapse;
 }
 tr {
   display: flex;
