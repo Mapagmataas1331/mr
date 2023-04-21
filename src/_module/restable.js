@@ -195,6 +195,6 @@ document.getElementById("save-btn").addEventListener("click", () => {
   });
 }, false);
 
-addEventListenerList(tableZone.querySelectorAll("span"), "focusout", () => {
+addEventListenerList(tableZone.querySelectorAll("span"), "focusout", (e) => {
   alert(e.target.innerHTML)
 });
