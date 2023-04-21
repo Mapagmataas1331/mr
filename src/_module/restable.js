@@ -166,7 +166,7 @@ function loadtable() {
           th1.innerHTML = "<div>" + childSnapshot.val() + "</div>";
           tr.appendChild(th1);
           var th2 = document.createElement("td");
-          th2.innerHTML = `<span id="${childSnapshot.key}"></span>`;
+          th2.innerHTML = `<span id="${childSnapshot.key}" onfocusout="saveRow(event);" onkeypress="unsaveRow(event)"></span>`;
           tr.appendChild(th2);
         }
       }
@@ -191,17 +191,32 @@ document.getElementById("save-btn").addEventListener("click", () => {
   tableZone.querySelectorAll("span").forEach(snapshot => {
     if (snapshot.innerHTML != null && snapshot.innerHTML != "") {
       if (user.id != null && user.id == table.owner) {
-        console.log("Saved " + snapshot.id + ": " + snapshot.innerHTML);
-      } else cusAlert("alert", "You are not an owner!", "or you aren't login.");
+        saveTValue(snapshot.id, snapshot.innerHTML);
+        snapshot.style.color = "var(--primary-text-color)";
+      } else {
+        cusAlert("alert", "You are not an owner!", "or you aren't login.");
+        return;
+      }
     }
   });
+  cusAlert("notify", user.name + ",", "your changes were saved!");
 }, false);
 
-addEventListenerList(tableZone.querySelectorAll("span"), "keypress", (e) => {
-  alert("gg");
+window.saveRow = (e) => {
   if (!autoSave) return;
-  if (e.target.innerHTML == null && e.target.innerHTML == "") return;
+  if (e.target.innerHTML == null || e.target.innerHTML == "") return;
   if (user.id != null && user.id == table.owner) {
-    console.log("Saved " + e.target.id + ": " + e.target.innerHTML);
+    saveTValue(e.target.id, e.target.innerHTML);
+    e.target.style.color = "var(--primary-text-color)";
   }
-});
+}
+window.unsaveRow = (e) => {
+  e.target.style.color = "var(--second-text-color)";
+}
+
+function saveTValue(id, val) {
+  update(ref(db, "users/" + user.id + "/tables/" + table.type + "/" + table.name), {
+    [id]: val
+  });
+  console.log("Saved " + id + ": " + val);
+}

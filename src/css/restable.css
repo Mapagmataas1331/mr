@@ -55,6 +55,9 @@ th, td {
   border-radius: 4px;
   padding: 4px 8px;
 }
+th {
+  text-shadow: -2.25px 1.5px 3px var(--second-color);
+}
 tr th:first-child, tr td:first-child {
   width: calc(30% - 2px);
   margin-right: 2px;
