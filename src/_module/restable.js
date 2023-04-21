@@ -197,11 +197,11 @@ document.getElementById("save-btn").addEventListener("click", () => {
   });
 }, false);
 
-addEventListenerList(tableZone.querySelectorAll("span"), "focusout", (e) => {
-  alert("ddd");
-  if (e.target.innerHTML != null && e.target.innerHTML != "") {
-    if (user.id != null && user.id == table.owner) {
-      console.log("Saved " + e.target.id + ": " + e.target.innerHTML);
-    }
+addEventListenerList(tableZone.querySelectorAll("span"), "keypress", (e) => {
+  alert("gg");
+  if (!autoSave) return;
+  if (e.target.innerHTML == null && e.target.innerHTML == "") return;
+  if (user.id != null && user.id == table.owner) {
+    console.log("Saved " + e.target.id + ": " + e.target.innerHTML);
   }
 });
