@@ -3,8 +3,8 @@ trans_arr.push(
 );
   
 document.getElementById("imgs").querySelectorAll("img")[0].addEventListener("click", () => {
-  hrefTo("https://ma.kak.si");
+  hrefTo("https://mr.kak.si");
 }, false);
 document.getElementById("imgs").querySelectorAll("img")[1].addEventListener("click", () => {
-  hrefTo("https://mr.kak.si");
+  hrefTo("https://ma.kak.si");
 }, false);
