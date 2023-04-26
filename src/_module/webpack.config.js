@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: {
     main: './main.js',
+    index: './index.js',
     novocoin: './novocoin.js',
     pixel: './pixel.js',
     restable: './restable.js',

@@ -1,0 +1,39 @@
+#imgs {
+    display: flex;
+    margin: 5vw 8px 0;
+    text-align: center;
+  }
+  #imgs img {
+    margin: 0 auto 8px;
+    width: 40%;
+    max-width: 512px;
+  }
+  .text {
+    width: 90%;
+    margin: 5vw;
+  }
+  .text p {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 0px) {
+    #imgs {
+      display: block;
+    }
+    #imgs img {
+      width: 80%;
+    }
+    .text p {
+      font-size: 14px;
+    }
+  }
+  @media screen and (min-width: 480px) {
+    #imgs {
+      display: flex;
+    }
+    #imgs img {
+      width: 40%;
+    }
+    .text p {
+      font-size: 20px;
+    }
+  }
