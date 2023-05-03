@@ -5,7 +5,7 @@
 #canvas {
   position: absolute;
   left: calc(50vw - var(--CANVAS_WIGHT) / 2);
-  top: calc(50vh - 24px - var(--CANVAS_HEIGHT) / 2);
+  top: calc(50vh - 56px - var(--CANVAS_HEIGHT) / 2);
   background-image: url("../imgs/pixel-canvas-bg.png");
   image-rendering: pixelated;
   transition: none;
@@ -13,8 +13,8 @@
 #selected_item {
   position: absolute;
   display: none;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border: 2px solid var(--third-color);
   z-index: 50;
   transition: none;
@@ -55,6 +55,9 @@
   #content {
     height: calc(100vh - 86px);
   }
+  #canvas {
+    top: calc(50vh - 42px - var(--CANVAS_HEIGHT) / 2);
+  }
   #pixel-menu {
     width: 100%;
     bottom: 43px;
@@ -70,6 +73,9 @@
 @media screen and (min-width: 480px) {
   #content {
     height: calc(100vh - 114px);
+  }
+  #canvas {
+    top: calc(50vh - 56px - var(--CANVAS_HEIGHT) / 2);
   }
   #pixel-menu {
     width: 480px;

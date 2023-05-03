@@ -27,13 +27,6 @@ const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 const cont = document.getElementById("content");
 
-document.getElementById("menu-btn").addEventListener("click", () => {
-  const menu = document.getElementById("pixel-menu");
-  if (menu.style.display == "none") {
-    menu.style.display = "block";
-  } else menu.style.display = "none";
-}, false);
-
 // Перевод touch эвента в mouse
 function touchHandler(e) {
   var touches = e.changedTouches,
@@ -83,8 +76,8 @@ cont.addEventListener('mousedown', (e) => {
     console.log(`select: ${Math.ceil(cc.x/10)} ${Math.ceil(cc.y/10)};\ncanvas: ${cc.x} ${cc.y};\nclient: ${e.clientX} ${e.clientY}`);
     pCoords.innerHTML = Math.ceil(cc.y/10) + " " + Math.ceil(cc.x/10);
     sItem.style.display = "block";
-    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
-    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
+    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 11.5) + 'px';
+    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 11.5) + 'px';
   } else {
     pCoords.innerHTML = "_ _";
     sItem.style.display = "none";
@@ -102,8 +95,8 @@ cont.addEventListener('mousemove', (e) => {
   if (isDown) {
     canvas.style.left = (mousePosition.x + offset[0]) + 'px';
     canvas.style.top = (mousePosition.y + offset[1]) + 'px';
-    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 12) + 'px';
-    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 12) + 'px';
+    sItem.style.left = (mousePosition.x + offset[0] + Math.ceil(cc.x/10) * 10 - 11.5) + 'px';
+    sItem.style.top = (mousePosition.y + offset[1] + Math.ceil(cc.y/10) * 10 - 11.5) + 'px';
   }
   e.preventDefault();
 }, true);
@@ -121,6 +114,20 @@ cont.onwheel = sItem.onwheel = (e) => {
     sItem.style.zoom = zoom;
   };
 };
+
+document.getElementById("menu-btn").addEventListener("click", () => {
+  const menu = document.getElementById("pixel-menu");
+  if (menu.style.display == "none") {
+    menu.style.display = "block";
+  } else menu.style.display = "none";
+  ctx.strokeStyle = "#000000";
+  ctx.lineCap = "round";
+  ctx.lineWidth = 10;
+  var ctxy = (pCoords.innerHTML.split(" ")[0] - 1) * 10;
+  var ctxx = (pCoords.innerHTML.split(" ")[1] - 1) * 10;
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(ctxx, ctxy, 10, 10);
+}, false);
 
 // Сохранение Canvas'а.
 pOwner.onclick = () => {
