@@ -1,0 +1,14 @@
+#user {
+  display: flex;
+  width: 100%;
+}
+#user * {
+  margin: 8px;
+}
+#name {
+  margin-left: auto;
+}
+#balance {
+  margin-left: -6px;
+  margin-right: auto;
+}
