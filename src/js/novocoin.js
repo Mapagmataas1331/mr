@@ -12,7 +12,7 @@
 /***/ 11:
 /***/ (() => {
 
-
+eval("trans_arr.push(\r\n    \"hey\", \"хай\",\r\n  );//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTEuanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbW9kdWxlanMvLi9ub3ZvY29pbi5qcz82ZDcxIl0sInNvdXJjZXNDb250ZW50IjpbInRyYW5zX2Fyci5wdXNoKFxyXG4gICAgXCJoZXlcIiwgXCLRhdCw0LlcIixcclxuICApOyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///11\n");
 
 /***/ })
 
