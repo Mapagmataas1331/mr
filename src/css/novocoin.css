@@ -1,14 +1,32 @@
-#user {
+.cabinet {
+  max-width: 256px;
+  margin: 16px auto;
+}
+.user-container {
+  width: 100%;
   display: flex;
+}
+.user-name {
+  margin: 4px 4px 4px auto;
+}
+.separator {
+  margin: 4px;
+}
+.balance {
+  margin: 4px;
+}
+.last-transaction {
+  margin: 4px auto 4px 4px;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 8px;
   width: 100%;
 }
-#user * {
-  margin: 8px;
-}
-#name {
-  margin-left: auto;
-}
-#balance {
-  margin-left: -6px;
-  margin-right: auto;
+.send-button, .trans-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--second-color);
+  border-radius: 8px;
 }
