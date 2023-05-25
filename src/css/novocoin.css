@@ -34,6 +34,7 @@
 #balance i{
   font-size: 40px;
   border-radius: 8px 0 0 8px;
+  cursor: default;
 }
 
 #amount {
@@ -47,6 +48,13 @@
   border-radius: 0 8px 8px 0!important;
   margin-left: 4px;
   padding-left: 10px;
+}
+
+#send-btn:hover {
+  box-shadow: -2px 2px 4px var(--third-color);
+  /* font-size: 44px; */
+  padding: 4px 14px 4px 16px;
+  cursor: pointer;
 }
 
 #transactions {
@@ -71,7 +79,13 @@
   width: 90%;
   padding-bottom: 4px;
   border-radius: 8px;
+  color: var(--second-text-color);
   background-color: var(--second-color);
+}
+
+.transaction:hover {
+  color: var(--primary-text-color);
+  box-shadow: -2px 2px 4px var(--third-color);
 }
 
 #content svg {
@@ -81,6 +95,7 @@
   height: calc(70vw * 3 / 4);
   /* max-width: 800px;
   max-height: 600px; */
+  max-height: 90vh;
   opacity: 0.75;
   fill: var(--third-color);
   z-index: -100;
