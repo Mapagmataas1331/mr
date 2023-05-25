@@ -12,7 +12,7 @@
 /***/ 11:
 /***/ (() => {
 
-eval("trans_arr.push(\r\n  \"hey\", \"хай\",\r\n);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTEuanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbW9kdWxlanMvLi9ub3ZvY29pbi5qcz82ZDcxIl0sInNvdXJjZXNDb250ZW50IjpbInRyYW5zX2Fyci5wdXNoKFxyXG4gIFwiaGV5XCIsIFwi0YXQsNC5XCIsXHJcbik7Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///11\n");
+eval("trans_arr.push(\r\n  \"hey\", \"хай\",\r\n);\r\n\r\nwindow.onload = () => {\r\n  setTimeout(() => {\r\n    document.getElementById(\"svg\").contentDocument.querySelector(\"svg\").style.fill = \"var(--primary-text-color)\";\r\n  }, 5000);\r\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTEuanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxHQUFHO0FBQ0giLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9tb2R1bGVqcy8uL25vdm9jb2luLmpzPzZkNzEiXSwic291cmNlc0NvbnRlbnQiOlsidHJhbnNfYXJyLnB1c2goXHJcbiAgXCJoZXlcIiwgXCLRhdCw0LlcIixcclxuKTtcclxuXHJcbndpbmRvdy5vbmxvYWQgPSAoKSA9PiB7XHJcbiAgc2V0VGltZW91dCgoKSA9PiB7XHJcbiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcInN2Z1wiKS5jb250ZW50RG9jdW1lbnQucXVlcnlTZWxlY3RvcihcInN2Z1wiKS5zdHlsZS5maWxsID0gXCJ2YXIoLS1wcmltYXJ5LXRleHQtY29sb3IpXCI7XHJcbiAgfSwgNTAwMCk7XHJcbn0iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///11\n");
 
 /***/ })
 
