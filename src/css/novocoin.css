@@ -75,11 +75,16 @@
 }
 
 #content svg {
-  width: 90%;
-  max-width: 800px;
-  max-height: 600px;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  width: 70%;
+  height: calc(70vw * 3 / 4);
+  max-width: 8000px;
+  max-height: 6000px;
+  opacity: 0.75;
   fill: var(--third-color);
+  z-index: -100;
+  transition: none;
 }
 
 @media screen and (max-width: 480px) {
@@ -100,5 +105,9 @@
     max-width: none;
     max-height: 80vh;
     margin-left: 0;
+  }
+  #content svg {
+    width: 100%;
+    height: calc(100vw * 3 / 4);
   }
 }
