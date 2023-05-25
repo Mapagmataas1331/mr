@@ -79,7 +79,7 @@
   max-width: 800px;
   max-height: 600px;
   margin: auto;
-  fill: blue;
+  fill: var(--primary-text-color);
 }
 
 @media screen and (max-width: 480px) {
