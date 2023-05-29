@@ -19,7 +19,7 @@ trans_arr.push(
   "Transactions:", "Транзакции:",
 );
 
-window.onLogin = () => {
+window.onLogin = async () => {
   const transactions = document.getElementById("transactions");
   document.getElementById("username").innerHTML = user.name;
   document.getElementById("amount").innerHTML = user.vid;
