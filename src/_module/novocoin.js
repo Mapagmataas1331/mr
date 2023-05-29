@@ -31,14 +31,3 @@ window.onLogin = () => {
     transactions.appendChild(newEl);
   }
 }
-
-function updateTransactions() {
-  const transactions = document.getElementById("transactions");
-  for (var i = 0; i < 100; i++) {
-    var newEl = document.createElement("p");
-    newEl.className = "transaction";
-    newEl.title = ". . .";
-    newEl.innerHTML = "00.00 00:00<br>you -> Somebody [00]";
-    transactions.appendChild(newEl);
-  }
-}
