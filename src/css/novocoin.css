@@ -74,6 +74,7 @@
 }
 
 .transaction {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 4px auto;
   width: 90%;
   padding-bottom: 4px;
@@ -93,8 +94,6 @@
   top: 0;
   width: 70%;
   height: calc(70vw * 3 / 4);
-  /* max-width: 800px;
-  max-height: 600px; */
   max-height: 90vh;
   opacity: 0.75;
   fill: var(--third-color);

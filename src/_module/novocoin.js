@@ -27,7 +27,7 @@ window.onLogin = () => {
     var newEl = document.createElement("p");
     newEl.className = "transaction";
     newEl.title = ". . .";
-    newEl.innerHTML = "00.00 00:00 (TEST)<br>you -> Somebody [00]";
+    newEl.innerHTML = "00.00 00:00 (TEST " + i + ")<br>you -> Somebody [00]";
     transactions.appendChild(newEl);
   }
 }
