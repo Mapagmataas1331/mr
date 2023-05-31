@@ -20,6 +20,9 @@ trans_arr.push(
 );
 
 window.onLogin = async () => {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("start").style.display = "block";
+
   const transactions = document.getElementById("transactions");
   document.getElementById("username").innerHTML = user.name;
   document.getElementById("amount").innerHTML = user.vid;
