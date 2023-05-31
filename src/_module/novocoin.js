@@ -17,6 +17,10 @@ const db = getDatabase(app);
 
 trans_arr.push(
   "Transactions:", "Транзакции:",
+  "Waiting for login...", "Ожидание авторизации...",
+  "If you are not loged in, login on <a class=\"link\" href=\"https://ma.kak.si/account\">account page</a>.", "Если вы не авторизированы, войдите на <a class=\"link\" href=\"https://ma.kak.si/account\">странице - аккаунт</a>.",
+  "It looks like you haven't used Novocoin yet,", "Похоже вам еще не доводилось использовать Новокоин,",
+  "Create a novocoin account.", "Создать аккаунт Новокоина.",
 );
 
 window.onLogin = async () => {
