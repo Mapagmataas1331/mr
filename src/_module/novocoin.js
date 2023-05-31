@@ -38,3 +38,8 @@ window.onLogin = async () => {
     transactions.appendChild(newEl);
   }
 }
+
+document.getElementById("create").addEventListener("click", () => {
+  document.getElementById("start").style.display = "none";
+  document.getElementById("block").style.display = "none";
+}, false);
