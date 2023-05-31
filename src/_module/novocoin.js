@@ -29,7 +29,7 @@ window.onLogin = async () => {
 
   const transactions = document.getElementById("transactions");
   document.getElementById("username").innerHTML = user.name;
-  document.getElementById("amount").innerHTML = user.vid;
+  document.getElementById("amount").innerHTML = 10000;
   for (var i = 0; i < 100; i++) {
     var newEl = document.createElement("p");
     newEl.className = "transaction";
