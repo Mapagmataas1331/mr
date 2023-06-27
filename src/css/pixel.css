@@ -51,7 +51,7 @@
   margin-left: 8px;
   font-family: initial;
 }
-@media screen and (min-width: 0px) {
+@media screen and (min-width: 0px) and (max-width: 479px) {
   #content {
     height: calc(100vh - 86px);
   }
@@ -68,26 +68,5 @@
   }
   #footer div:nth-child(2) {
     display: none;
-  }
-}
-@media screen and (min-width: 480px) {
-  #content {
-    height: calc(100vh - 114px);
-  }
-  #canvas {
-    top: calc(50vh - 56px - var(--CANVAS_HEIGHT) / 2);
-  }
-  #pixel-menu {
-    width: 480px;
-    bottom: 57px;
-    border-radius: 8px 0 0 0;
-  }
-  #footer p {
-    font-size: 32px;
-  }
-}
-@media screen and (min-width: 960px) {
-  #footer div:nth-child(2) {
-    display: flex;
   }
 }
