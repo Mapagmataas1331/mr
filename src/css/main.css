@@ -177,6 +177,10 @@ p.spinner {
 #header i {
   margin-top: 2px;
 }
+#footer {
+  height: 56px;
+  box-shadow: -3px -2px 4px var(--third-color);
+}
 #navigation, #settings-menu, #content {
   top: 57px;
 }

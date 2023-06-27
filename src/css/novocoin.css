@@ -157,7 +157,7 @@
   }
 }
 
-@media screen and (min-width: 480px) and (max-width: 10278px) {
+@media screen and (min-width: 0px) and (max-width: 1027px) {
   #content svg {
     width: 100%;
     height: calc(100vw * 3 / 4);

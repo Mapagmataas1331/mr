@@ -45,11 +45,14 @@
   margin: auto;
 }
 #footer p {
-  font-size: 24px;
+  font-size: 28px;
 }
 #footer div p:not(:first-child) {
   margin-left: 8px;
   font-family: initial;
+}
+#footer div:nth-child(2) {
+  display: none;
 }
 @media screen and (min-width: 0px) and (max-width: 479px) {
   #content {
@@ -64,9 +67,12 @@
     border-radius: 0;
   }
   #footer p {
-    font-size: 18px;
+    font-size: 22px;
   }
+}
+
+@media screen and (min-width: 960px) {
   #footer div:nth-child(2) {
-    display: none;
+    display: flex;
   }
 }
