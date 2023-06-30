@@ -1,14 +1,32 @@
-var mousePosition;
-var offset = [0,0];
-var cc = {x: 0, y: 0};
-var isDown = false;
-var zoom = 1;
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set, get, update, child } from 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDldImgMMD3pvuVGb2_1VK8r5_ByE3Hb9U",
+  authDomain: "mrdot-db.firebaseapp.com",
+  databaseURL: "https://mrdot-db-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "mrdot-db",
+  storageBucket: "mrdot-db.appspot.com",
+  messagingSenderId: "851420730663",
+  appId: "1:851420730663:web:96a9f2dcdf55106bb7c502",
+  measurementId: "G-WXW3VEP5Z6"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase(app);
 
 trans_arr.push(
   "Pixel:", "Пиксель:",
   "Owner:", "Владелец:",
   "Menu", "Меню",
 );
+
+var mousePosition;
+var offset = [0,0];
+var cc = {x: 0, y: 0};
+var isDown = false;
+var zoom = 1;
 
 const canvas = document.getElementById("canvas");
 const CANVAS_WIGHT = 1600;

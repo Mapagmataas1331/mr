@@ -2,17 +2,18 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get, update, child } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCE99ycZW0noggD6NnTaa-tu5FYio0OWpE",
-  authDomain: "webtest-db.firebaseapp.com",
-  databaseURL: "https://webtest-db-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "webtest-db",
-  storageBucket: "webtest-db.appspot.com",
-  messagingSenderId: "977282304261",
-  appId: "1:977282304261:web:180f2b5ef5eaa234900f6c",
-  measurementId: "G-MM1VCV4545"
+  apiKey: "AIzaSyDldImgMMD3pvuVGb2_1VK8r5_ByE3Hb9U",
+  authDomain: "mrdot-db.firebaseapp.com",
+  databaseURL: "https://mrdot-db-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "mrdot-db",
+  storageBucket: "mrdot-db.appspot.com",
+  messagingSenderId: "851420730663",
+  appId: "1:851420730663:web:96a9f2dcdf55106bb7c502",
+  measurementId: "G-WXW3VEP5Z6"
 };
 
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const db = getDatabase(app);
 
 trans_arr.push(
