@@ -13,7 +13,7 @@
   "author": "Mapagmataas",
   "license": "ISC",
   "dependencies": {
-    "@fingerprintjs/fingerprintjs": "^3.4.1",
-    "firebase": "^9.19.1"
+    "@fingerprintjs/fingerprintjs": "^3.4.2",
+    "firebase": "^10.0.0"
   }
 }
