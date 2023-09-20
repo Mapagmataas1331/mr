@@ -34,7 +34,6 @@ var hero_cords = { x: 0, y: 0 }, joymap = { x: 0, y: 0 }, speed = 25;
 var ifHeroCreated = false, ifIdleAnim = false, ifLogged = false, ifAfk = false;
 
 window.onload = () => {
-  console.log("onload");
   var onetime = true;
   setInterval(() => {
     checkAfk();
@@ -215,12 +214,6 @@ function removeHero(user) {
   }
 }
 
-function defFunc(func) {
-  if (func == "reload") {
-    location.reload();
-  }
-}
-
 function checkAfk() {
   get(ref(db, 'users')).then((snap) => {
     snap.forEach((userSnap) => {
@@ -291,13 +284,13 @@ function getHeroes() {
             createHero(userSnap.key, `${userSnap.key}`, "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
             ifAfk = false;
           }
-          // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == user.name) {
-          //   customAlert("warn", "You are AFK!", "If you don't move you will be kicked soon.");
-          // }
+          if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == user.name) {
+            cusAlert("alert", "You are AFK!", "If you don't move you will be kicked soon.");
+          }
         } else {
           removeHero(userSnap.key);
           if (userSnap.key == user.name) {
-            defFunc("reload");
+            hrefTo();
           }
         }
       }
