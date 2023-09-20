@@ -32,129 +32,55 @@ ctx.canvas.width = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
 
 window.onLogin = async () => {
-  document.getElementById("login").style.display = "none";
-  document.getElementById("start").style.display = "block";
-
-  const transactions = document.getElementById("transactions");
-  document.getElementById("username").innerHTML = user.name;
-  document.getElementById("amount").innerHTML = 10000;
-  for (var i = 0; i < 100; i++) {
-    var newEl = document.createElement("p");
-    newEl.className = "transaction";
-    newEl.title = ". . .";
-    newEl.innerHTML = "00.00 00:00 (TEST " + i + ")<br>you -> Somebody [00]";
-    transactions.appendChild(newEl);
+  var onetime = true;
+  appear();
+  setInterval(() => {
+    db.checkAfk();
+    if (typeof(db.con) !== 'undefined' && db.con) {
+      checkkey();
+      if (isTouch) {
+        checkjoy();
+      }
+      db.getHeroes();
+      db.updateHero(hero_cords.x, hero_cords.y);
+      if (onetime) {
+        loopIdleAnim();
+        onetime = false;
+      }
+    }
+  }, speed);
+  if (isTouch) {
+    joystick_init();
   }
-}
 
-document.getElementById("create").addEventListener("click", () => {
-  document.getElementById("start").style.display = "none";
-  document.getElementById("block").style.display = "none";
-}, false);
+  db.logHero();
+}
 
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 // prevent some touch ios events
 if (isTouch) {
-    document.addEventListener('touchmove', function (event) {
-        if (event.scale !== 1) { event.preventDefault(); }
-    }, false);
-    var lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-        var now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-}
-
-var valsArr = {};
-var logged = false;
-
-function log_result(res, text) {
-  const res_cont = document.getElementById("log_res-container");
-  const res_text = document.getElementById("log_res-text");
-  res_text.innerText = text;
-  if (res == 1) {
-    res_cont.style.backgroundColor = "#33cc33"
-    console.log(`Welcome ${valsArr.uname}!`);
-    appear();
-    logNext();
-  } else {
-    res_cont.style.backgroundColor = "#ff9933"
-  }
-}
-
-function appear(){
-  var bg = document.getElementById("black-bg");
-  var form = document.getElementById("log-form");
-  var t_o;
-  var speed = 20;
-  if (bg.style.display == "none") {
-    var i = 0;
-    var step = 2;
-    bg.style.opacity = 0;
-    bg.style.display = "block";
-  } else if (bg.style.opacity == 1) {
-    var i = 100;
-    var step = -2;
-  }
-  t_o = setInterval(function(){
-    var opacity = i / 100;
-    var margin = (100 - i) ** 2 / 16 + 240;
-    i += step; 
-    if (i > 100 + step) {
-      clearInterval(t_o);
-      return; 
-    } else if (i < 0 + step) {
-      bg.style.display = "none";
-      form.style.marginTop = "calc(50vh - 240px)";
-      clearInterval(t_o);
-      return; 
+  document.addEventListener('touchmove', function (event) {
+    if (event.scale !== 1) { event.preventDefault(); }
+  }, false);
+  var lastTouchEnd = 0;
+  document.addEventListener('touchend', function (event) {
+    var now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
     }
-    bg.style.opacity = opacity;
-    form.style.marginTop = "calc(50vh - " + margin + "px)";
-  }, speed);
+    lastTouchEnd = now;
+  }, false);
 }
-
-var hero_cords = { x: 0, y: 0 }, joymap = { x: 0, y: 0 }, speed = 25;
-valsArr.createHero = true;
-valsArr.idleAnim = true;
-db.con = false;
 
 var keymap = {};
 onkeydown = onkeyup = (e) => {
-    e = e || event;
-    keymap[e.keyCode] = e.type == 'keydown';
+  e = e || event;
+  keymap[e.keyCode] = e.type == 'keydown';
 }
 
 function rand(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-window.addEventListener('load', () => {
-    var onetime = true;
-    appear();
-    setInterval(() => {
-        db.checkAfk();
-        if (typeof(db.con) !== 'undefined' && db.con) {
-            checkkey();
-            if (isTouch) {
-                checkjoy();
-            }
-            db.getHeroes();
-            db.updateHero(hero_cords.x, hero_cords.y);
-            if (onetime) {
-                loopIdleAnim();
-                onetime = false;
-            }
-        }
-    }, speed);
-    if (isTouch) {
-        joystick_init();
-    }
-    console.log("Loaded!");
-});
 
 function checkkey() {
     if (keymap[87] || keymap[38]) {
@@ -183,10 +109,6 @@ function checkjoy() {
     if (joymap.y < 0) {
         moveHero(1, 1);
     }
-}
-
-function logNext() {
-    db.logHero();
 }
 
 function loopIdleAnim() {
