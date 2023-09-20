@@ -21,28 +21,24 @@ trans_arr.push(
   "Menu", "Меню",
 );
 
-var mousePosition;
-var offset = [0,0];
-var cc = {x: 0, y: 0};
-var isDown = false;
-var zoom = 1;
-
-const canvas = document.getElementById("canvas");
 const CANVAS_WIGHT = 1600;
 const CANVAS_HEIGHT = 900;
 
-const root = document.querySelector(':root');
-root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
-root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
-
-var ctx = canvas.getContext("2d");
-ctx.canvas.width = CANVAS_WIGHT;
-ctx.canvas.height = CANVAS_HEIGHT;
+document.querySelector(':root').style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
+document.querySelector(':root').style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
+document.getElementById("canvas").getContext("2d").canvas.width = CANVAS_WIGHT;
+document.getElementById("canvas").getContext("2d").canvas.height = CANVAS_HEIGHT;
 
 const sItem = document.getElementById("selected_item");
 const pCoords = document.getElementById("coords");
 const pOwner = document.getElementById("owner");
 const cont = document.getElementById("content");
+
+var mousePosition;
+var offset = [0,0];
+var cc = {x: 0, y: 0};
+var isDown = false;
+var zoom = 1;
 
 // Перевод touch эвента в mouse
 function touchHandler(e) {

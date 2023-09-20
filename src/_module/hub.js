@@ -19,24 +19,20 @@ trans_arr.push(
   "en", "ру",
 );
 
-const bgcanvas = document.getElementById("canvas");
 const CANVAS_WIGHT = 2048;
 const CANVAS_HEIGHT = 1152;
 
-const root = document.querySelector(':root');
-root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
-root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
-
-var bgctx = bgcanvas.getContext("2d");
-bgctx.canvas.width = CANVAS_WIGHT;
-bgctx.canvas.height = CANVAS_HEIGHT;
+document.querySelector(':root').style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
+document.querySelector(':root').style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
+document.getElementById("canvas").getContext("2d").canvas.width = CANVAS_WIGHT;
+document.getElementById("canvas").getContext("2d").canvas.height = CANVAS_HEIGHT;
 
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-
 var hero_cords = { x: 0, y: 0 }, joymap = { x: 0, y: 0 }, speed = 25;
 var ifHeroCreated = false, ifIdleAnim = false, ifLogged = false;
 
 window.onload = () => {
+  console.log("onload");
   var onetime = true;
   setInterval(() => {
     checkAfk();
@@ -351,12 +347,12 @@ function checkAfk() {
   }
 
 // ---------- Joystick ---------- \\
-var width, height, radius, x_orig, y_orig;
+var width, height, radius, x_orig, y_orig, angle_in_degrees;
+var canvas = document.getElementById("joystick");
+var ctx = canvas.getContext('2d');
 
 function joystick_init() {
-  canvas = document.getElementById("joystick");
   canvas.style.display = "block";
-  ctx = canvas.getContext('2d');
   resize();
   document.addEventListener('mousedown', startDrawing);
   document.addEventListener('mouseup', stopDrawing);
@@ -442,7 +438,7 @@ function Draw(event) {
       angle_in_degrees = Math.round(-angle * 180 / Math.PI);
     }
     else {
-      angle_in_degrees =Math.round( 360 - angle * 180 / Math.PI);
+      angle_in_degrees = Math.round( 360 - angle * 180 / Math.PI);
     }
     if (is_it_in_the_circle()) {
       joystick(abs_joy_coord.x, abs_joy_coord.y);
