@@ -19,9 +19,8 @@ var page = getPage();
 const langEls = document.querySelectorAll('[data-translate]');
 window.trans_arr = [
   "main page", "главная страница",
-  "novocoin", "новокоин",
+  "online hub", "онлайн хаб",
   "pixel", "пиксель",
-  "resourse table", "ресурсная таблица",
   "your account", "ваш аккаунт",
   "General Settings", "Основные Настройки",
   "Theme:", "Тема:",

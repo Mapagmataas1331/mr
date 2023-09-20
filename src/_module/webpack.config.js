@@ -5,10 +5,11 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: {
     main: './main.js',
+    hub: './hub.js',
     index: './index.js',
-    novocoin: './novocoin.js',
     pixel: './pixel.js',
     restable: './restable.js',
+    novocoin: './novocoin.js',
   },
   output: {
     path: path.resolve(__dirname, '../js'),
