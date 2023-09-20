@@ -187,8 +187,8 @@ function getPage() {
     return;
   }
   document.getElementById("title").innerHTML = "mr." + page;
-  if (page == "rest" || page == "coin") return page;
   document.getElementById("current-page").innerHTML = page;
+  if (page == "rest" || page == "coin") return page;
   document.getElementById(page).style.backgroundColor = "var(--third-color)";
   return page;
 }
