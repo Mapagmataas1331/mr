@@ -183,7 +183,7 @@ function getPage() {
   } else if (page.slice(0, 3) == "nov") {
     page = "coin";
   } else {
-    hrefTo("/");
+    hrefTo();
     return;
   }
   document.getElementById("title").innerHTML = "mr." + page;
