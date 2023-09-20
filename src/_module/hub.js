@@ -32,7 +32,9 @@ ctx.canvas.width = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
 
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-var ifLogged = false;
+
+var hero_cords = { x: 0, y: 0 }, joymap = { x: 0, y: 0 }, speed = 25;
+var ifHeroCreated = false, ifIdleAnim = false, ifLogged = false;
 
 window.onload = () => {
   var onetime = true;
@@ -124,7 +126,7 @@ function loopIdleAnim() {
 
 function moveHero(axis, dir) {
     const main = document.getElementById("main");
-    const hero = document.getElementById("hero-" + valsArr.uname);
+    const hero = document.getElementById("hero-" + user.name);
     if (axis == 0) {
         if (dir == 0) {
             hero_cords.x += 8;
@@ -152,14 +154,14 @@ function createHero(user, name, hero, img0, img1, transform, x, y) {
     const curHerobox = document.getElementById("hero-" + user + "-box");
     const curHeroimg1 = document.getElementById("hero-" + user + "-img0");
     const curHeroimg2 = document.getElementById("hero-" + user + "-img1");
-    if (user == valsArr.uname && valsArr.createHero) {
-        valsArr.createHero = false;
+    if (user == user.name && !ifHeroCreated) {
+        ifHeroCreated = true;
         makingHero(user, x, y);
         hero_cords = { x: x, y: y };
         main.style.left = `calc(50vw + ${-x - 1280}px)`;
         main.style.top = `calc(50vh + ${y - 720}px)`;
         return;
-    } else if (user == valsArr.uname && !valsArr.createHero){
+    } else if (user == user.name && ifHeroCreated){
         checkHeroVals()
         return;
     } else {
@@ -256,14 +258,14 @@ function checkAfk() {
 }
   
   function logHero() {
-    get(ref(database, `users/${valsArr.uname}/game`)).then((snapshot) => {
+    get(ref(database, `users/${user.name}/game`)).then((snapshot) => {
       if (!(snapshot.exists())) {
-        set(ref(database, `users/${valsArr.uname}/game`), {
+        set(ref(database, `users/${user.name}/game`), {
           cord_x: 0,
           cord_y: 0
         });
       }
-      update(ref(database, `users/${valsArr.uname}/game`), {
+      update(ref(database, `users/${user.name}/game`), {
         online: true,
         img_0: "0",
         img_1: "0"
@@ -273,7 +275,7 @@ function checkAfk() {
   }
   
   function updateHero(newX, newY) {
-    update(ref(database, `users/${valsArr.uname}/game`), {
+    update(ref(database, `users/${user.name}/game`), {
       cord_x: newX,
       cord_y: newY
     });
@@ -294,12 +296,12 @@ function checkAfk() {
               createHero(userSnap.key, `${userSnap.key}`, "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
               db.afk = false;
             }
-            // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == valsArr.uname) {
+            // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == user.name) {
             //   customAlert("warn", "You are AFK!", "If you don't move you will be kicked soon.");
             // }
           } else {
             removeHero(userSnap.key);
-            if (userSnap.key == valsArr.uname) {
+            if (userSnap.key == user.name) {
               defFunc("reload");
             }
           }
@@ -309,34 +311,34 @@ function checkAfk() {
   }
   
   function idleAnim(randv) {
-    if (db.afk && valsArr.idleAnim) {
-      valsArr.idleAnim = false;
+    if (db.afk && !ifIdleAnim) {
+      ifIdleAnim = true;
       setTimeout(function() {
-        update(ref(database, `users/${valsArr.uname}/game`), {
+        update(ref(database, `users/${user.name}/game`), {
           img_0: "1",
         });
         setTimeout(function() {
-          update(ref(database, `users/${valsArr.uname}/game`), {
+          update(ref(database, `users/${user.name}/game`), {
             img_0: "2",
           });
         }, 0.05 * randv);
       }, 0.05 * randv);
     } else if (!db.afk){
-      valsArr.idleAnim = true;
+      ifIdleAnim = false;
       setTimeout(function() {
-        update(ref(database, `users/${valsArr.uname}/game`), {
+        update(ref(database, `users/${user.name}/game`), {
           img_0: "1",
         });
         setTimeout(function() {
-          update(ref(database, `users/${valsArr.uname}/game`), {
+          update(ref(database, `users/${user.name}/game`), {
             img_0: "2",
           });
           setTimeout(function() {
-            update(ref(database, `users/${valsArr.uname}/game`), {
+            update(ref(database, `users/${user.name}/game`), {
               img_0: "1",
             });
            setTimeout(function() {
-            update(ref(database, `users/${valsArr.uname}/game`), {
+            update(ref(database, `users/${user.name}/game`), {
               img_0: "0",
             });
            }, 0.05 * randv);
@@ -347,7 +349,7 @@ function checkAfk() {
   }
   
   function updateHeroTransform(value) {
-    update(ref(database, `users/${valsArr.uname}/game`), {
+    update(ref(database, `users/${user.name}/game`), {
       transform: value
     });
   }
