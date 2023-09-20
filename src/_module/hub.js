@@ -22,6 +22,7 @@ trans_arr.push(
 const CANVAS_WIGHT = 2048;
 const CANVAS_HEIGHT = 1152;
 const map = document.getElementById("canvas");
+const main = document.getElementById("content");
 
 document.querySelector(':root').style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
 document.querySelector(':root').style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
@@ -30,7 +31,7 @@ map.getContext("2d").canvas.height = CANVAS_HEIGHT;
 
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 var hero_cords = { x: 0, y: 0 }, joymap = { x: 0, y: 0 }, speed = 25;
-var ifHeroCreated = false, ifIdleAnim = false, ifLogged = false;
+var ifHeroCreated = false, ifIdleAnim = false, ifLogged = false, ifAfk = false;
 
 window.onload = () => {
   console.log("onload");
@@ -131,7 +132,7 @@ function moveHero(axis, dir) {
       hero_cords.x -= 8;
       updateHeroTransform("scaleX(-1)");
     }
-    hero.style.left = `calc(50% - ${-hero_cords.x + 32}px)`;
+    hero.style.left = `calc(50vw - ${-hero_cords.x + 32}px)`;
     map.style.left = `calc(50vw - var(--CANVAS_WIGHT) / 2 - ${hero_cords.x}px)`;
   } else {
     if (dir == 0) {
@@ -139,7 +140,7 @@ function moveHero(axis, dir) {
     } else {
       hero_cords.y -= 8;
     }
-    hero.style.top = `calc(50% - ${hero_cords.y + 48}px)`;
+    hero.style.top = `calc(50vh - ${hero_cords.y + 48}px)`;
     map.style.top = `calc(50vh - var(--CANVAS_HEIGHT) / 2 + ${hero_cords.y}px)`
   }
 }
@@ -162,8 +163,8 @@ function createHero(user, name, hero, img0, img1, transform, x, y) {
   } else {
     var bgHero = document.getElementById("hero-" + user);
     if (typeof(bgHero) != 'undefined' && bgHero != null) {
-      bgHero.style.left = `calc(50% - ${-x + 32}px)`;
-      bgHero.style.top = `calc(50% - ${y + 48}px)`;
+      bgHero.style.left = `calc(50vw - ${-x + 32}px)`;
+      bgHero.style.top = `calc(50vh - ${y + 48}px)`;
       checkHeroVals()
     } else {
       makingHero(user, x, y);
@@ -177,22 +178,22 @@ function createHero(user, name, hero, img0, img1, transform, x, y) {
       curHerobox.style.transform = transform;
       curHerobox.style.webkitTransform = transform;
     }
-    if (curHeroimg1.style.backgroundImage != `url('src/img/game/heroes/${hero}-0${img0}.png')`) {
-      curHeroimg1.style.backgroundImage = `url('src/img/game/heroes/${hero}-0${img0}.png')`;
+    if (curHeroimg1.style.backgroundImage != `url('src/imgs/heroes/${hero}-0${img0}.png')`) {
+      curHeroimg1.style.backgroundImage = `url('src/imgs/heroes/${hero}-0${img0}.png')`;
     }
-    if (curHeroimg2.style.backgroundImage != `url('src/img/game/heroes/${hero}-1${img1}.png')`) {
-      curHeroimg2.style.backgroundImage = `url('src/img/game/heroes/${hero}-1${img1}.png')`;
+    if (curHeroimg2.style.backgroundImage != `url('src/imgs/heroes/${hero}-1${img1}.png')`) {
+      curHeroimg2.style.backgroundImage = `url('src/imgs/heroes/${hero}-1${img1}.png')`;
     }
   }
 }
 
 function makingHero(user, x, y) {
-  chHero = document.createElement("div");
+  var chHero = document.createElement("div");
   chHero.setAttribute("id", "hero-" + user);
   chHero.classList.add("hero");
-  chHero.style.left = `calc(50% - ${-x + 32}px)`;
-  chHero.style.top = `calc(50% - ${y + 48}px)`;
-  map.appendChild(chHero);
+  chHero.style.left = `calc(50vw - ${-x + 32}px)`;
+  chHero.style.top = `calc(50vh - ${y + 48}px)`;
+  main.appendChild(chHero);
   const chHero_name = document.createElement("p");
   chHero_name.setAttribute("id", "hero-" + user + "-name");
   chHero.appendChild(chHero_name);
@@ -225,7 +226,7 @@ function checkAfk() {
     snap.forEach((userSnap) => {
       if (userSnap.child("game").exists) {
         if (userSnap.child("game/online").val()) {
-          if (userSnap.child("game/cord_x").val() == userSnap.child("game/cordOld_x").val() && userSnap.child("game/cord_y").val() == userSnap.child("game/cordOld_y").val()) {
+          if (userSnap.child("game/cord_x").val() == userSnap.child("game/cord_x_old").val() && userSnap.child("game/cord_y").val() == userSnap.child("game/cord_y_old").val()) {
             if (userSnap.child("game/afk_time").val() >= 600) {
               update(ref(db, `users/${userSnap.key}/game`), {
                 online: false
@@ -240,8 +241,8 @@ function checkAfk() {
             }
             } else {
             update(ref(db, `users/${userSnap.key}/game`), {
-              cordOld_x: userSnap.child("game/cord_x").val(),
-              cordOld_y: userSnap.child("game/cord_y").val(),
+              cord_x_old: userSnap.child("game/cord_x").val(),
+              cord_y_old: userSnap.child("game/cord_y").val(),
               afk_time: 0
             });
           }
@@ -254,99 +255,99 @@ function checkAfk() {
 function logHero() {
   get(ref(db, `users/${user.name}/game`)).then((snapshot) => {
     if (!(snapshot.exists())) {
-    set(ref(database, `users/${user.name}/game`), {
-      cord_x: 0,
-      cord_y: 0
-    });
+      set(ref(db, `users/${user.name}/game`), {
+        cord_x: 0,
+        cord_y: 0
+      });
     }
-    update(ref(database, `users/${user.name}/game`), {
-    online: true,
-    img_0: "0",
-    img_1: "0"
+    update(ref(db, `users/${user.name}/game`), {
+      online: true,
+      img_0: "0",
+      img_1: "0"
     });
     ifLogged = true;
   });
-  }
+}
   
-  function updateHero(newX, newY) {
-  update(ref(database, `users/${user.name}/game`), {
+function updateHero(newX, newY) {
+  update(ref(db, `users/${user.name}/game`), {
     cord_x: newX,
     cord_y: newY
   });
-  }
+}
   
-  function getHeroes() {
+function getHeroes() {
   // var id = 0;
-  get(ref(database, 'users')).then((snap) => {
+  get(ref(db, 'users')).then((snap) => {
     snap.forEach((userSnap) => {
-    // id += 1;
-    if (userSnap.child("game").exists) {
-      if (userSnap.child("game/online").val()) {
-      if (userSnap.child("game/afk_time").val() >= 300) {
-        createHero(userSnap.key, `${userSnap.key}\n\n\n\n\nAFK: ${Math.trunc(userSnap.child("game/afk_time").val() / 10)}\nkick: ${Math.trunc((600 - userSnap.child("game/afk_time").val()) / 10) + 1}`,
-        "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
-        db.afk = true;
-      } else {
-        createHero(userSnap.key, `${userSnap.key}`, "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
-        db.afk = false;
+      // id += 1;
+      if (userSnap.child("game").exists) {
+        if (userSnap.child("game/online").val()) {
+          if (userSnap.child("game/afk_time").val() >= 300) {
+            createHero(userSnap.key, `${userSnap.key}\n\n\n\n\nAFK: ${Math.trunc(userSnap.child("game/afk_time").val() / 10)}\nkick: ${Math.trunc((600 - userSnap.child("game/afk_time").val()) / 10) + 1}`,
+            "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
+            ifAfk = true;
+          } else {
+            createHero(userSnap.key, `${userSnap.key}`, "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
+            ifAfk = false;
+          }
+          // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == user.name) {
+          //   customAlert("warn", "You are AFK!", "If you don't move you will be kicked soon.");
+          // }
+        } else {
+          removeHero(userSnap.key);
+          if (userSnap.key == user.name) {
+            defFunc("reload");
+          }
+        }
       }
-      // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == user.name) {
-      //   customAlert("warn", "You are AFK!", "If you don't move you will be kicked soon.");
-      // }
-      } else {
-      removeHero(userSnap.key);
-      if (userSnap.key == user.name) {
-        defFunc("reload");
-      }
-      }
-    }
     });
   });
-  }
+}
   
-  function idleAnim(randv) {
-  if (db.afk && !ifIdleAnim) {
+function idleAnim(randv) {
+  if (ifAfk && !ifIdleAnim) {
     ifIdleAnim = true;
     setTimeout(function() {
-    update(ref(database, `users/${user.name}/game`), {
-      img_0: "1",
-    });
-    setTimeout(function() {
-      update(ref(database, `users/${user.name}/game`), {
-      img_0: "2",
+      update(ref(db, `users/${user.name}/game`), {
+        img_0: "1",
       });
-    }, 0.05 * randv);
+      setTimeout(function() {
+        update(ref(db, `users/${user.name}/game`), {
+          img_0: "2",
+        });
+      }, 0.05 * randv);
     }, 0.05 * randv);
   } else if (!db.afk){
     ifIdleAnim = false;
     setTimeout(function() {
-    update(ref(database, `users/${user.name}/game`), {
-      img_0: "1",
-    });
-    setTimeout(function() {
-      update(ref(database, `users/${user.name}/game`), {
-      img_0: "2",
-      });
-      setTimeout(function() {
-      update(ref(database, `users/${user.name}/game`), {
+      update(ref(db, `users/${user.name}/game`), {
         img_0: "1",
       });
-       setTimeout(function() {
-      update(ref(database, `users/${user.name}/game`), {
-        img_0: "0",
-      });
-       }, 0.05 * randv);
+      setTimeout(function() {
+        update(ref(db, `users/${user.name}/game`), {
+          img_0: "2",
+        });
+        setTimeout(function() {
+          update(ref(db, `users/${user.name}/game`), {
+            img_0: "1",
+          });
+          setTimeout(function() {
+            update(ref(db, `users/${user.name}/game`), {
+              img_0: "0",
+            });
+          }, 0.05 * randv);
+        }, 0.05 * randv);
       }, 0.05 * randv);
     }, 0.05 * randv);
-    }, 0.05 * randv);
   }
-  }
+}
   
-  function updateHeroTransform(value) {
-  update(ref(database, `users/${user.name}/game`), {
+function updateHeroTransform(value) {
+  update(ref(db, `users/${user.name}/game`), {
     transform: value
   });
-  }
+}
 
 // ---------- Joystick ---------- \\
 var width, height, radius, x_orig, y_orig, angle_in_degrees;
