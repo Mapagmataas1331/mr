@@ -358,9 +358,9 @@ function checkAfk() {
 var width, height, radius, x_orig, y_orig;
 
 function joystick_init() {
-    canvas = document.getElementById("joystick");
-    canvas.style.display = "block";
-    ctx = canvas.getContext('2d');
+    joystick = document.getElementById("joystick");
+    joystick.style.display = "block";
+    jsctx = joystick.getContext('2d');
     resize();
     document.addEventListener('mousedown', startDrawing);
     document.addEventListener('mouseup', stopDrawing);
@@ -376,8 +376,8 @@ function resize() {
     width = window.innerWidth;
     radius = 32;
     height = radius * 6.5;
-    ctx.canvas.width = width;
-    ctx.canvas.height = height;
+    jsctx.joystick.width = width;
+    jsctx.joystick.height = height;
     background();
     joystick(width / 2, height / 3);
 }
@@ -385,20 +385,20 @@ function resize() {
 function background() {
     x_orig = width / 2;
     y_orig = height / 3;
-    ctx.beginPath();
-    ctx.arc(x_orig, y_orig, radius + 20, 0, Math.PI * 2, true);
-    ctx.fillStyle = 'rgba(217, 217, 217, 0.5)';
-    ctx.fill();
+    jsctx.beginPath();
+    jsctx.arc(x_orig, y_orig, radius + 20, 0, Math.PI * 2, true);
+    jsctx.fillStyle = 'rgba(217, 217, 217, 0.5)';
+    jsctx.fill();
 }
 
 function joystick(width, height) {
-    ctx.beginPath();
-    ctx.arc(width, height, radius, 0, Math.PI * 2, true);
-    ctx.fillStyle = '#f2f2f2';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(217, 217, 217, 0.5)';
-    ctx.lineWidth = 8;
-    ctx.stroke();
+    jsctx.beginPath();
+    jsctx.arc(width, height, radius, 0, Math.PI * 2, true);
+    jsctx.fillStyle = '#f2f2f2';
+    jsctx.fill();
+    jsctx.strokeStyle = 'rgba(217, 217, 217, 0.5)';
+    jsctx.lineWidth = 8;
+    jsctx.stroke();
 }
 
 let abs_joy_coord = { x: 0, y: 0 };
@@ -407,8 +407,8 @@ let paint = false;
 function getPosition(event) {
     var mouse_x = event.clientX || event.touches[0].clientX;
     var mouse_y = event.clientY || event.touches[0].clientY;
-    abs_joy_coord.x = mouse_x - canvas.offsetLeft;
-    abs_joy_coord.y = mouse_y - canvas.offsetTop;
+    abs_joy_coord.x = mouse_x - joystick.offsetLeft;
+    abs_joy_coord.y = mouse_y - joystick.offsetTop;
 }
 
 function is_it_in_the_circle() {
@@ -421,7 +421,7 @@ function startDrawing(event) {
     paint = true;
     getPosition(event);
     if (is_it_in_the_circle()) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        jsctx.clearRect(0, 0, joystick.width, joystick.height);
         background();
         joystick(abs_joy_coord.x, abs_joy_coord.y);
         Draw(event);
@@ -430,7 +430,7 @@ function startDrawing(event) {
 
 function stopDrawing() {
     paint = false;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    jsctx.clearRect(0, 0, joystick.width, joystick.height);
     background();
     joystick(width / 2, height / 3);
     joymap = { x: 0, y: 0};
@@ -438,7 +438,7 @@ function stopDrawing() {
 
 function Draw(event) {
     if (paint) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        jsctx.clearRect(0, 0, joystick.width, joystick.height);
         background();
         var x, y;
         var angle = Math.atan2((abs_joy_coord.y - y_orig), (abs_joy_coord.x - x_orig));
