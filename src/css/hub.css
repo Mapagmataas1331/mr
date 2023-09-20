@@ -6,7 +6,7 @@
   position: absolute;
   left: calc(50vw - var(--CANVAS_WIGHT) / 2);
   top: calc(50vh - 56px - var(--CANVAS_HEIGHT) / 2);
-  background-image: url("../imgs/pixel-canvas-bg.png");
+  background-image: url("../imgs/pixel-canvas-bg64.png");
   image-rendering: pixelated;
   transition: none;
 }

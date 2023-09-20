@@ -20,8 +20,8 @@ trans_arr.push(
 );
 
 const canvas = document.getElementById("canvas");
-const CANVAS_WIGHT = 1600;
-const CANVAS_HEIGHT = 900;
+const CANVAS_WIGHT = 2048;
+const CANVAS_HEIGHT = 1152;
 
 const root = document.querySelector(':root');
 root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
