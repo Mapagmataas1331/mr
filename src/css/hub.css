@@ -10,18 +10,6 @@
   image-rendering: pixelated;
   transition: none;
 }
-#main {
-    position: absolute;
-    width: 2560px;
-    height: 1440px;
-    top: calc(50vh - 720px);
-    left: calc(50vw - 1280px);
-    background-image: url("../img/game/backgrounds/0.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #cccccc;
-    z-index: -300;
-}
 .hero {
     position: absolute;
     width: 64px;

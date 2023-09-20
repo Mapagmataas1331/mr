@@ -33,16 +33,15 @@ ctx.canvas.height = CANVAS_HEIGHT;
 
 window.onLogin = async () => {
   var onetime = true;
-  appear();
   setInterval(() => {
-    db.checkAfk();
+    checkAfk();
     if (typeof(db.con) !== 'undefined' && db.con) {
       checkkey();
       if (isTouch) {
         checkjoy();
       }
-      db.getHeroes();
-      db.updateHero(hero_cords.x, hero_cords.y);
+      getHeroes();
+      updateHero(hero_cords.x, hero_cords.y);
       if (onetime) {
         loopIdleAnim();
         onetime = false;
@@ -53,24 +52,24 @@ window.onLogin = async () => {
     joystick_init();
   }
 
-  db.logHero();
+  logHero();
 }
 
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 // prevent some touch ios events
-if (isTouch) {
-  document.addEventListener('touchmove', function (event) {
-    if (event.scale !== 1) { event.preventDefault(); }
-  }, false);
-  var lastTouchEnd = 0;
-  document.addEventListener('touchend', function (event) {
-    var now = (new Date()).getTime();
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault();
-    }
-    lastTouchEnd = now;
-  }, false);
-}
+// if (isTouch) {
+//   document.addEventListener('touchmove', function (event) {
+//     if (event.scale !== 1) { event.preventDefault(); }
+//   }, false);
+//   var lastTouchEnd = 0;
+//   document.addEventListener('touchend', function (event) {
+//     var now = (new Date()).getTime();
+//     if (now - lastTouchEnd <= 300) {
+//       event.preventDefault();
+//     }
+//     lastTouchEnd = now;
+//   }, false);
+// }
 
 var keymap = {};
 onkeydown = onkeyup = (e) => {
@@ -114,7 +113,7 @@ function checkjoy() {
 function loopIdleAnim() {
     var randv = rand(2500, 5000);
     setTimeout(function() {
-        db.idleAnim(randv);
+        idleAnim(randv);
         loopIdleAnim();
     }, randv);
 }
@@ -125,10 +124,10 @@ function moveHero(axis, dir) {
     if (axis == 0) {
         if (dir == 0) {
             hero_cords.x += 8;
-            db.updateHeroTransform("scaleX(1)");
+            updateHeroTransform("scaleX(1)");
         } else {
             hero_cords.x -= 8;
-            db.updateHeroTransform("scaleX(-1)");
+            updateHeroTransform("scaleX(-1)");
         }
         hero.style.left = `calc(50% - ${-hero_cords.x + 32}px)`;
         main.style.left = `calc(50vw + ${-hero_cords.x - 1280}px)`;
@@ -251,7 +250,6 @@ function checkAfk() {
     });
   });
 }
-window.db.checkAfk = checkAfk;
   
   function logHero() {
     get(ref(database, `users/${valsArr.uname}/game`)).then((snapshot) => {
@@ -266,10 +264,9 @@ window.db.checkAfk = checkAfk;
         img_0: "0",
         img_1: "0"
       });
-      window.db.con = true;
+      db.con = true;
     });
   }
-  window.db.logHero = logHero;
   
   function updateHero(newX, newY) {
     update(ref(database, `users/${valsArr.uname}/game`), {
@@ -277,7 +274,6 @@ window.db.checkAfk = checkAfk;
       cord_y: newY
     });
   }
-  window.db.updateHero = updateHero;
   
   function getHeroes() {
     // var id = 0;
@@ -289,10 +285,10 @@ window.db.checkAfk = checkAfk;
             if (userSnap.child("game/afk_time").val() >= 300) {
               createHero(userSnap.key, `${userSnap.key}\n\n\n\n\nAFK: ${Math.trunc(userSnap.child("game/afk_time").val() / 10)}\nkick: ${Math.trunc((600 - userSnap.child("game/afk_time").val()) / 10) + 1}`,
               "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
-              window.db.afk = true;
+              db.afk = true;
             } else {
               createHero(userSnap.key, `${userSnap.key}`, "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
-              window.db.afk = false;
+              db.afk = false;
             }
             // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == valsArr.uname) {
             //   customAlert("warn", "You are AFK!", "If you don't move you will be kicked soon.");
@@ -307,7 +303,6 @@ window.db.checkAfk = checkAfk;
       });
     });
   }
-  window.db.getHeroes = getHeroes;
   
   function idleAnim(randv) {
     if (db.afk && valsArr.idleAnim) {
@@ -346,14 +341,12 @@ window.db.checkAfk = checkAfk;
       }, 0.05 * randv);
     }
   }
-  window.db.idleAnim = idleAnim;
   
   function updateHeroTransform(value) {
     update(ref(database, `users/${valsArr.uname}/game`), {
       transform: value
     });
   }
-  window.db.updateHeroTransform = updateHeroTransform;
 
 // ---------- Joystick ---------- \\
 var width, height, radius, x_orig, y_orig;
