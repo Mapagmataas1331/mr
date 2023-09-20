@@ -31,11 +31,14 @@ var ctx = canvas.getContext("2d");
 ctx.canvas.width = CANVAS_WIGHT;
 ctx.canvas.height = CANVAS_HEIGHT;
 
-window.onLogin = async () => {
+var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+var ifLogged = false;
+
+window.onload = () => {
   var onetime = true;
   setInterval(() => {
     checkAfk();
-    if (typeof(db.con) !== 'undefined' && db.con) {
+    if (ifLogged) {
       checkkey();
       if (isTouch) {
         checkjoy();
@@ -51,11 +54,12 @@ window.onLogin = async () => {
   if (isTouch) {
     joystick_init();
   }
+}
 
+window.onLogin = async () => {
   logHero();
 }
 
-var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 // prevent some touch ios events
 // if (isTouch) {
 //   document.addEventListener('touchmove', function (event) {
@@ -264,7 +268,7 @@ function checkAfk() {
         img_0: "0",
         img_1: "0"
       });
-      db.con = true;
+      ifLogged = true;
     });
   }
   
