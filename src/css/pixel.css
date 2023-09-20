@@ -70,7 +70,6 @@
     font-size: 22px;
   }
 }
-
 @media screen and (min-width: 960px) {
   #footer div:nth-child(2) {
     display: flex;

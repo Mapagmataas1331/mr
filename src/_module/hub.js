@@ -27,6 +27,10 @@ const root = document.querySelector(':root');
 root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
 root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
 
+var ctx = canvas.getContext("2d");
+ctx.canvas.width = CANVAS_WIGHT;
+ctx.canvas.height = CANVAS_HEIGHT;
+
 window.onLogin = async () => {
   document.getElementById("login").style.display = "none";
   document.getElementById("start").style.display = "block";

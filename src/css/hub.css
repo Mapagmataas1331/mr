@@ -1,6 +1,6 @@
 #content {
   position: fixed;
-  height: calc(100vh - 114px);
+  height: calc(100vh - 56px);
 }
 #canvas {
   position: absolute;
@@ -61,4 +61,12 @@
     position: fixed;
     bottom: -45px;
     z-index: -100;
+}
+@media screen and (min-width: 0px) and (max-width: 479px) {
+  #content {
+    height: calc(100vh - 42px);
+  }
+  #canvas {
+    top: calc(50vh - 42px - var(--CANVAS_HEIGHT) / 2);
+  }
 }
