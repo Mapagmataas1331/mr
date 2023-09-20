@@ -1,6 +1,14 @@
-body {
-    overflow-y: hidden;
-    user-select: none;
+#content {
+  position: fixed;
+  height: calc(100vh - 114px);
+}
+#canvas {
+  position: absolute;
+  left: calc(50vw - var(--CANVAS_WIGHT) / 2);
+  top: calc(50vh - 56px - var(--CANVAS_HEIGHT) / 2);
+  background-image: url("../imgs/pixel-canvas-bg.png");
+  image-rendering: pixelated;
+  transition: none;
 }
 #main {
     position: absolute;

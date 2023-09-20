@@ -19,6 +19,14 @@ trans_arr.push(
   "en", "ру",
 );
 
+const canvas = document.getElementById("canvas");
+const CANVAS_WIGHT = 1600;
+const CANVAS_HEIGHT = 900;
+
+const root = document.querySelector(':root');
+root.style.setProperty('--CANVAS_WIGHT', CANVAS_WIGHT + "px");
+root.style.setProperty('--CANVAS_HEIGHT', CANVAS_HEIGHT + "px");
+
 window.onLogin = async () => {
   document.getElementById("login").style.display = "none";
   document.getElementById("start").style.display = "block";
