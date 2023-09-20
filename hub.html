@@ -1,36 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
-    <link rel="stylesheet" href="src/css/main.css">
-    <script src="src/js/main.js"></script>
-    <script src="src/js/db.js"></script>
-    <link rel="icon" type="image/png" href="src/img/icon/512.png">
-    <meta name="author" content="Mapagmataas">
-    <meta name="description" content="Mapagmataas' projects">
-    <meta name="keywords" content="mrkaksi, Mapagmataas">
-    <title>ma.kak.si Lobby</title>
-    <link rel="stylesheet" href="src/css/game.css">
-    <script src="src/js/game.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="Mapagmataas">
+  <meta name="description" content="ma_dot">
+  <meta name="keywords" content="m, map, mapag, mapagmat, mapagmatas, mapagmataas, 1331, kak, si, kaksi, kak si, dot, 
+ma, ma., madot, ma dot, ma_dot, makak, ma kak, makaksi, ma kak si, ma.kak.si, 
+mr, mr., mrdot, mr dot, mr_dot, mrkak, mr kak, mrkaksi, mr kak si, mr.kak.si">
+
+  <link rel="icon" type="image/png" href="src/imgs/mr-icon.png">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-<body class="noselect">
-    <div id="nav-cont">
-        <div onclick="location.href = 'https://ma.kak.si';">
-            <img src="src/img/icon/512.png" alt="Ma">
-            <p>.kak.si</p>
-        </div>
+<title id="title">mr.</title>
+<body>
+  <div id="notification-zone"></div>
+  <div id="header" class="noselect">
+    <div>
+      <p>mr.</p>
+      <p id="current-page" class="link"></p>
     </div>
-    <div id="black-bg" style="display: none; opacity: 1; margin-top: none;">
-        <form id="log-form" action="javascript:;" onsubmit="db.log(this.uname.value, this.upass.value)">
-            <div id="log_res-container"><p id="log_res-text">Log in or register:</p></div>
-            <input type="text" placeholder="Username   (3 - 8)" name="uname" id="uname" minlength="3" maxlength="8" required>
-            <input type="password" placeholder="Password   (3 - 8)" name="upass" id="upass" minlength="3" maxlength="8" required>
-            <button type="submit">Send</button>
+    <div>
+      <i class="material-icons spinner link">settings</i>
+    <!-- expand_circle_down -->
+    </div>
+  </div>
+  <div id="navigation" style="display: none;">
+    <div class="nav-item" id="in">
+      <p class="nav-item-title">index</p>
+      <p class="nav-item-description" data-translate>main page</p>
+    </div>
+    <div class="nav-item" id="hub">
+      <p class="nav-item-title">hub</p>
+      <p class="nav-item-description" data-translate>online hub</p>
+    </div>
+    <div class="nav-item" id="pixel">
+      <p class="nav-item-title">pixel</p>
+      <p class="nav-item-description" data-translate>pixel</p>
+    </div>
+    <div class="nav-item" id="acc">
+      <p class="nav-item-title">account</p>
+      <p class="nav-item-description" data-translate>your account</p>
+    </div>
+  </div>
+  <div id="settings-menu" class="noselect" style="display: none;">
+    <div class="settings-section">
+      <p class="settings-section-name" data-translate>General Settings</p>
+      <div class="setting">
+        <p id="theme" class="setting-name" data-translate>Theme:</p>
+        <p id="dark" class="setting-param current" data-translate>Dark</p>
+        <p id="light" class="setting-param" data-translate>Light</p>
+        <p id="purple" class="setting-param" data-translate>Purple</p>
+        <p id="ocean" class="setting-param" data-translate>Ocean</p>
+      </div>
+      <div class="setting">
+        <p id="lang" class="setting-name" data-translate>Language:</p>
+        <p id="en" class="setting-param current" data-translate>English</p>
+        <p id="ru" class="setting-param" data-translate>Russian</p>
+      </div>
+    </div>
+    <div class="settings-section">
+      <p class="settings-section-name" data-translate>Report a problem:</p>
+      <div class="setting">
+        <form action="javascript:;" onsubmit="sendReport(msg.value);">
+          <i class="material-icons">report</i>
+          <input type="text" name="msg" id="msg" placeholder="Your message" maxlength="100" required>
         </form>
+      </div>
     </div>
-    <div id="main"></div>
-    <canvas id="joystick"></canvas>
+  </div>
+
+  <div id="content">
+
+  </div>
+  <canvas id="joystick"></canvas>
+  <link rel="stylesheet" href="src/css/hub.css">
+  <script src="src/js/main.js"></script>
+  <script src="src/js/hub.js"></script>
 </body>
 </html>

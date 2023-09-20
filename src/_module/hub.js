@@ -1,3 +1,45 @@
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set, get, update, child } from 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDldImgMMD3pvuVGb2_1VK8r5_ByE3Hb9U",
+  authDomain: "mrdot-db.firebaseapp.com",
+  databaseURL: "https://mrdot-db-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "mrdot-db",
+  storageBucket: "mrdot-db.appspot.com",
+  messagingSenderId: "851420730663",
+  appId: "1:851420730663:web:96a9f2dcdf55106bb7c502",
+  measurementId: "G-WXW3VEP5Z6"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+trans_arr.push(
+  "en", "ру",
+);
+
+window.onLogin = async () => {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("start").style.display = "block";
+
+  const transactions = document.getElementById("transactions");
+  document.getElementById("username").innerHTML = user.name;
+  document.getElementById("amount").innerHTML = 10000;
+  for (var i = 0; i < 100; i++) {
+    var newEl = document.createElement("p");
+    newEl.className = "transaction";
+    newEl.title = ". . .";
+    newEl.innerHTML = "00.00 00:00 (TEST " + i + ")<br>you -> Somebody [00]";
+    transactions.appendChild(newEl);
+  }
+}
+
+document.getElementById("create").addEventListener("click", () => {
+  document.getElementById("start").style.display = "none";
+  document.getElementById("block").style.display = "none";
+}, false);
+
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 // prevent some touch ios events
 if (isTouch) {
@@ -12,6 +54,55 @@ if (isTouch) {
         }
         lastTouchEnd = now;
     }, false);
+}
+
+var valsArr = {};
+var logged = false;
+
+function log_result(res, text) {
+  const res_cont = document.getElementById("log_res-container");
+  const res_text = document.getElementById("log_res-text");
+  res_text.innerText = text;
+  if (res == 1) {
+    res_cont.style.backgroundColor = "#33cc33"
+    console.log(`Welcome ${valsArr.uname}!`);
+    appear();
+    logNext();
+  } else {
+    res_cont.style.backgroundColor = "#ff9933"
+  }
+}
+
+function appear(){
+  var bg = document.getElementById("black-bg");
+  var form = document.getElementById("log-form");
+  var t_o;
+  var speed = 20;
+  if (bg.style.display == "none") {
+    var i = 0;
+    var step = 2;
+    bg.style.opacity = 0;
+    bg.style.display = "block";
+  } else if (bg.style.opacity == 1) {
+    var i = 100;
+    var step = -2;
+  }
+  t_o = setInterval(function(){
+    var opacity = i / 100;
+    var margin = (100 - i) ** 2 / 16 + 240;
+    i += step; 
+    if (i > 100 + step) {
+      clearInterval(t_o);
+      return; 
+    } else if (i < 0 + step) {
+      bg.style.display = "none";
+      form.style.marginTop = "calc(50vh - 240px)";
+      clearInterval(t_o);
+      return; 
+    }
+    bg.style.opacity = opacity;
+    form.style.marginTop = "calc(50vh - " + margin + "px)";
+  }, speed);
 }
 
 var hero_cords = { x: 0, y: 0 }, joymap = { x: 0, y: 0 }, speed = 25;
@@ -195,6 +286,140 @@ function defFunc(func) {
         location.reload();
     }
 }
+
+function checkAfk() {
+  get(ref(database, 'users')).then((snap) => {
+    snap.forEach((userSnap) => {
+      if (userSnap.child("game").exists) {
+        if (userSnap.child("game/online").val()) {
+          if (userSnap.child("game/cord_x").val() == userSnap.child("game/cordOld_x").val() && userSnap.child("game/cord_y").val() == userSnap.child("game/cordOld_y").val()) {
+            if (userSnap.child("game/afk_time").val() >= 600) {
+              update(ref(database, `users/${userSnap.key}/game`), {
+                online: false
+              });
+              update(ref(database, `users/${userSnap.key}/game`), {
+                afk_time: 0
+              });
+            } else {
+              update(ref(database, `users/${userSnap.key}/game`), {
+                afk_time: userSnap.child("game/afk_time").val() + 1
+              });
+            }
+          } else {
+            update(ref(database, `users/${userSnap.key}/game`), {
+              cordOld_x: userSnap.child("game/cord_x").val(),
+              cordOld_y: userSnap.child("game/cord_y").val(),
+              afk_time: 0
+            });
+          }
+        }
+      }
+    });
+  });
+}
+window.db.checkAfk = checkAfk;
+  
+  function logHero() {
+    get(ref(database, `users/${valsArr.uname}/game`)).then((snapshot) => {
+      if (!(snapshot.exists())) {
+        set(ref(database, `users/${valsArr.uname}/game`), {
+          cord_x: 0,
+          cord_y: 0
+        });
+      }
+      update(ref(database, `users/${valsArr.uname}/game`), {
+        online: true,
+        img_0: "0",
+        img_1: "0"
+      });
+      window.db.con = true;
+    });
+  }
+  window.db.logHero = logHero;
+  
+  function updateHero(newX, newY) {
+    update(ref(database, `users/${valsArr.uname}/game`), {
+      cord_x: newX,
+      cord_y: newY
+    });
+  }
+  window.db.updateHero = updateHero;
+  
+  function getHeroes() {
+    // var id = 0;
+    get(ref(database, 'users')).then((snap) => {
+      snap.forEach((userSnap) => {
+        // id += 1;
+        if (userSnap.child("game").exists) {
+          if (userSnap.child("game/online").val()) {
+            if (userSnap.child("game/afk_time").val() >= 300) {
+              createHero(userSnap.key, `${userSnap.key}\n\n\n\n\nAFK: ${Math.trunc(userSnap.child("game/afk_time").val() / 10)}\nkick: ${Math.trunc((600 - userSnap.child("game/afk_time").val()) / 10) + 1}`,
+              "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
+              window.db.afk = true;
+            } else {
+              createHero(userSnap.key, `${userSnap.key}`, "00", userSnap.child("game/img_0").val(), userSnap.child("game/img_1").val(), userSnap.child("game/transform").val(), userSnap.child("game/cord_x").val(), userSnap.child("game/cord_y").val());
+              window.db.afk = false;
+            }
+            // if (userSnap.child("game/afk_time").val() == 400 && userSnap.key == valsArr.uname) {
+            //   customAlert("warn", "You are AFK!", "If you don't move you will be kicked soon.");
+            // }
+          } else {
+            removeHero(userSnap.key);
+            if (userSnap.key == valsArr.uname) {
+              defFunc("reload");
+            }
+          }
+        }
+      });
+    });
+  }
+  window.db.getHeroes = getHeroes;
+  
+  function idleAnim(randv) {
+    if (db.afk && valsArr.idleAnim) {
+      valsArr.idleAnim = false;
+      setTimeout(function() {
+        update(ref(database, `users/${valsArr.uname}/game`), {
+          img_0: "1",
+        });
+        setTimeout(function() {
+          update(ref(database, `users/${valsArr.uname}/game`), {
+            img_0: "2",
+          });
+        }, 0.05 * randv);
+      }, 0.05 * randv);
+    } else if (!db.afk){
+      valsArr.idleAnim = true;
+      setTimeout(function() {
+        update(ref(database, `users/${valsArr.uname}/game`), {
+          img_0: "1",
+        });
+        setTimeout(function() {
+          update(ref(database, `users/${valsArr.uname}/game`), {
+            img_0: "2",
+          });
+          setTimeout(function() {
+            update(ref(database, `users/${valsArr.uname}/game`), {
+              img_0: "1",
+            });
+           setTimeout(function() {
+            update(ref(database, `users/${valsArr.uname}/game`), {
+              img_0: "0",
+            });
+           }, 0.05 * randv);
+          }, 0.05 * randv);
+        }, 0.05 * randv);
+      }, 0.05 * randv);
+    }
+  }
+  window.db.idleAnim = idleAnim;
+  
+  function updateHeroTransform(value) {
+    update(ref(database, `users/${valsArr.uname}/game`), {
+      transform: value
+    });
+  }
+  window.db.updateHeroTransform = updateHeroTransform;
 
 // ---------- Joystick ---------- \\
 var width, height, radius, x_orig, y_orig;
