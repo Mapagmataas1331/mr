@@ -10,6 +10,7 @@
   image-rendering: pixelated;
   transition: none;
   z-index: -100;
+  transition: 0;
 }
 .hero {
   position: absolute;

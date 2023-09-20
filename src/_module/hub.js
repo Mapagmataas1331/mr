@@ -247,11 +247,10 @@ function checkAfk() {
   
 function logHero() {
   get(ref(db, `users/${user.name}/game`)).then((snapshot) => {
-    if (!(snapshot.exists())) {
-      set(ref(db, `users/${user.name}/game`), {
-        cord_x: 0,
-        cord_y: 0
-      });
+    if (!snapshot.exists()) {
+      updateHero(0, 0)
+    } else {
+      hero_cords = {x: snapshot.child("cord_x").val(), y: snapshot.child("cord_y").val()};
     }
     update(ref(db, `users/${user.name}/game`), {
       online: true,
