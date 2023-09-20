@@ -174,12 +174,14 @@ function getPage() {
   var page = String(document.location.pathname.split("/").slice(-1));
   if (page == "" || page.slice(0, 3) == "ind") {
     page = "in";
-  } else if (page.slice(0, 3) == "nov") {
-    page = "coin";
+  } else if (page.slice(0, 3) == "hub") {
+    page = "hub";
   } else if (page.slice(0, 3) == "pix") {
     page = "pixel";
   } else if (page.slice(0, 3) == "res") {
     page = "rest";
+  } else if (page.slice(0, 3) == "nov") {
+    page = "coin";
   } else {
     hrefTo("/");
     return;
